@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 743e</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29752.html">7438</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29758">Map</a></td>
+<td class="next">
+Next: <a href="29768.html">7448</a>
+</td>
+</tr>
+</table>
+<div class="description">743e: Check joystick input for FIRE or THRUST.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29681.html">73f1</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29758"></span>743e</td>
+<td class="instruction">call <a href="29442.html">$7302</a></td>
+<td class="comment-1" rowspan="1">Read Joystick</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29761"></span>7441</td>
+<td class="instruction">bit 2,a</td>
+<td class="comment-1" rowspan="2">Set Y speed to zero if not thrusting</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29763"></span>7443</td>
+<td class="instruction">jp z,<a href="29752.html">$7438</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29766"></span>7446</td>
+<td class="instruction">jr <a href="29714.html">$7412</a></td>
+<td class="comment-1" rowspan="1">else check if falling and update movement</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29752.html">7438</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29758">Map</a></td>
+<td class="next">
+Next: <a href="29768.html">7448</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

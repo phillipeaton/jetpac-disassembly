@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6361</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25405.html">633d</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25441">Map</a></td>
+<td class="next">
+Next: <a href="25507.html">63a3</a>
+</td>
+</tr>
+</table>
+<div class="description">6361: Update the high score.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+If one of the players score is a new max score, then update the high score with that of the player with the highest score. Used by the routine at <a href="24759.html">60b7</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25441"></span>6361</td>
+<td class="instruction">ld hl,($5cf4)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=player 1 score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25444"></span>6364</td>
+<td class="instruction">ld de,($5cf7)</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=player 2 score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25448"></span>6368</td>
+<td class="instruction">ld a,l</td>
+<td class="comment-1" rowspan="3">Swap the P1 LSB/MSB values so we can perform calculations on them.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25449"></span>6369</td>
+<td class="instruction">ld l,h</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25450"></span>636a</td>
+<td class="instruction">ld h,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25451"></span>636b</td>
+<td class="instruction">ld a,e</td>
+<td class="comment-1" rowspan="3">Swap the P2 LSB/MSB values so we can perform calculations on them</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25452"></span>636c</td>
+<td class="instruction">ld e,d</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25453"></span>636d</td>
+<td class="instruction">ld d,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25454"></span>636e</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">Reset the Carry flag</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25455"></span>636f</td>
+<td class="instruction">sbc hl,de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25457"></span>6371</td>
+<td class="instruction">jr c,$637f</td>
+<td class="comment-1" rowspan="1">Jump if score P2 &gt; P1, else</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25459"></span>6373</td>
+<td class="instruction">jr nz,$639e</td>
+<td class="comment-1" rowspan="1">Jump if score P1 &gt; P2, else P1==P2, so no jump</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25461"></span>6375</td>
+<td class="instruction">ld a,($5cf6)</td>
+<td class="comment-1" rowspan="2"><span class="register">E</span>=3rd byte of the P1 score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25464"></span>6378</td>
+<td class="instruction">ld e,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25465"></span>6379</td>
+<td class="instruction">ld a,($5cf9)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=3rd byte of the P2 score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25468"></span>637c</td>
+<td class="instruction">cp e</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25469"></span>637d</td>
+<td class="instruction">jr c,$639e</td>
+<td class="comment-1" rowspan="1">Jump if score of P2 &lt; P1 (set's <span class="register">HL</span> to P1 score)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25471"></span>
+<div class="comments">
+<div class="paragraph">
+Inactive player has the highest score.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25471"></span>637f</td>
+<td class="instruction">ld hl,$5cf7</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=P2 score</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25474"></span>
+<div class="comments">
+<div class="paragraph">
+Update the high score if the player score has beaten it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25474"></span>6382</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25475"></span>6383</td>
+<td class="instruction">ld de,$5cf0</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=high score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25478"></span>6386</td>
+<td class="instruction">ld b,$03</td>
+<td class="comment-1" rowspan="1">Loop counter (all 3 score bytes)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25480"></span>6388</td>
+<td class="instruction">ld a,(de)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span> = hi-score byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25481"></span>6389</td>
+<td class="instruction">cp (hl)</td>
+<td class="comment-1" rowspan="1">Compare with player</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25482"></span>638a</td>
+<td class="instruction">jr c,$6394</td>
+<td class="comment-1" rowspan="1">If hi-score &lt; player, update highscore score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25484"></span>638c</td>
+<td class="instruction">jr nz,$6392</td>
+<td class="comment-1" rowspan="1">If hi-score != player (not equal), then RET</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25486"></span>638e</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">else hi-score == player: next player byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25487"></span>638f</td>
+<td class="instruction">inc de</td>
+<td class="comment-1" rowspan="1">next high score byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25488"></span>6390</td>
+<td class="instruction">djnz $6388</td>
+<td class="comment-1" rowspan="1">Repeat</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25490"></span>6392</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restores <span class="register">HL</span> to the highest player score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25491"></span>6393</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25492"></span>
+<div class="comments">
+<div class="paragraph">
+Sets the bytes for the high score with those from the player.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25492"></span>6394</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25493"></span>6395</td>
+<td class="instruction">ld de,$5cf0</td>
+<td class="comment-1" rowspan="1">High Score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25496"></span>6398</td>
+<td class="instruction">ld bc,$0003</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25499"></span>639b</td>
+<td class="instruction">ldir</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25501"></span>639d</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25502"></span>
+<div class="comments">
+<div class="paragraph">
+Player 1 has the highest score.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25502"></span>639e</td>
+<td class="instruction">ld hl,$5cf4</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=P1 score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25505"></span>63a1</td>
+<td class="instruction">jr $6382</td>
+<td class="comment-1" rowspan="1">Update HI score</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25405.html">633d</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25441">Map</a></td>
+<td class="next">
+Next: <a href="25507.html">63a3</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

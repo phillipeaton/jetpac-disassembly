@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routines</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="RoutinesMap">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<div class="map-intro"></div>
+<table class="map">
+<tr>
+<th>Address</th>
+<th>Description</th>
+</tr>
+<tr>
+<td class="map-c"><span id="24576"></span><a href="../asm/24576.html">6000</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24576.html"><span class="register">PC</span> starts here, after game load.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="24676"></span><a href="../asm/24676.html">6064</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24676.html">Reset the screen to its default state.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="24707"></span><a href="../asm/24707.html">6083</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24707.html">Initialises a new level.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="24724"></span><a href="../asm/24724.html">6094</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24724.html">Initialise the level.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="24743"></span><a href="../asm/24743.html">60a7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24743.html">Reset all rocket module states to their defaults.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="24759"></span><a href="../asm/24759.html">60b7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24759.html">End of turn for the current player.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="24900"></span><a href="../asm/24900.html">6144</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24900.html">Swap current/inactive player/rocket states.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="24948"></span><a href="../asm/24948.html">6174</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24948.html">Initialise player for new turn.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="24983"></span><a href="../asm/24983.html">6197</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24983.html">Flash 1UP or 2UP score label for active player.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="24992"></span><a href="../asm/24992.html">61a0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/24992.html">Set flash state for the 3-attributes of the score label.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25005"></span><a href="../asm/25005.html">61ad</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25005.html">Turn off flashing of 1UP or 2UP score label for active player.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25018"></span><a href="../asm/25018.html">61ba</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25018.html">Flash 2UP score label.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25023"></span><a href="../asm/25023.html">61bf</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25023.html">Game initialisation for first run.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25033"></span><a href="../asm/25033.html">61c9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25033.html">Reset system and show menu screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25045"></span><a href="../asm/25045.html">61d5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25045.html">Show menu screen and handle menu selection.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25140"></span><a href="../asm/25140.html">6234</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25140.html">Display the main menu items to the screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25290"></span><a href="../asm/25290.html">62ca</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25290.html">Write a single line of text on the main menu screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25306"></span><a href="../asm/25306.html">62da</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25306.html">Reset current and inactive player data on new game.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25342"></span><a href="../asm/25342.html">62fe</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25342.html">Start a new game.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25360"></span><a href="../asm/25360.html">6310</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25360.html">Reset stack pointer and enable interrupts before running main loop.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25372"></span><a href="../asm/25372.html">631c</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25372.html">The main game loop.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25396"></span><a href="../asm/25396.html">6334</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25396.html">Performs a main loop update jump.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25441"></span><a href="../asm/25441.html">6361</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25441.html">Update the high score.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25507"></span><a href="../asm/25507.html">63a3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25507.html">Update Jet Fighter.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25686"></span><a href="../asm/25686.html">6456</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25686.html">Alien SFX when killed by collision.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25697"></span><a href="../asm/25697.html">6461</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25697.html">Jetman collects a collectible item.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25739"></span><a href="../asm/25739.html">648b</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25739.html">Drop a new collectible item.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25760"></span><a href="../asm/25760.html">64a0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25760.html">Drop a gold bar collectible item.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25764"></span><a href="../asm/25764.html">64a4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25764.html">Display a collectible sprite.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25774"></span><a href="../asm/25774.html">64ae</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25774.html">Sprite offset using colour attribute.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25777"></span><a href="../asm/25777.html">64b1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25777.html">Get address for collectible sprite.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25788"></span><a href="../asm/25788.html">64bc</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25788.html">Drop a Plutonium collectible item.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25794"></span><a href="../asm/25794.html">64c2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25794.html">Drop a chemical based item, flashing items radiation and plutonium.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25815"></span><a href="../asm/25815.html">64d7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25815.html">Drop a random coloured collectible item.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25832"></span><a href="../asm/25832.html">64e8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25832.html">Collision detection for collectible items / rocket modules.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25864"></span><a href="../asm/25864.html">6508</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25864.html">Increment Y position and draw sprite.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25870"></span><a href="../asm/25870.html">650e</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25870.html">Redraw a sprite.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25876"></span><a href="../asm/25876.html">6514</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25876.html">Gets collectible ID based on the current user level.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25891"></span><a href="../asm/25891.html">6523</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25891.html">Collect Rocket module or fuel pod.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25921"></span><a href="../asm/25921.html">6541</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25921.html">Carry a collected rocket module/fuel pod.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="25957"></span><a href="../asm/25957.html">6565</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/25957.html">Pick up and carry a rocket module/fuel pod.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26024"></span><a href="../asm/26024.html">65a8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26024.html">Release new collectible item.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26075"></span><a href="../asm/26075.html">65db</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26075.html">Calculate column on which to drop a new collectible item/fuel pod.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26105"></span><a href="../asm/26105.html">65f9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26105.html">Drop a new fuel pod collectible.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26148"></span><a href="../asm/26148.html">6624</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26148.html">Reset the Rocket modules state data ready for next level.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26153"></span><a href="../asm/26153.html">6629</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26153.html">Set objects as inactive.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26162"></span><a href="../asm/26162.html">6632</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26162.html">Animate the rocket flame sprites.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26256"></span><a href="../asm/26256.html">6690</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26256.html">Rocket ship is taking off.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26292"></span><a href="../asm/26292.html">66b4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26292.html">Rocket ship is landing.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26320"></span><a href="../asm/26320.html">66d0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26320.html">Update the rocket ship.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26364"></span><a href="../asm/26364.html">66fc</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26364.html">Update Rocket ship colour.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26550"></span><a href="../asm/26550.html">67b6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26550.html">Rocket thruster SFX, and Jet Fighter explosions.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26566"></span><a href="../asm/26566.html">67c6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26566.html">SFX for ship building.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26572"></span><a href="../asm/26572.html">67cc</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26572.html">SFX for collecting a fuel cell.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26578"></span><a href="../asm/26578.html">67d2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26578.html">SFX for collecting an item, and when Jetman appears on-screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26582"></span><a href="../asm/26582.html">67d6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26582.html">Play square wave sound.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26587"></span><a href="../asm/26587.html">67db</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26587.html">Play square wave sound, starting with silence.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26599"></span><a href="../asm/26599.html">67e7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26599.html">SFX for Laser Fire.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26621"></span><a href="../asm/26621.html">67fd</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26621.html">Set the default explosion SFX params.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26644"></span><a href="../asm/26644.html">6814</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26644.html">Play Jetman death SFX.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26653"></span><a href="../asm/26653.html">681d</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26653.html">Play enemy death SFX.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26664"></span><a href="../asm/26664.html">6828</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26664.html">Plays the explosion sound effect.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26681"></span><a href="../asm/26681.html">6839</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26681.html">Sound has finished playing.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26686"></span><a href="../asm/26686.html">683e</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26686.html">Animate explosion after killing an alien.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26717"></span><a href="../asm/26717.html">685d</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26717.html">Enable animation, state false.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26728"></span><a href="../asm/26728.html">6868</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26728.html">Enable animation and reset frame count.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26740"></span><a href="../asm/26740.html">6874</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26740.html">Enable animation, state true.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26746"></span><a href="../asm/26746.html">687a</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26746.html">Animates the explosion sprites.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26852"></span><a href="../asm/26852.html">68e4</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26852.html">Frame rate limiter.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26866"></span><a href="../asm/26866.html">68f2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26866.html">Copy the two sprites for an alien to the buffers.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26926"></span><a href="../asm/26926.html">692e</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26926.html">Frame update and disabled item drop.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26964"></span><a href="../asm/26964.html">6954</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26964.html">New actor: reset the modified code to original values.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26982"></span><a href="../asm/26982.html">6966</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26982.html">Reset the modified code within the current frame.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="26993"></span><a href="../asm/26993.html">6971</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/26993.html">Generate new game actor: alien, fuel, or collectible item.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="27189"></span><a href="../asm/27189.html">6a35</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27189.html">Update Squidgy Alien.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="27320"></span><a href="../asm/27320.html">6ab8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27320.html">Update UFO alien -- this alien is a chaser!</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="27627"></span><a href="../asm/27627.html">6beb</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27627.html">Add points for UFO kill.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="27633"></span><a href="../asm/27633.html">6bf1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27633.html">When alien was killed by laser fire, reset anim state, set explosion SFX params. Used by the routine at <a href="../asm/27189.html">6a35</a>.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="27640"></span><a href="../asm/27640.html">6bf8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27640.html">Update Sphere alien.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="27824"></span><a href="../asm/27824.html">6cb0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27824.html">Update Actor direction.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="27838"></span><a href="../asm/27838.html">6cbe</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27838.html">Update crossed space ship.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="27971"></span><a href="../asm/27971.html">6d43</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27971.html">Draw an alien sprite to the screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="27993"></span><a href="../asm/27993.html">6d59</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27993.html">Add score for crossed space ship kill.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="27996"></span><a href="../asm/27996.html">6d5c</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/27996.html">Alien Killed SFX #2.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28007"></span><a href="../asm/28007.html">6d67</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28007.html">Change alien direction flag to up, and other updates.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28060"></span><a href="../asm/28060.html">6d9c</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28060.html">Update the meteor.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28137"></span><a href="../asm/28137.html">6de9</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28137.html">Alien Collision.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28187"></span><a href="../asm/28187.html">6e1b</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28187.html">Fire a laser beam.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28262"></span><a href="../asm/28262.html">6e66</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28262.html">Reads 2 bytes of pixel data from a sprite.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28284"></span><a href="../asm/28284.html">6e7c</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28284.html">Reverse all bits in Accumulator.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28295"></span><a href="../asm/28295.html">6e87</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28295.html">Flip byte pair of an alien sprite so it faces opposite direction.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28325"></span><a href="../asm/28325.html">6ea5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28325.html">Write all sprite pixel bytes to buffer.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28354"></span><a href="../asm/28354.html">6ec2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28354.html">Copy Rocket sprites for current level to the buffers.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28399"></span><a href="../asm/28399.html">6eef</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28399.html">Initialise rocket build state for new level.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28427"></span><a href="../asm/28427.html">6f0b</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28427.html">Copy Rocket sprite pixel data to the buffer.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28438"></span><a href="../asm/28438.html">6f16</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28438.html">Set the rocket building state on Jetman.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28448"></span><a href="../asm/28448.html">6f20</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28448.html">Set rocket module state that Jetman was carrying.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28451"></span><a href="../asm/28451.html">6f23</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28451.html">Get address to sprite pixel data then copy to the buffer.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28458"></span><a href="../asm/28458.html">6f2a</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28458.html">Copies the sprite pixel data to a buffer.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28506"></span><a href="../asm/28506.html">6f5a</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28506.html">Create new laser beam.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28528"></span><a href="../asm/28528.html">6f70</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28528.html">Initialise laser beam slot, and draw graphics.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28550"></span><a href="../asm/28550.html">6f86</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28550.html">Draw laser beam.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28598"></span><a href="../asm/28598.html">6fb6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28598.html">Shoots a laser beam to the right.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28613"></span><a href="../asm/28613.html">6fc5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28613.html">Animate a laser beam.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28781"></span><a href="../asm/28781.html">706d</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28781.html">Display the remaining player lives in the status bar.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28844"></span><a href="../asm/28844.html">70ac</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28844.html">Gets the remaining lives for player 1.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28850"></span><a href="../asm/28850.html">70b2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28850.html">Reads the current player lives.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28854"></span><a href="../asm/28854.html">70b6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28854.html">Reads inactive player lives.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28858"></span><a href="../asm/28858.html">70ba</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28858.html">Gets the remaining lives for player 2.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28866"></span><a href="../asm/28866.html">70c2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28866.html">Add points to the active player's score.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28901"></span><a href="../asm/28901.html">70e5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28901.html">Updates display to show player 1 score.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28909"></span><a href="../asm/28909.html">70ed</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28909.html">Updates display to show player 2 score.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28917"></span><a href="../asm/28917.html">70f5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28917.html">Updates display to show high score.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28923"></span><a href="../asm/28923.html">70fb</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28923.html">Display a score.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28949"></span><a href="../asm/28949.html">7115</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28949.html">Display an ASCII character from the Font.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28964"></span><a href="../asm/28964.html">7124</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28964.html">Characters are 8 rows of pixels.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28966"></span><a href="../asm/28966.html">7126</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28966.html">Draw the pixels for an ASCII character on screen</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28980"></span><a href="../asm/28980.html">7134</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28980.html">Display string (with colour) on the screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="28992"></span><a href="../asm/28992.html">7140</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/28992.html">Write a list of ASCII characters to the screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29009"></span><a href="../asm/29009.html">7151</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29009.html">Write an EOL character to the screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29018"></span><a href="../asm/29018.html">715a</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29018.html">Displays score labels at top of screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29056"></span><a href="../asm/29056.html">7180</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29056.html">Clears the entire ZX Spectrum display file.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29061"></span><a href="../asm/29061.html">7185</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29061.html">Clear memory block with null.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29063"></span><a href="../asm/29063.html">7187</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29063.html">Fill a memory block with a byte value.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29070"></span><a href="../asm/29070.html">718e</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29070.html">Clears the entire ZX Spectrum attribute file.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29079"></span><a href="../asm/29079.html">7197</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29079.html">Colourize a sprite.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29142"></span><a href="../asm/29142.html">71d6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29142.html">Convert a Y,X pixel coordinate to an ATTRIBUTE_FILE address.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29164"></span><a href="../asm/29164.html">71ec</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29164.html">Generic jump routine for finding actor pos/dir.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29167"></span><a href="../asm/29167.html">71ef</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29167.html">Get location of Actor.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29170"></span><a href="../asm/29170.html">71f2</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29170.html">Get sprite position and dimensions.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29184"></span><a href="../asm/29184.html">7200</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29184.html">Increment <span class="register">DE</span> to beginning of next sprite header.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29188"></span><a href="../asm/29188.html">7204</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29188.html">Find actor sprite address and update actor.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29191"></span><a href="../asm/29191.html">7207</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29191.html">Update actor state.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29222"></span><a href="../asm/29222.html">7226</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29222.html">Update Actor X/Y positions.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29234"></span><a href="../asm/29234.html">7232</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29234.html">Now update and erase the actor.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29241"></span><a href="../asm/29241.html">7239</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29241.html">Erase an actor sprite - after an it's been moved.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29283"></span><a href="../asm/29283.html">7263</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29283.html">Find animation sprite position and erase its pixels.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29288"></span><a href="../asm/29288.html">7268</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29288.html">Find Actor position, then erase its sprite.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29293"></span><a href="../asm/29293.html">726d</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29293.html">Find an Actor and destroy it.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29296"></span><a href="../asm/29296.html">7270</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29296.html">Erase a destroyed Actor.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29309"></span><a href="../asm/29309.html">727d</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29309.html">Unused?</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29312"></span><a href="../asm/29312.html">7280</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29312.html">Erase an animation sprite.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29321"></span><a href="../asm/29321.html">7289</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29321.html">Find position and direction of an Actor.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29330"></span><a href="../asm/29330.html">7292</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29330.html">Get actor sprite address.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29355"></span><a href="../asm/29355.html">72ab</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29355.html">Move an actor's sprite to it's current position.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29366"></span><a href="../asm/29366.html">72b6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29366.html">Calculate screen address one pixel above current position.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29392"></span><a href="../asm/29392.html">72d0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29392.html">Convert a Y,X pixel coordinate to a DISPLAY_FILE address.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29423"></span><a href="../asm/29423.html">72ef</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29423.html">Copy actor position/direction values to Actor.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29442"></span><a href="../asm/29442.html">7302</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29442.html">Joystick Input (Interface 2)</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29449"></span><a href="../asm/29449.html">7309</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29449.html">Read input from the keyboard port.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29503"></span><a href="../asm/29503.html">733f</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29503.html">Check if fire button is pressed.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29534"></span><a href="../asm/29534.html">735e</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29534.html">Check if thrust (up) button is pressed.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29565"></span><a href="../asm/29565.html">737d</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29565.html">Game play starts, or prepare new turn, or check Jetman thrust input.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29598"></span><a href="../asm/29598.html">739e</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29598.html">Airborne Jetman update.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29635"></span><a href="../asm/29635.html">73c3</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29635.html">Increase Jetman horizontal speed.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29649"></span><a href="../asm/29649.html">73d1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29649.html">Update Jetman X speed with new value.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29654"></span><a href="../asm/29654.html">73d6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29654.html">Set Jetman X speed to the max flying speed.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29658"></span><a href="../asm/29658.html">73da</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29658.html">Fly Jetman horizontally.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29681"></span><a href="../asm/29681.html">73f1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29681.html">Apply gravity to Jetman if no thrust button detected.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29714"></span><a href="../asm/29714.html">7412</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29714.html">Check if Jetman is moving falling downward.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29733"></span><a href="../asm/29733.html">7425</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29733.html">Increase Jetman vertical speed.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29747"></span><a href="../asm/29747.html">7433</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29747.html">Update Jetman vertical speed with new value.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29752"></span><a href="../asm/29752.html">7438</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29752.html">Set Jetman vertical speed to zero.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29758"></span><a href="../asm/29758.html">743e</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29758.html">Check joystick input for FIRE or THRUST.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29768"></span><a href="../asm/29768.html">7448</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29768.html">Set Jetman vertical speed to maximum.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29772"></span><a href="../asm/29772.html">744c</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29772.html">Fly Jetman vertically.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29795"></span><a href="../asm/29795.html">7463</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29795.html">Check vertical position while in mid-flight.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29811"></span><a href="../asm/29811.html">7473</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29811.html">Jetman flight collision detection.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29842"></span><a href="../asm/29842.html">7492</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29842.html">Redraw Jetman sprite on the screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29857"></span><a href="../asm/29857.html">74a1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29857.html">Jetman hits the underneath of a platform.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29863"></span><a href="../asm/29863.html">74a7</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29863.html">Jetman lands on a platform.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29887"></span><a href="../asm/29887.html">74bf</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29887.html">Reset Jetman movement direction.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29893"></span><a href="../asm/29893.html">74c5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29893.html">Jetman hits the top of the screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29909"></span><a href="../asm/29909.html">74d5</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29909.html">Jetman is falling.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29920"></span><a href="../asm/29920.html">74e0</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29920.html">Flip vertical direction Jetman is flying.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29946"></span><a href="../asm/29946.html">74fa</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29946.html">Decrease Jetman X position.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29953"></span><a href="../asm/29953.html">7501</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29953.html">Jetman THRUST-LEFT input.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29964"></span><a href="../asm/29964.html">750c</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29964.html">Flip Jetman left/right flying direction.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29990"></span><a href="../asm/29990.html">7526</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29990.html">Move Jetman up: decrease Y position.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="29997"></span><a href="../asm/29997.html">752d</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/29997.html">Calculate new Jetman horizontal speed.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30012"></span><a href="../asm/30012.html">753c</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30012.html">Jetman walking.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30161"></span><a href="../asm/30161.html">75d1</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30161.html">Related to horizontal platform collision detection - possibly flipping between sprite X position collision and Jetman direction collision...needs more work!</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30184"></span><a href="../asm/30184.html">75e8</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30184.html">Jetman/platform collision detection.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30189"></span><a href="../asm/30189.html">75ed</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30189.html">Horizontal platform collision detection for Jetman/Alien.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30204"></span><a href="../asm/30204.html">75fc</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30204.html">Vertical platform collision detection for Jetman/Aliens.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30264"></span><a href="../asm/30264.html">7638</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30264.html">Displays platforms on screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30374"></span><a href="../asm/30374.html">76a6</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30374.html">Draws the pixels for a platform sprite to the screen.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30469"></span><a href="../asm/30469.html">7705</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30469.html">Erase sprite pixels when actor/sprite moves.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30535"></span><a href="../asm/30535.html">7747</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30535.html">EXX then update Actor.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30536"></span><a href="../asm/30536.html">7748</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30536.html">Update Actor height related values.</a></div>
+</td>
+</tr>
+<tr>
+<td class="map-c"><span id="30555"></span><a href="../asm/30555.html">775b</a></td>
+<td class="map-c-desc">
+<div class="map-entry-title-10"><a class="map-entry-title" href="../asm/30555.html">Update Actor sprite height, then mask the sprite.</a></div>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

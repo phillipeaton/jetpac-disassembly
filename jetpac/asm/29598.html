@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 739e</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29565.html">737d</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29598">Map</a></td>
+<td class="next">
+Next: <a href="29635.html">73c3</a>
+</td>
+</tr>
+</table>
+<div class="description">739e: Airborne Jetman update.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Read thrust/direction controls and update position accordingly. Used by the routine at <a href="29565.html">737d</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Jetman object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29598"></span>739e</td>
+<td class="instruction">call <a href="29423.html">$72ef</a></td>
+<td class="comment-1" rowspan="1">Update actor position direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29601"></span>73a1</td>
+<td class="instruction">call <a href="29449.html">$7309</a></td>
+<td class="comment-1" rowspan="1">Read Left/Right input</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29604"></span>73a4</td>
+<td class="instruction">bit 3,a</td>
+<td class="comment-1" rowspan="2">Update Jetman direction for THRUST RIGHT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29606"></span>73a6</td>
+<td class="instruction">jp z,$73b8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29609"></span>73a9</td>
+<td class="instruction">bit 4,a</td>
+<td class="comment-1" rowspan="2">Jetman thrust left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29611"></span>73ab</td>
+<td class="instruction">jp z,<a href="29953.html">$7501</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29614"></span>73ae</td>
+<td class="instruction">ld a,($5dcc)</td>
+<td class="comment-1" rowspan="1">Game timer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29617"></span>73b1</td>
+<td class="instruction">and $01</td>
+<td class="comment-1" rowspan="2">If bit-0 is reset, fly horizontal</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29619"></span>73b3</td>
+<td class="instruction">jr z,<a href="29658.html">$73da</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29621"></span>73b5</td>
+<td class="instruction">jp <a href="29997.html">$752d</a></td>
+<td class="comment-1" rowspan="1">Calculate new horizontal speed</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29624"></span>73b8</td>
+<td class="instruction">res 6,(ix+$00)</td>
+<td class="comment-1" rowspan="1">Set Jetman direction to be "right"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29628"></span>73bc</td>
+<td class="instruction">bit 6,(ix+$04)</td>
+<td class="comment-1" rowspan="2">Flip direction if currently moving left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29632"></span>73c0</td>
+<td class="instruction">jp nz,<a href="29964.html">$750c</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29565.html">737d</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29598">Map</a></td>
+<td class="next">
+Next: <a href="29635.html">73c3</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

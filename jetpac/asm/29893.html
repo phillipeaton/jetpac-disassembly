@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 74c5</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29887.html">74bf</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29893">Map</a></td>
+<td class="next">
+Next: <a href="29909.html">74d5</a>
+</td>
+</tr>
+</table>
+<div class="description">74c5: Jetman hits the top of the screen.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29795.html">7463</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29893"></span>74c5</td>
+<td class="instruction">set 7,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Set Jetman to be moving down</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29897"></span>74c9</td>
+<td class="instruction">ld a,(ix+$06)</td>
+<td class="comment-1" rowspan="1">Jetman Y speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29900"></span>74cc</td>
+<td class="instruction">srl a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29902"></span>74ce</td>
+<td class="instruction">jr z,<a href="29811.html">$7473</a></td>
+<td class="comment-1" rowspan="1">Jetman collision detection if <span class="register">A</span> was $00 or $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29904"></span>74d0</td>
+<td class="instruction">ld (ix+$06),a</td>
+<td class="comment-1" rowspan="1">Update Jetman Y speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29907"></span>74d3</td>
+<td class="instruction">jr <a href="29811.html">$7473</a></td>
+<td class="comment-1" rowspan="1">Jetman flight collision detection</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29887.html">74bf</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29893">Map</a></td>
+<td class="next">
+Next: <a href="29909.html">74d5</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

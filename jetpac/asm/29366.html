@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 72b6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29355.html">72ab</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29366">Map</a></td>
+<td class="next">
+Next: <a href="29392.html">72d0</a>
+</td>
+</tr>
+</table>
+<div class="description">72b6: Calculate screen address one pixel above current position.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Calculates the new address for writing a sprite pixel, in an upward direction, taking into consideration the screen memory layout.
+</div>
+<div class="paragraph">
+Used by the routine at <a href="30469.html">7705</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Current position.</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Address for new position.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29366"></span>72b6</td>
+<td class="instruction">dec h</td>
+<td class="comment-1" rowspan="1">Decrement <span class="register">H</span> to move up one pixel on screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29367"></span>72b7</td>
+<td class="instruction">ld a,h</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29368"></span>72b8</td>
+<td class="instruction">and $07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29370"></span>72ba</td>
+<td class="instruction">cp $07</td>
+<td class="comment-1" rowspan="1">Has a character line been crossed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29372"></span>72bc</td>
+<td class="instruction">ret nz</td>
+<td class="comment-1" rowspan="1">If not, return</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29373"></span>72bd</td>
+<td class="instruction">ld a,l</td>
+<td class="comment-1" rowspan="3">else subtract 32 from <span class="register">L</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29374"></span>72be</td>
+<td class="instruction">sub $20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29376"></span>72c0</td>
+<td class="instruction">ld l,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29377"></span>72c1</td>
+<td class="instruction">and $e0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29379"></span>72c3</td>
+<td class="instruction">cp $e0</td>
+<td class="comment-1" rowspan="1">Has a new section of the screen been crossed?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29381"></span>72c5</td>
+<td class="instruction">ret z</td>
+<td class="comment-1" rowspan="1">Return if not</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29382"></span>72c6</td>
+<td class="instruction">ld a,h</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29383"></span>72c7</td>
+<td class="instruction">add a,$08</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29385"></span>72c9</td>
+<td class="instruction">ld h,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29386"></span>72ca</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29355.html">72ab</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29366">Map</a></td>
+<td class="next">
+Next: <a href="29392.html">72d0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

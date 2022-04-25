@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6174</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24929.html">6161</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24948">Map</a></td>
+<td class="next">
+Next: <a href="24983.html">6197</a>
+</td>
+</tr>
+</table>
+<div class="description">6174: Initialise player for new turn.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Player has died, or started a new level, so Jetman object should be updated with default values. Used by the routines at <a href="24707.html">6083</a>, <a href="24759.html">60b7</a> and <a href="26292.html">66b4</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24948"></span>6174</td>
+<td class="instruction">ld hl,$6013</td>
+<td class="comment-1" rowspan="1">Default Jetman values</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24951"></span>6177</td>
+<td class="instruction">ld de,$5d00</td>
+<td class="comment-1" rowspan="1">Jetman object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24954"></span>617a</td>
+<td class="instruction">ld bc,$0008</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24957"></span>617d</td>
+<td class="instruction">ldir</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24959"></span>
+<div class="comments">
+<div class="paragraph">
+Set default "begin play" delay period.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24959"></span>617f</td>
+<td class="instruction">ld a,$80</td>
+<td class="comment-1" rowspan="1">1 player delay</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24961"></span>6181</td>
+<td class="instruction">ld hl,$5cf3</td>
+<td class="comment-1" rowspan="1">Game options</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24964"></span>6184</td>
+<td class="instruction">bit 0,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24966"></span>6186</td>
+<td class="instruction">jr z,$618a</td>
+<td class="comment-1" rowspan="1">Jump if one player game</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24968"></span>6188</td>
+<td class="instruction">add a,$7f</td>
+<td class="comment-1" rowspan="1">else, double delay for 2 player game</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24970"></span>618a</td>
+<td class="instruction">ld ($5dd7),a</td>
+<td class="comment-1" rowspan="1">Update delay: 1 Player=$80, 2 Player=$FF</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24973"></span>
+<div class="comments">
+<div class="paragraph">
+Decrement current player lives and update display.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24973"></span>618d</td>
+<td class="instruction">ld a,($5df1)</td>
+<td class="comment-1" rowspan="1">Current player lives</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24976"></span>6190</td>
+<td class="instruction">dec a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24977"></span>6191</td>
+<td class="instruction">ld ($5df1),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24980"></span>6194</td>
+<td class="instruction">jp <a href="28781.html">$706d</a></td>
+<td class="comment-1" rowspan="1">Display player lives</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24929.html">6161</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24948">Map</a></td>
+<td class="next">
+Next: <a href="24983.html">6197</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

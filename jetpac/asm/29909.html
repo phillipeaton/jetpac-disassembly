@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 74d5</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29893.html">74c5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29909">Map</a></td>
+<td class="next">
+Next: <a href="29920.html">74e0</a>
+</td>
+</tr>
+</table>
+<div class="description">74d5: Jetman is falling.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29714.html">7412</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29909"></span>74d5</td>
+<td class="instruction">set 7,(ix+$00)</td>
+<td class="comment-1" rowspan="1">Set Jetman direction to WALK/DOWN</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29913"></span>74d9</td>
+<td class="instruction">bit 7,(ix+$04)</td>
+<td class="comment-1" rowspan="2">Increment Jetman Y speed if moving down</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29917"></span>74dd</td>
+<td class="instruction">jp nz,<a href="29733.html">$7425</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29893.html">74c5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29909">Map</a></td>
+<td class="next">
+Next: <a href="29920.html">74e0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

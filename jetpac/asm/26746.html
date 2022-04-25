@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 687a</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26740.html">6874</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26746">Map</a></td>
+<td class="next">
+Next: <a href="26840.html">68d8</a>
+</td>
+</tr>
+</table>
+<div class="description">687a: Animates the explosion sprites.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Explosion animation object</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26746"></span>687a</td>
+<td class="instruction">ld hl,$5dcb</td>
+<td class="comment-1" rowspan="2">Increment current alien number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26749"></span>687d</td>
+<td class="instruction">inc (hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26750"></span>687e</td>
+<td class="instruction">ld c,(ix+$04)</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=explosion animation frame</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26753"></span>6881</td>
+<td class="instruction">ld b,(ix+$05)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=explosion animation state</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26756"></span>6884</td>
+<td class="instruction">ld a,($5dcc)</td>
+<td class="comment-1" rowspan="1">Game timer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26759"></span>6887</td>
+<td class="instruction">and b</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26760"></span>6888</td>
+<td class="instruction">jr nz,$688d</td>
+<td class="comment-1" rowspan="2">Increment frame if timer&amp;state is zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26762"></span>688a</td>
+<td class="instruction">inc (ix+$04)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26765"></span>688d</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=original frame count</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26766"></span>688e</td>
+<td class="instruction">sla c</td>
+<td class="comment-1" rowspan="1">Multiply by 2 (addresses are two-bytes)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26768"></span>6890</td>
+<td class="instruction">ld b,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26770"></span>6892</td>
+<td class="instruction">ld hl,$68d8</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=explosion sprite lookup table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26773"></span>6895</td>
+<td class="instruction">add hl,bc</td>
+<td class="comment-1" rowspan="1">Set offset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26774"></span>6896</td>
+<td class="instruction">ld e,(hl)</td>
+<td class="comment-1" rowspan="3"><span class="register">DE</span>=address of the desired sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26775"></span>6897</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26776"></span>6898</td>
+<td class="instruction">ld d,(hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26777"></span>6899</td>
+<td class="instruction">ld l,(ix+$01)</td>
+<td class="comment-1" rowspan="2">Set <span class="register">HL</span> to Y,X coords of sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26780"></span>689c</td>
+<td class="instruction">ld h,(ix+$02)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26783"></span>689f</td>
+<td class="instruction">cp $06</td>
+<td class="comment-1" rowspan="1">Comparing with original frame count from 687e</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26785"></span>68a1</td>
+<td class="instruction">jr nc,$68b7</td>
+<td class="comment-1" rowspan="1">If original frame &gt;= 6 then animation has finished</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26787"></span>68a3</td>
+<td class="instruction">cp $03</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26789"></span>68a5</td>
+<td class="instruction">jr nc,$68d2</td>
+<td class="comment-1" rowspan="1">If original frame &gt;= 3 then half animated</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26791"></span>68a7</td>
+<td class="instruction">call <a href="29283.html">$7263</a></td>
+<td class="comment-1" rowspan="1">Erase animation sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26794"></span>68aa</td>
+<td class="instruction">ld a,($5dce)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26797"></span>68ad</td>
+<td class="instruction">and $07</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26799"></span>68af</td>
+<td class="instruction">or $42</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26801"></span>68b1</td>
+<td class="instruction">ld (ix+$03),a</td>
+<td class="comment-1" rowspan="1">Update colour attribute to a random colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26804"></span>68b4</td>
+<td class="instruction">jp <a href="29079.html">$7197</a></td>
+<td class="comment-1" rowspan="1">Colourize the sprite</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26807"></span>
+<div class="comments">
+<div class="paragraph">
+After an explosion, we check if it was the player that died!
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26807"></span>68b7</td>
+<td class="instruction">ld a,(ix+$06)</td>
+<td class="comment-1" rowspan="2">Update anim object so "animating" = "direction"?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26810"></span>68ba</td>
+<td class="instruction">ld (ix+$00),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26813"></span>68bd</td>
+<td class="instruction">call <a href="29423.html">$72ef</a></td>
+<td class="comment-1" rowspan="1">Update Actor position direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26816"></span>68c0</td>
+<td class="instruction">call <a href="29293.html">$726d</a></td>
+<td class="comment-1" rowspan="1">Find and destroy actor</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26819"></span>68c3</td>
+<td class="instruction">ld (ix+$00),$00</td>
+<td class="comment-1" rowspan="1">Reset "animating"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26823"></span>68c7</td>
+<td class="instruction">ld a,(ix+$06)</td>
+<td class="comment-1" rowspan="1">Animation object "direction"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26826"></span>68ca</td>
+<td class="instruction">and $3f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26828"></span>68cc</td>
+<td class="instruction">cp $03</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26830"></span>68ce</td>
+<td class="instruction">jp c,<a href="24759.html">$60b7</a></td>
+<td class="comment-1" rowspan="1">Player was killed if &lt; 3 (end of turn)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26833"></span>68d1</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26834"></span>
+<div class="comments">
+<div class="paragraph">
+Called when half the explosion has been animated.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26834"></span>68d2</td>
+<td class="instruction">call <a href="29170.html">$71f2</a></td>
+<td class="comment-1" rowspan="1">Get sprite screen position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26837"></span>68d5</td>
+<td class="instruction">jp <a href="29296.html">$7270</a></td>
+<td class="comment-1" rowspan="1">Erase a destroyed actor</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26740.html">6874</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26746">Map</a></td>
+<td class="next">
+Next: <a href="26840.html">68d8</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

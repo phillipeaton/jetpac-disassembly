@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 64e8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25815.html">64d7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25832">Map</a></td>
+<td class="next">
+Next: <a href="25864.html">6508</a>
+</td>
+</tr>
+</table>
+<div class="description">64e8: Collision detection for collectible items / rocket modules.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Collectible item object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25832"></span>64e8</td>
+<td class="instruction">call <a href="29423.html">$72ef</a></td>
+<td class="comment-1" rowspan="1">Update Actor position direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25835"></span>64eb</td>
+<td class="instruction">ld a,(ix+$04)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=item "state"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25838"></span>64ee</td>
+<td class="instruction">bit 2,a</td>
+<td class="comment-1" rowspan="2">Pick up rocket module if bit-2 set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25840"></span>64f0</td>
+<td class="instruction">jp nz,<a href="25957.html">$6565</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25843"></span>64f3</td>
+<td class="instruction">bit 1,a</td>
+<td class="comment-1" rowspan="2">Carrying rocket module/fuel if bit-1 set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25845"></span>64f5</td>
+<td class="instruction">jr nz,<a href="25921.html">$6541</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25847"></span>64f7</td>
+<td class="instruction">bit 0,a</td>
+<td class="comment-1" rowspan="2">Draw sprite if bit-0 reset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25849"></span>64f9</td>
+<td class="instruction">jr z,<a href="25876.html">$6514</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25851"></span>64fb</td>
+<td class="instruction">call <a href="28137.html">$6de9</a></td>
+<td class="comment-1" rowspan="1">Check for alien collision - returns <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25854"></span>64fe</td>
+<td class="instruction">dec e</td>
+<td class="comment-1" rowspan="2">Collect rocket module if <span class="register">E</span> == 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25855"></span>64ff</td>
+<td class="instruction">jr z,<a href="25891.html">$6523</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25857"></span>6501</td>
+<td class="instruction">call <a href="30184.html">$75e8</a></td>
+<td class="comment-1" rowspan="1">Platform collision - returns <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25860"></span>6504</td>
+<td class="instruction">bit 2,e</td>
+<td class="comment-1" rowspan="2">Draw sprite if bit-2 set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25862"></span>6506</td>
+<td class="instruction">jr nz,<a href="25870.html">$650e</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25815.html">64d7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25832">Map</a></td>
+<td class="next">
+Next: <a href="25864.html">6508</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

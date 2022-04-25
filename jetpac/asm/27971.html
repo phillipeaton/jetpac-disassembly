@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6d43</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27838.html">6cbe</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27971">Map</a></td>
+<td class="next">
+Next: <a href="27993.html">6d59</a>
+</td>
+</tr>
+</table>
+<div class="description">6d43: Draw an alien sprite to the screen.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="27189.html">6a35</a>, <a href="27320.html">6ab8</a>, <a href="27640.html">6bf8</a> and <a href="27838.html">6cbe</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Alien object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27971"></span>6d43</td>
+<td class="instruction">ld a,(ix+$00)</td>
+<td class="comment-1" rowspan="2">Backup alien direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27974"></span>6d46</td>
+<td class="instruction">push af</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27975"></span>6d47</td>
+<td class="instruction">and $c0</td>
+<td class="comment-1" rowspan="3">Temporarily change alien direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27977"></span>6d49</td>
+<td class="instruction">or $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27979"></span>6d4b</td>
+<td class="instruction">ld (ix+$00),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27982"></span>6d4e</td>
+<td class="instruction">call <a href="29234.html">$7232</a></td>
+<td class="comment-1" rowspan="1">Update actor X position (using temp direction)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27985"></span>6d51</td>
+<td class="instruction">call <a href="29079.html">$7197</a></td>
+<td class="comment-1" rowspan="1">Colourize the sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27988"></span>6d54</td>
+<td class="instruction">pop af</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27989"></span>6d55</td>
+<td class="instruction">ld (ix+$00),a</td>
+<td class="comment-1" rowspan="1">Restore original direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27992"></span>6d58</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27838.html">6cbe</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27971">Map</a></td>
+<td class="next">
+Next: <a href="27993.html">6d59</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

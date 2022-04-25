@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 718e</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29063.html">7187</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29070">Map</a></td>
+<td class="next">
+Next: <a href="29079.html">7197</a>
+</td>
+</tr>
+</table>
+<div class="description">718e: Clears the entire ZX Spectrum attribute file.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+PAPER=black, INK=white.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29070"></span>718e</td>
+<td class="instruction">ld hl,$5800</td>
+<td class="comment-1" rowspan="1">Attribute file</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29073"></span>7191</td>
+<td class="instruction">ld b,$5b</td>
+<td class="comment-1" rowspan="1">MSB to stop at (end of attribute file)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29075"></span>7193</td>
+<td class="instruction">ld c,$47</td>
+<td class="comment-1" rowspan="1">Colour byte: PAPER=black, INK=white, BRIGHT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29077"></span>7195</td>
+<td class="instruction">jr <a href="29063.html">$7187</a></td>
+<td class="comment-1" rowspan="1">Fill memory</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29063.html">7187</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29070">Map</a></td>
+<td class="next">
+Next: <a href="29079.html">7197</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

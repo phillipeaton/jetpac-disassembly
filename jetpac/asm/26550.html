@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 67b6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26508.html">678c</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26550">Map</a></td>
+<td class="next">
+Next: <a href="26566.html">67c6</a>
+</td>
+</tr>
+</table>
+<div class="description">67b6: Rocket thruster SFX, and Jet Fighter explosions.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="25507.html">63a3</a>, <a href="26256.html">6690</a> and <a href="26292.html">66b4</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Jetman or Rocket object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26550"></span>67b6</td>
+<td class="instruction">ld a,(ix+$02)</td>
+<td class="comment-1" rowspan="1">Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26553"></span>67b9</td>
+<td class="instruction">rrca</td>
+<td class="comment-1" rowspan="6">Change pitch based on vertical position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26554"></span>67ba</td>
+<td class="instruction">rrca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26555"></span>67bb</td>
+<td class="instruction">rrca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26556"></span>67bc</td>
+<td class="instruction">rrca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26557"></span>67bd</td>
+<td class="instruction">and $7f</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26559"></span>67bf</td>
+<td class="instruction">or $40</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26561"></span>67c1</td>
+<td class="instruction">ld d,a</td>
+<td class="comment-1" rowspan="1">Pitch</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26562"></span>67c2</td>
+<td class="instruction">ld c,$10</td>
+<td class="comment-1" rowspan="1">Duration</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26564"></span>67c4</td>
+<td class="instruction">jr <a href="26587.html">$67db</a></td>
+<td class="comment-1" rowspan="1">Play square wave sound</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26508.html">678c</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26550">Map</a></td>
+<td class="next">
+Next: <a href="26566.html">67c6</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

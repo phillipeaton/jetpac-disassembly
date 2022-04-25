@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6541</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25891.html">6523</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25921">Map</a></td>
+<td class="next">
+Next: <a href="25957.html">6565</a>
+</td>
+</tr>
+</table>
+<div class="description">6541: Carry a collected rocket module/fuel pod.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Ensure the rocket module/fuel pod remains attached to the foot of the Jetman sprite. Used by the routine at <a href="25832.html">64e8</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Rocket module object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25921"></span>6541</td>
+<td class="instruction">ld hl,($5d01)</td>
+<td class="comment-1" rowspan="3">Update module position so it becomes attached to the player via the Jetman Y,X positions</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25924"></span>6544</td>
+<td class="instruction">ld (ix+$01),l</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25927"></span>6547</td>
+<td class="instruction">ld (ix+$02),h</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25930"></span>654a</td>
+<td class="instruction">ld a,($5d31)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25933"></span>654d</td>
+<td class="instruction">sub (ix+$01)</td>
+<td class="comment-1" rowspan="1">Subtract module X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25936"></span>6550</td>
+<td class="instruction">jp p,$6555</td>
+<td class="comment-1" rowspan="1">If already negative, jump</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25939"></span>6553</td>
+<td class="instruction">neg</td>
+<td class="comment-1" rowspan="1">else make a negative value</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25941"></span>6555</td>
+<td class="instruction">cp $06</td>
+<td class="comment-1" rowspan="2">Draw sprite if <span class="register">A</span> &gt;= 6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25943"></span>6557</td>
+<td class="instruction">jr nc,<a href="25870.html">$650e</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25945"></span>6559</td>
+<td class="instruction">set 2,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Set module "state" to collected</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25949"></span>655d</td>
+<td class="instruction">ld a,($5d31)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25952"></span>6560</td>
+<td class="instruction">ld (ix+$01),a</td>
+<td class="comment-1" rowspan="1">Update module X position to be same as Rocket position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25955"></span>6563</td>
+<td class="instruction">jr <a href="25870.html">$650e</a></td>
+<td class="comment-1" rowspan="1">Update module and draw sprite</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25891.html">6523</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25921">Map</a></td>
+<td class="next">
+Next: <a href="25957.html">6565</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

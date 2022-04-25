@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 7463</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29772.html">744c</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29795">Map</a></td>
+<td class="next">
+Next: <a href="29811.html">7473</a>
+</td>
+</tr>
+</table>
+<div class="description">7463: Check vertical position while in mid-flight.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29990.html">7526</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29795"></span>7463</td>
+<td class="instruction">ld a,l</td>
+<td class="comment-1" rowspan="2">Update Jetman flying counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29796"></span>7464</td>
+<td class="instruction">ld ($5dc8),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29799"></span>7467</td>
+<td class="instruction">ld (ix+$02),h</td>
+<td class="comment-1" rowspan="1">Update Jetman Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29802"></span>746a</td>
+<td class="instruction">ld a,h</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29803"></span>746b</td>
+<td class="instruction">cp $c0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29805"></span>746d</td>
+<td class="instruction">jr nc,<a href="29887.html">$74bf</a></td>
+<td class="comment-1" rowspan="1">Move up if within screen limits: 42 to 192</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29807"></span>746f</td>
+<td class="instruction">cp $2a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29809"></span>7471</td>
+<td class="instruction">jr c,<a href="29893.html">$74c5</a></td>
+<td class="comment-1" rowspan="1">Check if hit top of screen</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29772.html">744c</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29795">Map</a></td>
+<td class="next">
+Next: <a href="29811.html">7473</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6828</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26653.html">681d</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26664">Map</a></td>
+<td class="next">
+Next: <a href="26681.html">6839</a>
+</td>
+</tr>
+</table>
+<div class="description">6828: Plays the explosion sound effect.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+The note pitch goes from `low` to `high`.
+</div>
+<div class="paragraph">
+Used by the routine at <a href="26644.html">6814</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">note frequency.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26664"></span>6828</td>
+<td class="instruction">ld a,$10</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26666"></span>682a</td>
+<td class="instruction">out ($fe),a</td>
+<td class="comment-1" rowspan="1">Turn speaker ON</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26668"></span>682c</td>
+<td class="instruction">ld b,c</td>
+<td class="comment-1" rowspan="1">Set duration</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26669"></span>682d</td>
+<td class="instruction">djnz $682d</td>
+<td class="comment-1" rowspan="1">Note continues for the frequency duration</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26671"></span>682f</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26672"></span>6830</td>
+<td class="instruction">out ($fe),a</td>
+<td class="comment-1" rowspan="1">Turn speaker OFF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26674"></span>6832</td>
+<td class="instruction">ld b,c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="26675"></span>6833</td>
+<td class="instruction">djnz $6833</td>
+<td class="comment-1" rowspan="1">Silence for the frequency duration</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26677"></span>6835</td>
+<td class="instruction">dec c</td>
+<td class="comment-1" rowspan="1">Decrement frequency (higher pitch)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26678"></span>6836</td>
+<td class="instruction">jr nz,$6828</td>
+<td class="comment-1" rowspan="1">Repeat until frequency is zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26680"></span>6838</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26653.html">681d</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26664">Map</a></td>
+<td class="next">
+Next: <a href="26681.html">6839</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 61bf</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25018.html">61ba</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25023">Map</a></td>
+<td class="next">
+Next: <a href="25033.html">61c9</a>
+</td>
+</tr>
+</table>
+<div class="description">61bf: Game initialisation for first run.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Reset all scores, sets the SP, initialises the screen, and displays the main menu. Used by the routine at <a href="24576.html">6000</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25023"></span>61bf</td>
+<td class="instruction">ld hl,$5cf0</td>
+<td class="comment-1" rowspan="5">Reset all scores</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25026"></span>61c2</td>
+<td class="instruction">ld bc,$0a00</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25029"></span>61c5</td>
+<td class="instruction">ld (hl),c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25030"></span>61c6</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25031"></span>61c7</td>
+<td class="instruction">djnz $61c5</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25018.html">61ba</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25023">Map</a></td>
+<td class="next">
+Next: <a href="25033.html">61c9</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

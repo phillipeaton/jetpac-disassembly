@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 7151</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28992.html">7140</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29009">Map</a></td>
+<td class="next">
+Next: <a href="29018.html">715a</a>
+</td>
+</tr>
+</table>
+<div class="description">7151: Write an EOL character to the screen.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Game strings (e.g. score labels) set bit-7 on the last character to indicate it is EOL. This bit needs to be reset before displaying the character on the screen.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A'</td>
+<td class="register-desc">Colour byte for the character.</td>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">The EOL ASCII character to be displayed.</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Screen address for writing the string.</td>
+</tr>
+<tr>
+<td class="register">HL'</td>
+<td class="register-desc">Attribute file address for writing the colour byte.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29009"></span>7151</td>
+<td class="instruction">and $7f</td>
+<td class="comment-1" rowspan="1">Turn off the EOL flag: bit-7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29011"></span>7153</td>
+<td class="instruction">call <a href="28949.html">$7115</a></td>
+<td class="comment-1" rowspan="1">Display font character</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29014"></span>7156</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29015"></span>7157</td>
+<td class="instruction">ex af,af'</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29016"></span>7158</td>
+<td class="instruction">ld (hl),a</td>
+<td class="comment-1" rowspan="1">Write the colour byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29017"></span>7159</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28992.html">7140</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29009">Map</a></td>
+<td class="next">
+Next: <a href="29018.html">715a</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

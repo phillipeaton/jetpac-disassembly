@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6523</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25876.html">6514</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25891">Map</a></td>
+<td class="next">
+Next: <a href="25921.html">6541</a>
+</td>
+</tr>
+</table>
+<div class="description">6523: Collect Rocket module or fuel pod.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Module is collected after player collides with it. Used by the routine at <a href="25832.html">64e8</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Rocket module object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25891"></span>6523</td>
+<td class="instruction">set 1,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Module "state"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25895"></span>6527</td>
+<td class="instruction">call <a href="29293.html">$726d</a></td>
+<td class="comment-1" rowspan="1">Find and destroy the sprite (returns <span class="register">DE</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25898"></span>652a</td>
+<td class="instruction">ld bc,$0100</td>
+<td class="comment-1" rowspan="1">100 points to add to score (decimal value)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25901"></span>652d</td>
+<td class="instruction">call <a href="28866.html">$70c2</a></td>
+<td class="comment-1" rowspan="1">Add points to score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25904"></span>6530</td>
+<td class="instruction">call <a href="26572.html">$67cc</a></td>
+<td class="comment-1" rowspan="1">SFX for collecting fuel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25907"></span>6533</td>
+<td class="instruction">ld hl,($5d01)</td>
+<td class="comment-1" rowspan="3">Update module position so it becomes attached to the player via the Jetman Y,X positions</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25910"></span>6536</td>
+<td class="instruction">ld (ix+$01),l</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25913"></span>6539</td>
+<td class="instruction">ld (ix+$02),h</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25916"></span>653c</td>
+<td class="instruction">call <a href="29423.html">$72ef</a></td>
+<td class="comment-1" rowspan="1">Update sprite X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25919"></span>653f</td>
+<td class="instruction">jr <a href="25870.html">$650e</a></td>
+<td class="comment-1" rowspan="1">Colourize the sprite</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25876.html">6514</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25891">Map</a></td>
+<td class="next">
+Next: <a href="25921.html">6541</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

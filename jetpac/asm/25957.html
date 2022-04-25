@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6565</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25921.html">6541</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25957">Map</a></td>
+<td class="next">
+Next: <a href="26024.html">65a8</a>
+</td>
+</tr>
+</table>
+<div class="description">6565: Pick up and carry a rocket module/fuel pod.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="25832.html">64e8</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Collectible item object - rocket module or fuel pod.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25957"></span>6565</td>
+<td class="instruction">ld a,(ix+$06)</td>
+<td class="comment-1" rowspan="1">Item sprite jump table offset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25960"></span>6568</td>
+<td class="instruction">cp $18</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25962"></span>656a</td>
+<td class="instruction">jr z,$6597</td>
+<td class="comment-1" rowspan="1">Jump to delivery check if a fuel pod?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25964"></span>656c</td>
+<td class="instruction">sla a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25966"></span>656e</td>
+<td class="instruction">add a,(ix+$02)</td>
+<td class="comment-1" rowspan="1">Add item Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25969"></span>6571</td>
+<td class="instruction">cp $b7</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25971"></span>6573</td>
+<td class="instruction">jp c,<a href="25864.html">$6508</a></td>
+<td class="comment-1" rowspan="1">Increment item Y position and draw sprite if &lt; 183</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25974"></span>6576</td>
+<td class="instruction">ld a,($5d3c)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25977"></span>6579</td>
+<td class="instruction">or $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25979"></span>657b</td>
+<td class="instruction">ld ($5d3c),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25982"></span>657e</td>
+<td class="instruction">ld a,($5d34)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25985"></span>6581</td>
+<td class="instruction">inc a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25986"></span>6582</td>
+<td class="instruction">ld ($5d34),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25989"></span>6585</td>
+<td class="instruction">ld a,(ix+$06)</td>
+<td class="comment-1" rowspan="1">Item sprite jump table offset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25992"></span>6588</td>
+<td class="instruction">add a,$08</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25994"></span>658a</td>
+<td class="instruction">call <a href="28354.html">$6ec2</a></td>
+<td class="comment-1" rowspan="1">Copy rocket sprite to buffers</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25997"></span>658d</td>
+<td class="instruction">call <a href="29293.html">$726d</a></td>
+<td class="comment-1" rowspan="1">Find and destroy current sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26000"></span>6590</td>
+<td class="instruction">ld (ix+$00),$00</td>
+<td class="comment-1" rowspan="1">Set item type to unused</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26004"></span>6594</td>
+<td class="instruction">jp <a href="26566.html">$67c6</a></td>
+<td class="comment-1" rowspan="1">SFX for rocket building</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26007"></span>
+<div class="comments">
+<div class="paragraph">
+Check if fuel pod delivered to ship, and increment count if so.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26007"></span>6597</td>
+<td class="instruction">ld a,(ix+$02)</td>
+<td class="comment-1" rowspan="1">Item Y position of fuel pod</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26010"></span>659a</td>
+<td class="instruction">cp $b0</td>
+<td class="comment-1" rowspan="1">Has it reached the rocket yet?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26012"></span>659c</td>
+<td class="instruction">jp c,<a href="25864.html">$6508</a></td>
+<td class="comment-1" rowspan="1">Move the fuel cell down one pixel if not</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26015"></span>659f</td>
+<td class="instruction">ld a,($5d35)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26018"></span>65a2</td>
+<td class="instruction">inc a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26019"></span>65a3</td>
+<td class="instruction">ld ($5d35),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26022"></span>65a6</td>
+<td class="instruction">jr $658d</td>
+<td class="comment-1" rowspan="1">Loop back and repeat</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25921.html">6541</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25957">Map</a></td>
+<td class="next">
+Next: <a href="26024.html">65a8</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

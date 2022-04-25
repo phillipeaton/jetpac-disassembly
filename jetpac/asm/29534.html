@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 735e</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29503.html">733f</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29534">Map</a></td>
+<td class="next">
+Next: <a href="29565.html">737d</a>
+</td>
+</tr>
+</table>
+<div class="description">735e: Check if thrust (up) button is pressed.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="29714.html">7412</a> and <a href="30012.html">753c</a>.
+</div>
+</div>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">thrust button, $FE = pressed, $FF = no input - like joystick: 000LRDUF.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29534"></span>735e</td>
+<td class="instruction">ld a,($5cf3)</td>
+<td class="comment-1" rowspan="1">Game options</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29537"></span>7361</td>
+<td class="instruction">bit 1,a</td>
+<td class="comment-1" rowspan="1">Use Joystick?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29539"></span>7363</td>
+<td class="instruction">jr nz,<a href="29442.html">$7302</a></td>
+<td class="comment-1" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29541"></span>7365</td>
+<td class="instruction">ld b,$02</td>
+<td class="comment-1" rowspan="1">Loop count: read left and right row of keys</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29543"></span>7367</td>
+<td class="instruction">ld a,$fb</td>
+<td class="comment-1" rowspan="1">Row: Q,W,E,R,T</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29545"></span>7369</td>
+<td class="instruction">out ($fd),a</td>
+<td class="comment-1" rowspan="1">Set port for reading keyboard</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29547"></span>736b</td>
+<td class="instruction">in a,($fe)</td>
+<td class="comment-1" rowspan="1">...and read that row of keys</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29549"></span>736d</td>
+<td class="instruction">and $1f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29551"></span>736f</td>
+<td class="instruction">cp $1f</td>
+<td class="comment-1" rowspan="1">Check if any keys on the row are pressed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29553"></span>7371</td>
+<td class="instruction">jr nz,$737a</td>
+<td class="comment-1" rowspan="1">Jump if so - key press detected</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29555"></span>7373</td>
+<td class="instruction">ld a,$df</td>
+<td class="comment-1" rowspan="1">Row: Y,U,I,O,P</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29557"></span>7375</td>
+<td class="instruction">djnz $7369</td>
+<td class="comment-1" rowspan="1">Loop back and read input again</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29559"></span>7377</td>
+<td class="instruction">ld a,$ff</td>
+<td class="comment-1" rowspan="1">Still no input detected</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29561"></span>7379</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="29562"></span>737a</td>
+<td class="instruction">ld a,$fd</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=UP (thrust) : 1111 1101</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29564"></span>737c</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29503.html">733f</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29534">Map</a></td>
+<td class="next">
+Next: <a href="29565.html">737d</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

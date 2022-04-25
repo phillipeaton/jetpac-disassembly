@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 64b1</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25774.html">64ae</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25777">Map</a></td>
+<td class="next">
+Next: <a href="25788.html">64bc</a>
+</td>
+</tr>
+</table>
+<div class="description">64b1: Get address for collectible sprite.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="26364.html">66fc</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Offset for the desired sprite.</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Address for a sprite.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25777"></span>64b1</td>
+<td class="instruction">ld hl,$678c</td>
+<td class="comment-1" rowspan="1">Sprite lookup table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25780"></span>64b4</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="3">Add offset to base address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25781"></span>64b5</td>
+<td class="instruction">ld b,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25783"></span>64b7</td>
+<td class="instruction">add hl,bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25784"></span>64b8</td>
+<td class="instruction">ld e,(hl)</td>
+<td class="comment-1" rowspan="3">Assign sprite address to <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25785"></span>64b9</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25786"></span>64ba</td>
+<td class="instruction">ld d,(hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25787"></span>64bb</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25774.html">64ae</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25777">Map</a></td>
+<td class="next">
+Next: <a href="25788.html">64bc</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

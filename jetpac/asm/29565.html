@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 737d</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29534.html">735e</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29565">Map</a></td>
+<td class="next">
+Next: <a href="29598.html">739e</a>
+</td>
+</tr>
+</table>
+<div class="description">737d: Game play starts, or prepare new turn, or check Jetman thrust input.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29565"></span>737d</td>
+<td class="instruction">ld hl,$5dd7</td>
+<td class="comment-1" rowspan="4">If begin play delay timer is zero (turn started), check to see if player is thrusting</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29568"></span>7380</td>
+<td class="instruction">ld a,(hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29569"></span>7381</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29570"></span>7382</td>
+<td class="instruction">jr z,<a href="29598.html">$739e</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29572"></span>7384</td>
+<td class="instruction">dec (hl)</td>
+<td class="comment-1" rowspan="1">else decrement timer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29573"></span>7385</td>
+<td class="instruction">jp nz,<a href="24983.html">$6197</a></td>
+<td class="comment-1" rowspan="1">Flash Score label if still not zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29576"></span>7388</td>
+<td class="instruction">call <a href="26578.html">$67d2</a></td>
+<td class="comment-1" rowspan="1">SFX to indicate play is about to start!</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29579"></span>738b</td>
+<td class="instruction">ld a,($5dd1)</td>
+<td class="comment-1" rowspan="3">Stop flashing 2UP if current player number is 2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29582"></span>738e</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29583"></span>738f</td>
+<td class="instruction">jr nz,$7399</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29585"></span>7391</td>
+<td class="instruction">ld hl,$0018</td>
+<td class="comment-1" rowspan="2">Stop flashing "1UP" text</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29588"></span>7394</td>
+<td class="instruction">call <a href="25005.html">$61ad</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29591"></span>7397</td>
+<td class="instruction">jr <a href="29598.html">$739e</a></td>
+<td class="comment-1" rowspan="1">Check if player is thrusting</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29593"></span>7399</td>
+<td class="instruction">ld hl,$00d8</td>
+<td class="comment-1" rowspan="2">Stop flashing "2UP" text</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29596"></span>739c</td>
+<td class="instruction">jr $7394</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29534.html">735e</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29565">Map</a></td>
+<td class="next">
+Next: <a href="29598.html">739e</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

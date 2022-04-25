@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 61a0</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24983.html">6197</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24992">Map</a></td>
+<td class="next">
+Next: <a href="25005.html">61ad</a>
+</td>
+</tr>
+</table>
+<div class="description">61a0: Set flash state for the 3-attributes of the score label.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="25018.html">61ba</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">screen coordinate.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24992"></span>61a0</td>
+<td class="instruction">call <a href="29142.html">$71d6</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=coord to attribute file address (using <span class="register">HL</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24995"></span>61a3</td>
+<td class="instruction">ld b,$03</td>
+<td class="comment-1" rowspan="1">Loop counter for 3 characters</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24997"></span>61a5</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="5">Set FLASH on for each attribute</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24998"></span>61a6</td>
+<td class="instruction">or $80</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25000"></span>61a8</td>
+<td class="instruction">ld (hl),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25001"></span>61a9</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25002"></span>61aa</td>
+<td class="instruction">djnz $61a5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25004"></span>61ac</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24983.html">6197</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24992">Map</a></td>
+<td class="next">
+Next: <a href="25005.html">61ad</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

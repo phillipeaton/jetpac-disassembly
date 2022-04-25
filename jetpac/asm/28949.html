@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 7115</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28923.html">70fb</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28949">Map</a></td>
+<td class="next">
+Next: <a href="28964.html">7124</a>
+</td>
+</tr>
+</table>
+<div class="description">7115: Display an ASCII character from the Font.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+An ASCII 8x8 tile graphic is fetched from the font data and drawn to the screen. As HL is multiplied by 3 a 256 bytes offset must first be subtracted.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Character (Z80 ASCII) used to fetch the character from the font.</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Screen address where character should be drawn.</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Location for the next location character.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28949"></span>7115</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28950"></span>7116</td>
+<td class="instruction">push de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28951"></span>7117</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28952"></span>7118</td>
+<td class="instruction">ld l,a</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=ASCII value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28953"></span>7119</td>
+<td class="instruction">ld h,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28955"></span>711b</td>
+<td class="instruction">add hl,hl</td>
+<td class="comment-1" rowspan="3">Calculate correct offset for ASCII character</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28956"></span>711c</td>
+<td class="instruction">add hl,hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28957"></span>711d</td>
+<td class="instruction">add hl,hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28958"></span>711e</td>
+<td class="instruction">ld de,$3a00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28961"></span>7121</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span> += base address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28962"></span>7122</td>
+<td class="instruction">ex de,hl</td>
+<td class="comment-1" rowspan="1">Store the character address in <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28963"></span>7123</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28923.html">70fb</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28949">Map</a></td>
+<td class="next">
+Next: <a href="28964.html">7124</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

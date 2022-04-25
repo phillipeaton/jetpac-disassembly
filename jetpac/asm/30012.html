@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 753c</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29997.html">752d</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30012">Map</a></td>
+<td class="next">
+Next: <a href="30161.html">75d1</a>
+</td>
+</tr>
+</table>
+<div class="description">753c: Jetman walking.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Jetman object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30012"></span>753c</td>
+<td class="instruction">call <a href="29423.html">$72ef</a></td>
+<td class="comment-1" rowspan="1">Update Actor position direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30015"></span>753f</td>
+<td class="instruction">call <a href="29449.html">$7309</a></td>
+<td class="comment-1" rowspan="1">Read Left/Right input</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30018"></span>7542</td>
+<td class="instruction">bit 3,a</td>
+<td class="comment-1" rowspan="2">Walk RIGHT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30020"></span>7544</td>
+<td class="instruction">jr z,$75ad</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30022"></span>7546</td>
+<td class="instruction">bit 4,a</td>
+<td class="comment-1" rowspan="2">Walk LEFT</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30024"></span>7548</td>
+<td class="instruction">jp z,$75bf</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30027"></span>754b</td>
+<td class="instruction">ld (ix+$05),$00</td>
+<td class="comment-1" rowspan="1">else set Jetman X speed to zero</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30031"></span>754f</td>
+<td class="instruction">call <a href="29534.html">$735e</a></td>
+<td class="comment-1" rowspan="1">Read THRUST button</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30034"></span>7552</td>
+<td class="instruction">bit 1,a</td>
+<td class="comment-1" rowspan="2">Walk off platform if thrusting</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30036"></span>7554</td>
+<td class="instruction">jr z,$757f</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30038"></span>7556</td>
+<td class="instruction">call <a href="30184.html">$75e8</a></td>
+<td class="comment-1" rowspan="1">Platform collision check (returns <span class="register">E</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30041"></span>7559</td>
+<td class="instruction">bit 2,e</td>
+<td class="comment-1" rowspan="2">Leave platform if bit-2 is reset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30043"></span>755b</td>
+<td class="instruction">jr z,$757f</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30045"></span>755d</td>
+<td class="instruction">bit 3,e</td>
+<td class="comment-1" rowspan="2">Redraw Jetman if bit-3 is reset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30047"></span>755f</td>
+<td class="instruction">jp z,<a href="29842.html">$7492</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30050"></span>7562</td>
+<td class="instruction">ld a,(ix+$05)</td>
+<td class="comment-1" rowspan="1">Jetman X speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30053"></span>7565</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30054"></span>7566</td>
+<td class="instruction">jp nz,<a href="29842.html">$7492</a></td>
+<td class="comment-1" rowspan="1">Redraw Jetman if X speed &gt; 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30057"></span>7569</td>
+<td class="instruction">bit 6,(ix+$00)</td>
+<td class="comment-1" rowspan="7">Jetman leaves a platform, either left or right based on the value of bit-6. The X position is dec/inc appropriately, and the Redraw Jetman routine is called. Note also that the X speed is set to max walking speed, but this instruction might be irrelevant as hacking the speed value has no noticeable effect.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30061"></span>756d</td>
+<td class="instruction">jr z,$7575</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30063"></span>756f</td>
+<td class="instruction">dec (ix+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30066"></span>7572</td>
+<td class="instruction">jp <a href="29842.html">$7492</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="30069"></span>7575</td>
+<td class="instruction">inc (ix+$01)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30072"></span>7578</td>
+<td class="instruction">ld (ix+$05),$20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30076"></span>757c</td>
+<td class="instruction">jp <a href="29842.html">$7492</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="30079"></span>
+<div class="comments">
+<div class="paragraph">
+Jetman leaves a platform by thrusters or by walking.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30079"></span>757f</td>
+<td class="instruction">ld a,(ix+$00)</td>
+<td class="comment-1" rowspan="1">Jetman direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30082"></span>7582</td>
+<td class="instruction">and $c0</td>
+<td class="comment-1" rowspan="1">Reset FLY and WALK bits</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30084"></span>7584</td>
+<td class="instruction">or $01</td>
+<td class="comment-1" rowspan="1">Now set movement to FLY</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30086"></span>7586</td>
+<td class="instruction">ld (ix+$00),a</td>
+<td class="comment-1" rowspan="1">Update Jetman direction to be flying</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30089"></span>7589</td>
+<td class="instruction">ld hl,($5d01)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=Jetman Y,X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30092"></span>758c</td>
+<td class="instruction">push ix</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30094"></span>758e</td>
+<td class="instruction">ld ix,$5d48</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=Jetman thruster animation object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30098"></span>7592</td>
+<td class="instruction">ld a,(ix+$00)</td>
+<td class="comment-1" rowspan="3">Jump if thrusters are already being animated</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30101"></span>7595</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30102"></span>7596</td>
+<td class="instruction">jr nz,$75a2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30104"></span>7598</td>
+<td class="instruction">ld (ix+$00),$03</td>
+<td class="comment-1" rowspan="1">else set thrusters to be animating?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30108"></span>759c</td>
+<td class="instruction">ld ($5d49),hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30111"></span>759f</td>
+<td class="instruction">call <a href="26717.html">$685d</a></td>
+<td class="comment-1" rowspan="1">Update actor movement states</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30114"></span>75a2</td>
+<td class="instruction">pop ix</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> to Jetman object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30116"></span>75a4</td>
+<td class="instruction">dec (ix+$02)</td>
+<td class="comment-1" rowspan="2">Jetman Y position -= 2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30119"></span>75a7</td>
+<td class="instruction">dec (ix+$02)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30122"></span>75aa</td>
+<td class="instruction">jp <a href="29842.html">$7492</a></td>
+<td class="comment-1" rowspan="1">Redraw Jetman</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="30125"></span>
+<div class="comments">
+<div class="paragraph">
+Jetman walks right.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30125"></span>75ad</td>
+<td class="instruction">inc (ix+$01)</td>
+<td class="comment-1" rowspan="1">Jetman X position += 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30128"></span>75b0</td>
+<td class="instruction">res 6,(ix+$00)</td>
+<td class="comment-1" rowspan="1">Jetman direction is right</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30132"></span>75b4</td>
+<td class="instruction">res 6,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Jetman moving direction to right</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30136"></span>75b8</td>
+<td class="instruction">ld (ix+$05),$20</td>
+<td class="comment-1" rowspan="1">Set Jetman X speed to maximum</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30140"></span>75bc</td>
+<td class="instruction">jp $754f</td>
+<td class="comment-1" rowspan="1">Loop back, checking again for THRUST input</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="30143"></span>
+<div class="comments">
+<div class="paragraph">
+Jetman walks left.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30143"></span>75bf</td>
+<td class="instruction">dec (ix+$01)</td>
+<td class="comment-1" rowspan="1">Jetman X position -= 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30146"></span>75c2</td>
+<td class="instruction">set 6,(ix+$00)</td>
+<td class="comment-1" rowspan="1">Jetman direction is left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30150"></span>75c6</td>
+<td class="instruction">set 6,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Jetman moving direction to left</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30154"></span>75ca</td>
+<td class="instruction">ld (ix+$05),$20</td>
+<td class="comment-1" rowspan="1">Set Jetman X speed to maximum</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30158"></span>75ce</td>
+<td class="instruction">jp $754f</td>
+<td class="comment-1" rowspan="1">Loop back, checking again for THRUST input</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29997.html">752d</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30012">Map</a></td>
+<td class="next">
+Next: <a href="30161.html">75d1</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

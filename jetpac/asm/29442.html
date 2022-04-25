@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 7302</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29423.html">72ef</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29442">Map</a></td>
+<td class="next">
+Next: <a href="29449.html">7309</a>
+</td>
+</tr>
+</table>
+<div class="description">7302: Joystick Input (Interface 2)</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+The ROM cartridge was made for the Interface 2 which reads the Joystick I bits in the format of 000LRDUF, which are mapped to the keyboard keys: 6, 7, 8, 9, and 0. Note that a reset bit means the button is pressed.
+</div>
+<div class="paragraph">
+Used by the routines at <a href="29449.html">7309</a>, <a href="29503.html">733f</a>, <a href="29534.html">735e</a> and <a href="29758.html">743e</a>.
+</div>
+</div>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Joystick direction/button state.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29442"></span>7302</td>
+<td class="instruction">ld a,$ef</td>
+<td class="comment-1" rowspan="1">Interface 2 Joystick port</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29444"></span>7304</td>
+<td class="instruction">out ($fb),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29446"></span>7306</td>
+<td class="instruction">in a,($fe)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span> = bits for 000LRDUF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29448"></span>7308</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29423.html">72ef</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29442">Map</a></td>
+<td class="next">
+Next: <a href="29449.html">7309</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

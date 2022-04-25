@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6ec2</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28325.html">6ea5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28354">Map</a></td>
+<td class="next">
+Next: <a href="28399.html">6eef</a>
+</td>
+</tr>
+</table>
+<div class="description">6ec2: Copy Rocket sprites for current level to the buffers.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Using the sprite lookup table, this routine calculates which Rocket sprites to copy to the buffers or the current level, then calls the copy routine. Used by the routines at <a href="24743.html">60a7</a>, <a href="24759.html">60b7</a> and <a href="25957.html">6565</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Is the byte offset between the modules of the current rocket.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28354"></span>6ec2</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28355"></span>6ec3</td>
+<td class="instruction">ld a,($5df0)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=player level. Example, if level 3:</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28358"></span>6ec6</td>
+<td class="instruction">rrca</td>
+<td class="comment-1" rowspan="1">A=10000001, C=1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28359"></span>6ec7</td>
+<td class="instruction">and $06</td>
+<td class="comment-1" rowspan="1">A=00000000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28361"></span>6ec9</td>
+<td class="instruction">or c</td>
+<td class="comment-1" rowspan="1">A=00001000 (e.g. if <span class="register">C</span>=$08)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28362"></span>6eca</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="2"><span class="register">BC</span>=sprite offset value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28363"></span>6ecb</td>
+<td class="instruction">ld b,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28365"></span>6ecd</td>
+<td class="instruction">ld hl,$678c</td>
+<td class="comment-1" rowspan="1">Collectible sprite lookup table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28368"></span>6ed0</td>
+<td class="instruction">add hl,bc</td>
+<td class="comment-1" rowspan="1">Offset address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28369"></span>6ed1</td>
+<td class="instruction">ld de,$5ecc</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=start of buffers for all item sprites</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28372"></span>6ed4</td>
+<td class="instruction">ld a,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28374"></span>6ed6</td>
+<td class="instruction">ld ($5dd3),a</td>
+<td class="comment-1" rowspan="1">Set default for rocket module attached value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28377"></span>6ed9</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28378"></span>6eda</td>
+<td class="instruction">ld ($5dd2),a</td>
+<td class="comment-1" rowspan="1">Set default for Jetman rocket module connected value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28381"></span>6edd</td>
+<td class="instruction">ld c,$04</td>
+<td class="comment-1" rowspan="1">Loop counter - all 4 sprites?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28383"></span>6edf</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="28384"></span>6ee0</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Backup loop counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28385"></span>6ee1</td>
+<td class="instruction">ld b,a</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span> starts at $00, then returns value from <a href="28427.html">6f0b</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28386"></span>6ee2</td>
+<td class="instruction">ld c,$01</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=sprite count</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28388"></span>6ee4</td>
+<td class="instruction">call <a href="28427.html">$6f0b</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=pointer to sprite pixel data</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28391"></span>6ee7</td>
+<td class="instruction">ld a,b</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28392"></span>6ee8</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore loop counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28393"></span>6ee9</td>
+<td class="instruction">dec hl</td>
+<td class="comment-1" rowspan="2"><span class="register">HL</span>=previous lookup table offset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28394"></span>6eea</td>
+<td class="instruction">dec hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28395"></span>6eeb</td>
+<td class="instruction">dec c</td>
+<td class="comment-1" rowspan="1">Decrement loop counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28396"></span>6eec</td>
+<td class="instruction">jr nz,$6ee0</td>
+<td class="comment-1" rowspan="1">Repeat until counter is zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28398"></span>6eee</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28325.html">6ea5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28354">Map</a></td>
+<td class="next">
+Next: <a href="28399.html">6eef</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

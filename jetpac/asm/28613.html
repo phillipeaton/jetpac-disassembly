@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6fc5</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28598.html">6fb6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28613">Map</a></td>
+<td class="next">
+Next: <a href="28781.html">706d</a>
+</td>
+</tr>
+</table>
+<div class="description">6fc5: Animate a laser beam.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Note the copious amounts of register swapping! These annotations need checking.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Laser beam object</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28613"></span>6fc5</td>
+<td class="instruction">ld d,(ix+$01)</td>
+<td class="comment-1" rowspan="1">Laser Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28616"></span>6fc8</td>
+<td class="instruction">ld a,(ix+$02)</td>
+<td class="comment-1" rowspan="1">Laser X position: pulse #1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28619"></span>6fcb</td>
+<td class="instruction">bit 2,a</td>
+<td class="comment-1" rowspan="2">Jump if bit-2 is reset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28621"></span>6fcd</td>
+<td class="instruction">jr z,$7007</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28623"></span>6fcf</td>
+<td class="instruction">ld l,a</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=X position: pules #1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28624"></span>6fd0</td>
+<td class="instruction">ld a,$08</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28626"></span>6fd2</td>
+<td class="instruction">bit 0,l</td>
+<td class="comment-1" rowspan="3">Negate (<span class="register">A</span>=$F8) if bit-0 of pulse #1 is reset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28628"></span>6fd4</td>
+<td class="instruction">jr z,$6fd8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28630"></span>6fd6</td>
+<td class="instruction">neg</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28632"></span>6fd8</td>
+<td class="instruction">add a,l</td>
+<td class="comment-1" rowspan="3"><span class="register">H</span>=laser Y position, <span class="register">L</span>=updated X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28633"></span>6fd9</td>
+<td class="instruction">ld e,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28634"></span>6fda</td>
+<td class="instruction">ld h,d</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28635"></span>6fdb</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Preserve <span class="register">HL</span> - pulse Y,X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28636"></span>6fdc</td>
+<td class="instruction">call <a href="29392.html">$72d0</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=coord to screen address (using <span class="register">HL</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28639"></span>6fdf</td>
+<td class="instruction">ld a,(ix+$01)</td>
+<td class="comment-1" rowspan="1">Laser Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28642"></span>6fe2</td>
+<td class="instruction">cp $80</td>
+<td class="comment-1" rowspan="2">Jump if Y position &gt;= 128</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28644"></span>6fe4</td>
+<td class="instruction">jr nc,$6fea</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28646"></span>6fe6</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=byte at Y,X position of laser pulse #1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28647"></span>6fe7</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28648"></span>6fe8</td>
+<td class="instruction">jr nz,$702c</td>
+<td class="comment-1" rowspan="1">Jump if byte is empty</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28650"></span>
+<div class="comments">
+<div class="paragraph">
+Update the on screen colour for the pulse.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28650"></span>6fea</td>
+<td class="instruction">ld (ix+$02),e</td>
+<td class="comment-1" rowspan="1">Update X position: pulse #1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28653"></span>6fed</td>
+<td class="instruction">ld (hl),$ff</td>
+<td class="comment-1" rowspan="1">Add a "full length" pulse to Y,X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28655"></span>6fef</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restores the pulse Y,X positions</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28656"></span>6ff0</td>
+<td class="instruction">call <a href="29142.html">$71d6</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=coord to attribute file address (using <span class="register">HL</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28659"></span>6ff3</td>
+<td class="instruction">ld a,(ix+$07)</td>
+<td class="comment-1" rowspan="2">Set screen colour attribute to the laser pulse colour</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28662"></span>6ff6</td>
+<td class="instruction">ld (hl),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28663"></span>6ff7</td>
+<td class="instruction">ld a,(ix+$06)</td>
+<td class="comment-1" rowspan="3">Subtract 8 from laser pulse "length"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28666"></span>6ffa</td>
+<td class="instruction">sub $08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28668"></span>6ffc</td>
+<td class="instruction">ld (ix+$06),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28671"></span>6fff</td>
+<td class="instruction">and $f8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28673"></span>7001</td>
+<td class="instruction">jr nz,$7007</td>
+<td class="comment-1" rowspan="1">Jump if pulse length has bit 3-7 set</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28675"></span>
+<div class="comments">
+<div class="paragraph">
+Update the X position of all the laser beam pulses.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28675"></span>7003</td>
+<td class="instruction">res 2,(ix+$02)</td>
+<td class="comment-1" rowspan="1">Reset bit-2 of X position: pulse #1</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28679"></span>7007</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28680"></span>7008</td>
+<td class="instruction">ld bc,$031c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28683"></span>700b</td>
+<td class="instruction">ld e,$e0</td>
+<td class="comment-1" rowspan="1">Loop counter (14)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28685"></span>700d</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28686"></span>700e</td>
+<td class="instruction">ld e,$03</td>
+<td class="comment-1" rowspan="1">Loop counter (to process pulses #2, #3, #4)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28688"></span>7010</td>
+<td class="instruction">push ix</td>
+<td class="comment-1" rowspan="2"><span class="register">BC</span> is now the laser beam object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28690"></span>7012</td>
+<td class="instruction">pop bc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28691"></span>7013</td>
+<td class="instruction">inc bc</td>
+<td class="comment-1" rowspan="1">Laser beam Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28692"></span>7014</td>
+<td class="instruction">inc bc</td>
+<td class="comment-1" rowspan="1">Laser beam X position: pulse #1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28693"></span>7015</td>
+<td class="instruction">inc bc</td>
+<td class="comment-1" rowspan="1">Laser beam X position: pulse #2</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28694"></span>
+<div class="comments">
+<div class="paragraph">
+A loop (to the end of routine) which draws the pixel byte to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28694"></span>7016</td>
+<td class="instruction">ld a,(bc)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=X position (loops on pulse #2, #3, #4)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28695"></span>7017</td>
+<td class="instruction">xor (ix+$02)</td>
+<td class="comment-1" rowspan="1">XOR with X position: pulse #1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28698"></span>701a</td>
+<td class="instruction">and $f8</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28700"></span>701c</td>
+<td class="instruction">jr nz,$702f</td>
+<td class="comment-1" rowspan="1">Jump if <span class="register">A</span> has any of these bits set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28702"></span>701e</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28703"></span>701f</td>
+<td class="instruction">ld a,b</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28704"></span>7020</td>
+<td class="instruction">ld b,c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28705"></span>7021</td>
+<td class="instruction">ld c,e</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28706"></span>7022</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28707"></span>7023</td>
+<td class="instruction">inc bc</td>
+<td class="comment-1" rowspan="3">Repeat for next X position pulse</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28708"></span>7024</td>
+<td class="instruction">dec e</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28709"></span>7025</td>
+<td class="instruction">jr nz,$7016</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28711"></span>7027</td>
+<td class="instruction">ld (ix+$00),$00</td>
+<td class="comment-1" rowspan="1">Set laser beam to "unused"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28715"></span>702b</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28716"></span>
+<div class="comments">
+<div class="paragraph">
+No pixel to draw, loop back and process next pulse.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28716"></span>702c</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28717"></span>702d</td>
+<td class="instruction">jr $7003</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28719"></span>
+<div class="comments">
+<div class="paragraph">
+Update the length of the laser beam pulse.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28719"></span>702f</td>
+<td class="instruction">ld a,(bc)</td>
+<td class="comment-1" rowspan="1">Laser beam X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28720"></span>7030</td>
+<td class="instruction">bit 2,a</td>
+<td class="comment-1" rowspan="2">Jump if bit-2 is set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28722"></span>7032</td>
+<td class="instruction">jr nz,$704f</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28724"></span>7034</td>
+<td class="instruction">dec (ix+$06)</td>
+<td class="comment-1" rowspan="1">Decrement pulse length</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28727"></span>7037</td>
+<td class="instruction">ld a,(ix+$06)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28730"></span>703a</td>
+<td class="instruction">and $07</td>
+<td class="comment-1" rowspan="2">Return if pulse has any pixels set?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28732"></span>703c</td>
+<td class="instruction">ret nz</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28733"></span>703d</td>
+<td class="instruction">ld a,($5dce)</td>
+<td class="comment-1" rowspan="1">Random number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28736"></span>7040</td>
+<td class="instruction">and $03</td>
+<td class="comment-1" rowspan="4">Calculate the length of the laser pulse</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28738"></span>7042</td>
+<td class="instruction">or $04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28740"></span>7044</td>
+<td class="instruction">or (ix+$06)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28743"></span>7047</td>
+<td class="instruction">ld (ix+$06),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28746"></span>704a</td>
+<td class="instruction">ld a,(bc)</td>
+<td class="comment-1" rowspan="3">Current X position += 4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28747"></span>704b</td>
+<td class="instruction">or $04</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28749"></span>704d</td>
+<td class="instruction">ld (bc),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28750"></span>704e</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="28751"></span>704f</td>
+<td class="instruction">ld a,(bc)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28752"></span>7050</td>
+<td class="instruction">ld l,a</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=current X position pulse</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28753"></span>7051</td>
+<td class="instruction">ld a,$08</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28755"></span>7053</td>
+<td class="instruction">bit 0,l</td>
+<td class="comment-1" rowspan="3">Negate (<span class="register">A</span>=$F8) if bit-0 of pulse is reset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28757"></span>7055</td>
+<td class="instruction">jr z,$7059</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28759"></span>7057</td>
+<td class="instruction">neg</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28761"></span>7059</td>
+<td class="instruction">add a,l</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28762"></span>705a</td>
+<td class="instruction">ld (bc),a</td>
+<td class="comment-1" rowspan="1">Update current X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28763"></span>705b</td>
+<td class="instruction">ld h,d</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=laser Y position, <span class="register">L</span>=updated X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28764"></span>705c</td>
+<td class="instruction">call <a href="29392.html">$72d0</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=coord to screen address (using <span class="register">HL</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28767"></span>705f</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28768"></span>7060</td>
+<td class="instruction">ld a,b</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28769"></span>7061</td>
+<td class="instruction">ld b,c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28770"></span>7062</td>
+<td class="instruction">ld c,e</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28771"></span>7063</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28772"></span>
+<div class="comments">
+<div class="paragraph">
+Create a new laser beam pixel and merge with current screen pixel.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28772"></span>7064</td>
+<td class="instruction">cpl</td>
+<td class="comment-1" rowspan="1">Create the pixel byte. E.g. $FC=11111100</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28773"></span>7065</td>
+<td class="instruction">and (hl)</td>
+<td class="comment-1" rowspan="1">Merge with current screen pixel</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28774"></span>7066</td>
+<td class="instruction">ld (hl),a</td>
+<td class="comment-1" rowspan="1">Update display file</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28775"></span>7067</td>
+<td class="instruction">inc bc</td>
+<td class="comment-1" rowspan="2">Next X position byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28776"></span>7068</td>
+<td class="instruction">dec e</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28777"></span>7069</td>
+<td class="instruction">jp nz,$7016</td>
+<td class="comment-1" rowspan="1">Repeat if counter &gt; 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28780"></span>706c</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28598.html">6fb6</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28613">Map</a></td>
+<td class="next">
+Next: <a href="28781.html">706d</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 7134</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28966.html">7126</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28980">Map</a></td>
+<td class="next">
+Next: <a href="28992.html">7140</a>
+</td>
+</tr>
+</table>
+<div class="description">7134: Display string (with colour) on the screen.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Calculates the start location in the DISPLAY/ATTRIBUTE files for writing the string, then executes WriteAsciiChars, which writes each individual character to the screen.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Text data block (expects first byte to be a colour attr).</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Screen address for writing the text.</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">A'</td>
+<td class="register-desc">Colour attribute for the text.</td>
+</tr>
+<tr>
+<td class="register">DE'</td>
+<td class="register-desc">Address to the ASCII characters for displaying.</td>
+</tr>
+<tr>
+<td class="register">HL'</td>
+<td class="register-desc">Screen address of next location.</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Attribute file address of next location.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28980"></span>7134</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Preserve display file address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28981"></span>7135</td>
+<td class="instruction">call <a href="29392.html">$72d0</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=coord to screen address (using <span class="register">HL</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28984"></span>7138</td>
+<td class="instruction">ld a,(de)</td>
+<td class="comment-1" rowspan="2"><span class="register">A'</span>=colour attribute</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28985"></span>7139</td>
+<td class="instruction">ex af,af'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28986"></span>713a</td>
+<td class="instruction">inc de</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=next colour attribute</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28987"></span>713b</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28988"></span>713c</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Set <span class="register">HL</span> back to screen address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28989"></span>713d</td>
+<td class="instruction">call <a href="29142.html">$71d6</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=coord to attribute file address (using <span class="register">HL</span>)</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28966.html">7126</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28980">Map</a></td>
+<td class="next">
+Next: <a href="28992.html">7140</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

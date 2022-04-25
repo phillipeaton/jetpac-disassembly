@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 7292</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29321.html">7289</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29330">Map</a></td>
+<td class="next">
+Next: <a href="29355.html">72ab</a>
+</td>
+</tr>
+</table>
+<div class="description">7292: Get actor sprite address.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29355.html">72ab</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Sprite header byte or Actor movement.</td>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">Sprite header byte or X position.</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Address for sprite.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29330"></span>7292</td>
+<td class="instruction">bit 6,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29332"></span>7294</td>
+<td class="instruction">jr z,$7298</td>
+<td class="comment-1" rowspan="1">Jump if bit-6 of header is reset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29334"></span>7296</td>
+<td class="instruction">set 3,c</td>
+<td class="comment-1" rowspan="1">else set bit-3 of X position</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29336"></span>7298</td>
+<td class="instruction">dec a</td>
+<td class="comment-1" rowspan="7">Calculate offset for sprite lookup table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29337"></span>7299</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29338"></span>729a</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29339"></span>729b</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29340"></span>729c</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29341"></span>729d</td>
+<td class="instruction">and $f0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29343"></span>729f</td>
+<td class="instruction">or c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29344"></span>72a0</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29345"></span>72a1</td>
+<td class="instruction">ld b,$00</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=lookup table offset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29347"></span>72a3</td>
+<td class="instruction">ld hl,$76c5</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=start of Jetman/Buffer sprite lookup tables</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29350"></span>72a6</td>
+<td class="instruction">add hl,bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29351"></span>72a7</td>
+<td class="instruction">ld e,(hl)</td>
+<td class="comment-1" rowspan="3"><span class="register">DE</span>=sprite address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29352"></span>72a8</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29353"></span>72a9</td>
+<td class="instruction">ld d,(hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29354"></span>72aa</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29321.html">7289</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29330">Map</a></td>
+<td class="next">
+Next: <a href="29355.html">72ab</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 66b4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26256.html">6690</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26292">Map</a></td>
+<td class="next">
+Next: <a href="26320.html">66d0</a>
+</td>
+</tr>
+</table>
+<div class="description">66b4: Rocket ship is landing.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Rocket object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26292"></span>66b4</td>
+<td class="instruction">call <a href="29423.html">$72ef</a></td>
+<td class="comment-1" rowspan="1">Update Actor position direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26295"></span>66b7</td>
+<td class="instruction">inc (ix+$02)</td>
+<td class="comment-1" rowspan="1">Increment Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26298"></span>66ba</td>
+<td class="instruction">call <a href="26550.html">$67b6</a></td>
+<td class="comment-1" rowspan="1">Thruster SFX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26301"></span>66bd</td>
+<td class="instruction">call <a href="26162.html">$6632</a></td>
+<td class="comment-1" rowspan="1">Animate rocket flame sprites</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26304"></span>66c0</td>
+<td class="instruction">ld a,(ix+$02)</td>
+<td class="comment-1" rowspan="2">Check if rocket has landed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26307"></span>66c3</td>
+<td class="instruction">cp $b7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26309"></span>66c5</td>
+<td class="instruction">jr c,<a href="26364.html">$66fc</a></td>
+<td class="comment-1" rowspan="1">Update rocket colour if not (and RET)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26311"></span>
+<div class="comments">
+<div class="paragraph">
+Rocket has landed!
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26311"></span>66c7</td>
+<td class="instruction">ld (ix+$00),$09</td>
+<td class="comment-1" rowspan="1">Set Rocket "move" state to default (on pad)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26315"></span>66cb</td>
+<td class="instruction">call <a href="24948.html">$6174</a></td>
+<td class="comment-1" rowspan="1">Initialise the player state</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26318"></span>66ce</td>
+<td class="instruction">jr <a href="26364.html">$66fc</a></td>
+<td class="comment-1" rowspan="1">Update rocket colour (and RET)</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26256.html">6690</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26292">Map</a></td>
+<td class="next">
+Next: <a href="26320.html">66d0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

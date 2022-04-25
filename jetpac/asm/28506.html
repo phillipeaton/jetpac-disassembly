@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6f5a</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28458.html">6f2a</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28506">Map</a></td>
+<td class="next">
+Next: <a href="28528.html">6f70</a>
+</td>
+</tr>
+</table>
+<div class="description">6f5a: Create new laser beam.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Find an unused laser beam slot - return if non free - then initialise and draw the laser GFX in the correct location and direction in relation to Jetman. Used by the routine at <a href="29842.html">7492</a>.
+</div>
+</div>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Address pointing to a free laser beam slot.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28506"></span>6f5a</td>
+<td class="instruction">ld a,($5c78)</td>
+<td class="comment-1" rowspan="3">Return unless one of first two bits of SYSVAR_FRAMES are set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28509"></span>6f5d</td>
+<td class="instruction">and $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28511"></span>6f5f</td>
+<td class="instruction">ret nz</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28512"></span>6f60</td>
+<td class="instruction">ld hl,$5d08</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=laser beam objects</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28515"></span>6f63</td>
+<td class="instruction">ld de,$0008</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28518"></span>6f66</td>
+<td class="instruction">ld b,$04</td>
+<td class="comment-1" rowspan="1">Loop counter for all 4 laser beams</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28520"></span>6f68</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1">Get first byte of object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28521"></span>6f69</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28522"></span>6f6a</td>
+<td class="instruction">jr z,<a href="28528.html">$6f70</a></td>
+<td class="comment-1" rowspan="1">Initialise and draw laser beam, if unused</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28524"></span>6f6c</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28525"></span>6f6d</td>
+<td class="instruction">djnz $6f68</td>
+<td class="comment-1" rowspan="1">Repeat until an unused beam is found</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28527"></span>6f6f</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1">Return if no free slots are available</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28458.html">6f2a</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28506">Map</a></td>
+<td class="next">
+Next: <a href="28528.html">6f70</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 7748</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30535.html">7747</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30536">Map</a></td>
+<td class="next">
+Next: <a href="30555.html">775b</a>
+</td>
+</tr>
+</table>
+<div class="description">7748: Update Actor height related values.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29241.html">7239</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30536"></span>7748</td>
+<td class="instruction">ld a,($5dc5)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30539"></span>774b</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30540"></span>774c</td>
+<td class="instruction">ld a,($5dc6)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30543"></span>774f</td>
+<td class="instruction">or c</td>
+<td class="comment-1" rowspan="1">Compare actor sprite height values</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30544"></span>7750</td>
+<td class="instruction">ret z</td>
+<td class="comment-1" rowspan="1">Return if both are zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30545"></span>7751</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30546"></span>7752</td>
+<td class="instruction">ld ($5dc5),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30549"></span>7755</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30550"></span>7756</td>
+<td class="instruction">ld a,($5dc6)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30553"></span>7759</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30554"></span>775a</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30535.html">7747</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30536">Map</a></td>
+<td class="next">
+Next: <a href="30555.html">775b</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

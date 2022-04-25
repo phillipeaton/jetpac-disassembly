@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6e7c</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28262.html">6e66</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28284">Map</a></td>
+<td class="next">
+Next: <a href="28295.html">6e87</a>
+</td>
+</tr>
+</table>
+<div class="description">6e7c: Reverse all bits in Accumulator.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Two buffers are used for sprites facing the opposite direction so we need to flip the bits such that %00100111 becomes %11100100.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28284"></span>6e7c</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Backup <span class="register">BC</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28285"></span>6e7d</td>
+<td class="instruction">ld b,$08</td>
+<td class="comment-1" rowspan="1">Counter of 8-bits</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28287"></span>6e7f</td>
+<td class="instruction">rrca</td>
+<td class="comment-1" rowspan="3">Do the bit reversal</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28288"></span>6e80</td>
+<td class="instruction">rl c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28290"></span>6e82</td>
+<td class="instruction">djnz $6e7f</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28292"></span>6e84</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="1">Set return value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28293"></span>6e85</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28294"></span>6e86</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28262.html">6e66</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28284">Map</a></td>
+<td class="next">
+Next: <a href="28295.html">6e87</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

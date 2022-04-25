@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 75d1</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30012.html">753c</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30161">Map</a></td>
+<td class="next">
+Next: <a href="30184.html">75e8</a>
+</td>
+</tr>
+</table>
+<div class="description">75d1: Related to horizontal platform collision detection - possibly flipping between sprite X position collision and Jetman direction collision...needs more work!</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="30189.html">75ed</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Sprite X position minus Platform X position?</td>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Jetman or alien.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30161"></span>75d1</td>
+<td class="instruction">ex af,af'</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30162"></span>75d2</td>
+<td class="instruction">ld a,(ix+$00)</td>
+<td class="comment-1" rowspan="1">Jetman/alien direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30165"></span>75d5</td>
+<td class="instruction">and $3f</td>
+<td class="comment-1" rowspan="1">Value must be &lt;= 63</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30167"></span>75d7</td>
+<td class="instruction">cp $03</td>
+<td class="comment-1" rowspan="2">Jump if value == 3 (therefore never when Jetman)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30169"></span>75d9</td>
+<td class="instruction">jr z,$75de</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30171"></span>75db</td>
+<td class="instruction">ex af,af'</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">A</span> to entry value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30172"></span>75dc</td>
+<td class="instruction">jr <a href="30204.html">$75fc</a></td>
+<td class="comment-1" rowspan="1">Vertical collision detection</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30174"></span>75de</td>
+<td class="instruction">ex af,af'</td>
+<td class="comment-1" rowspan="1">Flip again</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30175"></span>75df</td>
+<td class="instruction">sub $09</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30177"></span>75e1</td>
+<td class="instruction">jp p,<a href="30204.html">$75fc</a></td>
+<td class="comment-1" rowspan="3">Vertical collision detection, first incrementing by $09 if <span class="register">A</span> is negative</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30180"></span>75e4</td>
+<td class="instruction">add a,$09</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30182"></span>75e6</td>
+<td class="instruction">jr <a href="30204.html">$75fc</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30012.html">753c</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30161">Map</a></td>
+<td class="next">
+Next: <a href="30184.html">75e8</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

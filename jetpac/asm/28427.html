@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6f0b</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28399.html">6eef</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28427">Map</a></td>
+<td class="next">
+Next: <a href="28438.html">6f16</a>
+</td>
+</tr>
+</table>
+<div class="description">6f0b: Copy Rocket sprite pixel data to the buffer.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Looks up the address for a sprite from the lookup table, then points <span class="register">HL</span> to the pixel data for that sprite. Used by the routine at <a href="28354.html">6ec2</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Offset address in sprite lookup table.</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Address of buffer to use.</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Pointer to pixel data block.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28427"></span>6f0b</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28428"></span>6f0c</td>
+<td class="instruction">push de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28429"></span>6f0d</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28430"></span>6f0e</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="4"><span class="register">HL</span>=sprite address, from lookup table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28431"></span>6f0f</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28432"></span>6f10</td>
+<td class="instruction">ld h,(hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28433"></span>6f11</td>
+<td class="instruction">ld l,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28434"></span>6f12</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=sprite "height"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28435"></span>6f13</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=sprite data block</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28436"></span>6f14</td>
+<td class="instruction">jr <a href="28458.html">$6f2a</a></td>
+<td class="comment-1" rowspan="1">Perform the copy</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28399.html">6eef</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28427">Map</a></td>
+<td class="next">
+Next: <a href="28438.html">6f16</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

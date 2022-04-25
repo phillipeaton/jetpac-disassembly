@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 74e0</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29909.html">74d5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29920">Map</a></td>
+<td class="next">
+Next: <a href="29946.html">74fa</a>
+</td>
+</tr>
+</table>
+<div class="description">74e0: Flip vertical direction Jetman is flying.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29714.html">7412</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29920"></span>74e0</td>
+<td class="instruction">ld a,($5dca)</td>
+<td class="comment-1" rowspan="1">Jetman speed modifier ($00 or $04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29923"></span>74e3</td>
+<td class="instruction">sub $08</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=$F8 or $FC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29925"></span>74e5</td>
+<td class="instruction">add a,(ix+$06)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span> += Jetman Y speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29928"></span>74e8</td>
+<td class="instruction">jp p,<a href="29747.html">$7433</a></td>
+<td class="comment-1" rowspan="1">Update vertical speed if new speed is positive</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29931"></span>74eb</td>
+<td class="instruction">ld (ix+$06),$00</td>
+<td class="comment-1" rowspan="1">else set Y speed to zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29935"></span>74ef</td>
+<td class="instruction">ld a,(ix+$04)</td>
+<td class="comment-1" rowspan="3">Flip Jetman vertical moving direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29938"></span>74f2</td>
+<td class="instruction">xor $80</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29940"></span>74f4</td>
+<td class="instruction">ld (ix+$04),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29943"></span>74f7</td>
+<td class="instruction">jp <a href="29772.html">$744c</a></td>
+<td class="comment-1" rowspan="1">Fly Jetman vertically</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29909.html">74d5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29920">Map</a></td>
+<td class="next">
+Next: <a href="29946.html">74fa</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

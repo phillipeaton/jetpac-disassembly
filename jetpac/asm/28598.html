@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6fb6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28594.html">6fb2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28598">Map</a></td>
+<td class="next">
+Next: <a href="28613.html">6fc5</a>
+</td>
+</tr>
+</table>
+<div class="description">6fb6: Shoots a laser beam to the right.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Once position of Jetman's gun is located, we call the draw laser beam routine. Used by the routine at <a href="28528.html">6f70</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">Jetman X position +/- a few pixels: 0-7 maybe?</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Address of Jetman X position variable.</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">New X position of laser beam.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28598"></span>6fb6</td>
+<td class="instruction">ld a,(de)</td>
+<td class="comment-1" rowspan="1">Jetman X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28599"></span>6fb7</td>
+<td class="instruction">and $07</td>
+<td class="comment-1" rowspan="1">Checking for any laser beam pixels?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28601"></span>6fb9</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28602"></span>6fba</td>
+<td class="instruction">jr z,$6fbe</td>
+<td class="comment-1" rowspan="2">Increment X position if some laser pixels are set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28604"></span>6fbc</td>
+<td class="instruction">add a,$08</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28606"></span>6fbe</td>
+<td class="instruction">add a,$10</td>
+<td class="comment-1" rowspan="2">Add 16 and reset bit-0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28608"></span>6fc0</td>
+<td class="instruction">and $fe</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28610"></span>6fc2</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1">Set return value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28611"></span>6fc3</td>
+<td class="instruction">jr <a href="28550.html">$6f86</a></td>
+<td class="comment-1" rowspan="1">Draw laser beam</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28594.html">6fb2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28598">Map</a></td>
+<td class="next">
+Next: <a href="28613.html">6fc5</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

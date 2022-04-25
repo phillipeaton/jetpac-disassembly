@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 66fc</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26320.html">66d0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26364">Map</a></td>
+<td class="next">
+Next: <a href="26508.html">678c</a>
+</td>
+</tr>
+</table>
+<div class="description">66fc: Update Rocket ship colour.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Colouring is based on the number of fuel pods collected. This routine is never CALLed (only via JR), so the last RET forces the calling routine to return. Used by the routines at <a href="26256.html">6690</a>, <a href="26292.html">66b4</a> and <a href="26320.html">66d0</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Rocket object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26364"></span>66fc</td>
+<td class="instruction">ld l,(ix+$01)</td>
+<td class="comment-1" rowspan="1">Rocket X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26367"></span>66ff</td>
+<td class="instruction">ld h,(ix+$02)</td>
+<td class="comment-1" rowspan="1">Rocket Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26370"></span>6702</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26371"></span>6703</td>
+<td class="instruction">ld a,(ix+$04)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=colour attribute</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26374"></span>6706</td>
+<td class="instruction">ld b,a</td>
+<td class="comment-1" rowspan="2">Set loop counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26375"></span>6707</td>
+<td class="instruction">ld c,$00</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26377"></span>
+<div class="comments">
+<div class="paragraph">
+Draw all collected rocket modules.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26377"></span>6709</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26378"></span>670a</td>
+<td class="instruction">ld a,($5df0)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=player level</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26381"></span>670d</td>
+<td class="instruction">rrca</td>
+<td class="comment-1" rowspan="5">Calculate which sprite to use for the current level</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26382"></span>670e</td>
+<td class="instruction">rrca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26383"></span>670f</td>
+<td class="instruction">and $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26385"></span>6711</td>
+<td class="instruction">or c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26386"></span>6712</td>
+<td class="instruction">sla a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26388"></span>6714</td>
+<td class="instruction">call <a href="25777.html">$64b1</a></td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=item address from lookup table using <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26391"></span>6717</td>
+<td class="instruction">call <a href="29222.html">$7226</a></td>
+<td class="comment-1" rowspan="1">Update actor position using <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26394"></span>671a</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Restore loop counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26395"></span>671b</td>
+<td class="instruction">ld a,(ix+$02)</td>
+<td class="comment-1" rowspan="3">Subtract 16 from a rocket Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26398"></span>671e</td>
+<td class="instruction">sub $10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26400"></span>6720</td>
+<td class="instruction">ld (ix+$02),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26403"></span>6723</td>
+<td class="instruction">ld a,($5dc1)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26406"></span>6726</td>
+<td class="instruction">sub $10</td>
+<td class="comment-1" rowspan="1">Subtract 16 from Actor Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26408"></span>6728</td>
+<td class="instruction">ld ($5dc1),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26411"></span>672b</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26412"></span>672c</td>
+<td class="instruction">add a,$04</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26414"></span>672e</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26415"></span>672f</td>
+<td class="instruction">djnz $6709</td>
+<td class="comment-1" rowspan="1">Loop and update rocket/actor again</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26417"></span>6731</td>
+<td class="instruction">ld a,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26419"></span>6733</td>
+<td class="instruction">ld ($5dc4),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26422"></span>6736</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26423"></span>6737</td>
+<td class="instruction">ld ($5dc3),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26426"></span>673a</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26427"></span>673b</td>
+<td class="instruction">ld (ix+$02),h</td>
+<td class="comment-1" rowspan="1">Update rocket Y position: only Y changed in loop above</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26430"></span>673e</td>
+<td class="instruction">ld ($5dcf),hl</td>
+<td class="comment-1" rowspan="1">Update current Actor Y,X coords</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26433"></span>
+<div class="comments">
+<div class="paragraph">
+Colour the rocket modules based on collected fuel pod count.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26433"></span>6741</td>
+<td class="instruction">ld b,(ix+$04)</td>
+<td class="comment-1" rowspan="3">Rocket "state"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26436"></span>6744</td>
+<td class="instruction">sla b</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26438"></span>6746</td>
+<td class="instruction">ld a,b</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26439"></span>6747</td>
+<td class="instruction">cp $06</td>
+<td class="comment-1" rowspan="5">if value &lt; 6, or the fuel pod counter is zero, then set rocket colour to white and redraw</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26441"></span>6749</td>
+<td class="instruction">jr c,$6772</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26443"></span>674b</td>
+<td class="instruction">ld a,(ix+$05)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26446"></span>674e</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26447"></span>674f</td>
+<td class="instruction">jr z,$6772</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26449"></span>6751</td>
+<td class="instruction">cp $06</td>
+<td class="comment-1" rowspan="1">Check if all fuel collected (is checked at 6760)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26451"></span>6753</td>
+<td class="instruction">push af</td>
+<td class="comment-1" rowspan="1">Preserve Carry (no care for <span class="register">A</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26452"></span>6754</td>
+<td class="instruction">ld a,($5dcc)</td>
+<td class="comment-1" rowspan="1">Game timer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26455"></span>6757</td>
+<td class="instruction">rrca</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26456"></span>6758</td>
+<td class="instruction">rrca</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26457"></span>6759</td>
+<td class="instruction">and $04</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26459"></span>675b</td>
+<td class="instruction">or $43</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26461"></span>675d</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26462"></span>675e</td>
+<td class="instruction">pop af</td>
+<td class="comment-1" rowspan="1">Restore Carry value (from 6751 check above)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26463"></span>675f</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26464"></span>6760</td>
+<td class="instruction">jr nc,$6774</td>
+<td class="comment-1" rowspan="1">Colour all sprites if all fuel has been collected</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26466"></span>6762</td>
+<td class="instruction">ld b,(ix+$05)</td>
+<td class="comment-1" rowspan="1">else use fuel pod count as loop counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26469"></span>6765</td>
+<td class="instruction">ld (ix+$03),$43</td>
+<td class="comment-1" rowspan="1">Set colour to Magenta</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26473"></span>6769</td>
+<td class="instruction">call $677a</td>
+<td class="comment-1" rowspan="1">Update sprite colour</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26476"></span>
+<div class="comments">
+<div class="paragraph">
+Set part of rocket back to white based on amount of uncollected fuel pods.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26476"></span>676c</td>
+<td class="instruction">ld a,$06</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=max possible fuel pods</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26478"></span>676e</td>
+<td class="instruction">sub (ix+$05)</td>
+<td class="comment-1" rowspan="1">Subtract remaining fuel pod count</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26481"></span>6771</td>
+<td class="instruction">ld b,a</td>
+<td class="comment-1" rowspan="1">Set loop counter</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26482"></span>6772</td>
+<td class="instruction">ld a,$47</td>
+<td class="comment-1" rowspan="2">Set Rocket colour to white</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26484"></span>6774</td>
+<td class="instruction">ld (ix+$03),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26487"></span>6777</td>
+<td class="instruction">jp $677a</td>
+<td class="comment-1" rowspan="1">Redundant JP!</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26490"></span>677a</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26491"></span>677b</td>
+<td class="instruction">call <a href="29079.html">$7197</a></td>
+<td class="comment-1" rowspan="1">Colourize the sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26494"></span>677e</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26495"></span>677f</td>
+<td class="instruction">ld hl,($5dcf)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=current rocket sprite coords</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26498"></span>6782</td>
+<td class="instruction">ld a,h</td>
+<td class="comment-1" rowspan="3">Update Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26499"></span>6783</td>
+<td class="instruction">sub $08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26501"></span>6785</td>
+<td class="instruction">ld h,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26502"></span>6786</td>
+<td class="instruction">ld ($5dcf),hl</td>
+<td class="comment-1" rowspan="1">Update current rocket sprite coords</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26505"></span>6789</td>
+<td class="instruction">djnz $677a</td>
+<td class="comment-1" rowspan="1">Loop and continue colouring</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26507"></span>678b</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26320.html">66d0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26364">Map</a></td>
+<td class="next">
+Next: <a href="26508.html">678c</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

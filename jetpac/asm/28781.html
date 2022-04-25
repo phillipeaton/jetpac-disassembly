@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 706d</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28613.html">6fc5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28781">Map</a></td>
+<td class="next">
+Next: <a href="28836.html">70a4</a>
+</td>
+</tr>
+</table>
+<div class="description">706d: Display the remaining player lives in the status bar.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="24724.html">6094</a>, <a href="24948.html">6174</a> and <a href="26320.html">66d0</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28781"></span>706d</td>
+<td class="instruction">ld hl,$0040</td>
+<td class="comment-1" rowspan="1">Screen column for Player 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28784"></span>7070</td>
+<td class="instruction">call <a href="29392.html">$72d0</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=coord to screen address (using <span class="register">HL</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28787"></span>7073</td>
+<td class="instruction">call <a href="28844.html">$70ac</a></td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=Get player 1 lives count</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28790"></span>7076</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28791"></span>7077</td>
+<td class="instruction">jr z,$7095</td>
+<td class="comment-1" rowspan="1">Display empty space if no lives remaining</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28793"></span>7079</td>
+<td class="instruction">call $7088</td>
+<td class="comment-1" rowspan="1">Display lives counter and icon sprite</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28796"></span>
+<div class="comments">
+<div class="paragraph">
+Now display lives for inactive player.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28796"></span>707c</td>
+<td class="instruction">ld hl,$00b0</td>
+<td class="comment-1" rowspan="1">Screen column for Player 2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28799"></span>707f</td>
+<td class="instruction">call <a href="29392.html">$72d0</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=coord to screen address (using <span class="register">HL</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28802"></span>7082</td>
+<td class="instruction">call <a href="28858.html">$70ba</a></td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=Get player 2 lives count</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28805"></span>7085</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28806"></span>7086</td>
+<td class="instruction">jr z,$709a</td>
+<td class="comment-1" rowspan="1">Display empty space if no lives remaining</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28808"></span>
+<div class="comments">
+<div class="paragraph">
+Displays the lives count and sprite icon.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28808"></span>7088</td>
+<td class="instruction">add a,$30</td>
+<td class="comment-1" rowspan="1">ASCII character starting at `0` character</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28810"></span>708a</td>
+<td class="instruction">call <a href="28949.html">$7115</a></td>
+<td class="comment-1" rowspan="1">Display font character</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28813"></span>708d</td>
+<td class="instruction">ld de,$70a4</td>
+<td class="comment-1" rowspan="1">Sprite for the lives icon</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28816"></span>7090</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28817"></span>7091</td>
+<td class="instruction">push de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28818"></span>7092</td>
+<td class="instruction">jp <a href="28964.html">$7124</a></td>
+<td class="comment-1" rowspan="1">Now display the number of lives</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28821"></span>
+<div class="comments">
+<div class="paragraph">
+Current player has no lives remaining, display spaces.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28821"></span>7095</td>
+<td class="instruction">call $709a</td>
+<td class="comment-1" rowspan="1">Display " " for no lives</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28824"></span>7098</td>
+<td class="instruction">jr $707c</td>
+<td class="comment-1" rowspan="1">Display inactive player lives count</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28826"></span>
+<div class="comments">
+<div class="paragraph">
+Display just spaces instead of number + sprite.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28826"></span>709a</td>
+<td class="instruction">ld a,$20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28828"></span>709c</td>
+<td class="instruction">call <a href="28949.html">$7115</a></td>
+<td class="comment-1" rowspan="1">Display " " font character</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28831"></span>709f</td>
+<td class="instruction">ld a,$20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28833"></span>70a1</td>
+<td class="instruction">jp <a href="28949.html">$7115</a></td>
+<td class="comment-1" rowspan="1">Display " " font character</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28613.html">6fc5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28781">Map</a></td>
+<td class="next">
+Next: <a href="28836.html">70a4</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

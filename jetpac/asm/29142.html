@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 71d6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29079.html">7197</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29142">Map</a></td>
+<td class="next">
+Next: <a href="29164.html">71ec</a>
+</td>
+</tr>
+</table>
+<div class="description">71d6: Convert a Y,X pixel coordinate to an ATTRIBUTE_FILE address.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="24992.html">61a0</a>, <a href="25005.html">61ad</a>, <a href="25290.html">62ca</a>, <a href="28613.html">6fc5</a>, <a href="28980.html">7134</a>, <a href="29079.html">7197</a> and <a href="30264.html">7638</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">Vertical coordinate in pixels (0-191).</td>
+</tr>
+<tr>
+<td class="register">L</td>
+<td class="register-desc">Horizontal coordinate in pixels (0-255).</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">An address in the attribute file.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29142"></span>71d6</td>
+<td class="instruction">ld a,l</td>
+<td class="comment-1" rowspan="1">Horizontal coordinate. Example, if $B8:</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29143"></span>71d7</td>
+<td class="instruction">rrca</td>
+<td class="comment-1" rowspan="1">A=01011100, C=0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29144"></span>71d8</td>
+<td class="instruction">rrca</td>
+<td class="comment-1" rowspan="1">A=00101110, C=0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29145"></span>71d9</td>
+<td class="instruction">rrca</td>
+<td class="comment-1" rowspan="1">A=00010111, C=0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29146"></span>71da</td>
+<td class="instruction">and $1f</td>
+<td class="comment-1" rowspan="1">A=00010111 &lt;- screen width?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29148"></span>71dc</td>
+<td class="instruction">ld l,a</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=$17</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29149"></span>71dd</td>
+<td class="instruction">ld a,h</td>
+<td class="comment-1" rowspan="1">Vertical coordinate. Example, if $68:</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29150"></span>71de</td>
+<td class="instruction">rlca</td>
+<td class="comment-1" rowspan="1">A=00110100, C=0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29151"></span>71df</td>
+<td class="instruction">rlca</td>
+<td class="comment-1" rowspan="1">A=00011010, C=0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29152"></span>71e0</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1">Backup value to <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29153"></span>71e1</td>
+<td class="instruction">and $e0</td>
+<td class="comment-1" rowspan="1">A=00000000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29155"></span>71e3</td>
+<td class="instruction">or l</td>
+<td class="comment-1" rowspan="1">A=00010111</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29156"></span>71e4</td>
+<td class="instruction">ld l,a</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=$17 &lt;- new LSB of attribute file</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29157"></span>71e5</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="1">Restore the row value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29158"></span>71e6</td>
+<td class="instruction">and $03</td>
+<td class="comment-1" rowspan="1">A=00000010 &lt;- top of screen?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29160"></span>71e8</td>
+<td class="instruction">or $58</td>
+<td class="comment-1" rowspan="1">A=01011010</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29162"></span>71ea</td>
+<td class="instruction">ld h,a</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=$5A &lt;- ATTRIBUTE_FILE address (&gt;= 5800)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29163"></span>71eb</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1">Return <span class="register">HL</span>=5A17</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29079.html">7197</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29142">Map</a></td>
+<td class="next">
+Next: <a href="29164.html">71ec</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

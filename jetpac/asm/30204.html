@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 75fc</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30189.html">75ed</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30204">Map</a></td>
+<td class="next">
+Next: <a href="30264.html">7638</a>
+</td>
+</tr>
+</table>
+<div class="description">75fc: Vertical platform collision detection for Jetman/Aliens.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="30161.html">75d1</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Sprite X position.</td>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">Collision state on entry.</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Address of platform object.</td>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Jetman/Alien object.</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">Collision state. Bit: 7=landed, 4=hits head, 3=?, 2=?.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30204"></span>75fc</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Platform Y location</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30205"></span>75fd</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Platform width</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30206"></span>75fe</td>
+<td class="instruction">cp (hl)</td>
+<td class="comment-1" rowspan="2">X position &gt;= width (no collision) so try next platform</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30207"></span>75ff</td>
+<td class="instruction">jp nc,$7630</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30210"></span>7602</td>
+<td class="instruction">add a,$12</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30212"></span>7604</td>
+<td class="instruction">cp (hl)</td>
+<td class="comment-1" rowspan="3">Set bit 3 if collision: X position &gt;= width</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30213"></span>7605</td>
+<td class="instruction">jp c,$760a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30216"></span>7608</td>
+<td class="instruction">set 3,e</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30218"></span>760a</td>
+<td class="instruction">dec hl</td>
+<td class="comment-1" rowspan="1">Platform Y location</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30219"></span>760b</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=platform Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30220"></span>760c</td>
+<td class="instruction">sub (ix+$02)</td>
+<td class="comment-1" rowspan="1">Subtract sprite Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30223"></span>760f</td>
+<td class="instruction">neg</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30225"></span>7611</td>
+<td class="instruction">inc a</td>
+<td class="comment-1" rowspan="2">Add 2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30226"></span>7612</td>
+<td class="instruction">inc a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30227"></span>7613</td>
+<td class="instruction">jp m,$7630</td>
+<td class="comment-1" rowspan="1">Next platform if no collision: Y position is negative</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30230"></span>7616</td>
+<td class="instruction">cp $02</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span> &lt; 2, Landed on platform</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30232"></span>7618</td>
+<td class="instruction">jr c,$762c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30234"></span>761a</td>
+<td class="instruction">cp (ix+$07)</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span> &lt; sprite height, hits underneath of platform?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30237"></span>761d</td>
+<td class="instruction">jr c,$7628</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30239"></span>761f</td>
+<td class="instruction">dec a</td>
+<td class="comment-1" rowspan="2">Subtract 2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30240"></span>7620</td>
+<td class="instruction">dec a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30241"></span>7621</td>
+<td class="instruction">cp (ix+$07)</td>
+<td class="comment-1" rowspan="2">Next platform if no collision: Y position &gt;= sprite height</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30244"></span>7624</td>
+<td class="instruction">jr nc,$7630</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="30246"></span>
+<div class="comments">
+<div class="paragraph">
+Jetman hits the bottom of a platform
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30246"></span>7626</td>
+<td class="instruction">set 4,e</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="30248"></span>7628</td>
+<td class="instruction">set 2,e</td>
+<td class="comment-1" rowspan="1">Set bit-2 (4) &lt;- Jetman is leaving a platform?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30250"></span>762a</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Set <span class="register">HL</span> back to beginning of platform object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30251"></span>762b</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="30252"></span>762c</td>
+<td class="instruction">set 7,e</td>
+<td class="comment-1" rowspan="1">Bit-7 indicates landing on a platform</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30254"></span>762e</td>
+<td class="instruction">jr $7628</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="30256"></span>7630</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Set <span class="register">HL</span> back to beginning of platform object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30257"></span>7631</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="4">Increment <span class="register">HL</span> until is points to the start of the next platform sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30258"></span>7632</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30259"></span>7633</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30260"></span>7634</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30261"></span>7635</td>
+<td class="instruction">djnz <a href="30189.html">$75ed</a></td>
+<td class="comment-1" rowspan="1">Loop back until all 4 platforms have been checked</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30263"></span>7637</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30189.html">75ed</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30204">Map</a></td>
+<td class="next">
+Next: <a href="30264.html">7638</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6966</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26964.html">6954</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26982">Map</a></td>
+<td class="next">
+Next: <a href="26993.html">6971</a>
+</td>
+</tr>
+</table>
+<div class="description">6966: Reset the modified code within the current frame.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="26993.html">6971</a>, but only after that routine's code has been modified by <a href="26926.html">692e</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26982"></span>6966</td>
+<td class="instruction">call <a href="26964.html">$6954</a></td>
+<td class="comment-1" rowspan="1">First, reset the self-modifying code</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26985"></span>6969</td>
+<td class="instruction">pop ix</td>
+<td class="comment-1" rowspan="1">Restore jump table address, saved during frame update</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26987"></span>696b</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="2">frame ticked=false - not a new frame</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26988"></span>696c</td>
+<td class="instruction">ld ($5dd5),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26991"></span>696f</td>
+<td class="instruction">ei</td>
+<td class="comment-1" rowspan="2">Needed to tick over SYSVAR_FRAMES, main loop will disable interrupts with the frame update call</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26992"></span>6970</td>
+<td class="instruction">ret</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26964.html">6954</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26982">Map</a></td>
+<td class="next">
+Next: <a href="26993.html">6971</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 683e</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26681.html">6839</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26686">Map</a></td>
+<td class="next">
+Next: <a href="26717.html">685d</a>
+</td>
+</tr>
+</table>
+<div class="description">683e: Animate explosion after killing an alien.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="25686.html">6456</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26686"></span>683e</td>
+<td class="instruction">push ix</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26688"></span>6840</td>
+<td class="instruction">ld ix,$5d80</td>
+<td class="comment-1" rowspan="1">Jetman explosion animation object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26692"></span>6844</td>
+<td class="instruction">ld hl,$5d00</td>
+<td class="comment-1" rowspan="1">Jetman object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26695"></span>6847</td>
+<td class="instruction">ld c,(hl)</td>
+<td class="comment-1" rowspan="1">Assign direction to temp variable</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26696"></span>6848</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Animation X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26697"></span>6849</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="2">Set explosion X position to match Jetman X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26698"></span>684a</td>
+<td class="instruction">ld (ix+$01),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26701"></span>684d</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="3">Set explosion Y position to match Jetman</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26702"></span>684e</td>
+<td class="instruction">ld a,(hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26703"></span>684f</td>
+<td class="instruction">ld (ix+$02),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26706"></span>6852</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=Jetman direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26707"></span>6853</td>
+<td class="instruction">call <a href="26740.html">$6874</a></td>
+<td class="comment-1" rowspan="1">Reset actor, which also sets anim object "state" to $01</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26710"></span>6856</td>
+<td class="instruction">pop ix</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26712"></span>6858</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26713"></span>6859</td>
+<td class="instruction">ld ($5d00),a</td>
+<td class="comment-1" rowspan="1">Reset Jetman direction to not moving</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26716"></span>685c</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26681.html">6839</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26686">Map</a></td>
+<td class="next">
+Next: <a href="26717.html">685d</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

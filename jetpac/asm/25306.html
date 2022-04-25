@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 62da</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25290.html">62ca</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25306">Map</a></td>
+<td class="next">
+Next: <a href="25342.html">62fe</a>
+</td>
+</tr>
+</table>
+<div class="description">62da: Reset current and inactive player data on new game.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="25342.html">62fe</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25306"></span>62da</td>
+<td class="instruction">ld b,$02</td>
+<td class="comment-1" rowspan="1">Loop counter: current then inactive player</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25308"></span>62dc</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25309"></span>62dd</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25310"></span>62de</td>
+<td class="instruction">ld ($5df0),a</td>
+<td class="comment-1" rowspan="1">Reset player level</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25313"></span>62e1</td>
+<td class="instruction">ld a,$04</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25315"></span>62e3</td>
+<td class="instruction">ld ($5df1),a</td>
+<td class="comment-1" rowspan="1">First player has 4 "remaining" lives</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25318"></span>62e6</td>
+<td class="instruction">call <a href="24743.html">$60a7</a></td>
+<td class="comment-1" rowspan="1">Reset the rocket modules</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25321"></span>62e9</td>
+<td class="instruction">call <a href="24900.html">$6144</a></td>
+<td class="comment-1" rowspan="1">Swap player game states</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25324"></span>62ec</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25325"></span>62ed</td>
+<td class="instruction">djnz $62dc</td>
+<td class="comment-1" rowspan="1">Repeat again for inactive player</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25327"></span>62ef</td>
+<td class="instruction">ld a,$05</td>
+<td class="comment-1" rowspan="2">But now update inactive player to have 5 "remaining" lives, not 4</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25329"></span>62f1</td>
+<td class="instruction">ld ($5df9),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25332"></span>62f4</td>
+<td class="instruction">ld a,($5cf3)</td>
+<td class="comment-1" rowspan="1">Game options</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25335"></span>62f7</td>
+<td class="instruction">and $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25337"></span>62f9</td>
+<td class="instruction">ret nz</td>
+<td class="comment-1" rowspan="1">Return if two player game</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25338"></span>62fa</td>
+<td class="instruction">ld ($5df9),a</td>
+<td class="comment-1" rowspan="1">else one player game, so inactive player has no lives</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25341"></span>62fd</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25290.html">62ca</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25306">Map</a></td>
+<td class="next">
+Next: <a href="25342.html">62fe</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

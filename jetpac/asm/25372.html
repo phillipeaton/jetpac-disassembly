@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 631c</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25360.html">6310</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25372">Map</a></td>
+<td class="next">
+Next: <a href="25396.html">6334</a>
+</td>
+</tr>
+</table>
+<div class="description">631c: The main game loop.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+This routine is called until a new item/alien is generated, then <a href="25360.html">6310</a> is called.
+</div>
+<div class="paragraph">
+Used by the routines at <a href="25360.html">6310</a>, <a href="26926.html">692e</a> and <a href="26993.html">6971</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">address of main jump table</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25372"></span>631c</td>
+<td class="instruction">ld a,($5c78)</td>
+<td class="comment-1" rowspan="4">Compare SYSVAR_FRAMES and last_frame</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25375"></span>631f</td>
+<td class="instruction">ld c,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25376"></span>6320</td>
+<td class="instruction">ld a,($5dd4)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25379"></span>6323</td>
+<td class="instruction">cp c</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25380"></span>
+<div class="comments">
+<div class="paragraph">
+Note: if we have EI here, then <a href="26926.html">692e</a> will be called and DI executed.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25380"></span>6324</td>
+<td class="instruction">call nz,<a href="26926.html">$692e</a></td>
+<td class="comment-1" rowspan="1">If they're not equal, do frame update</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25383"></span>
+<div class="comments">
+<div class="paragraph">
+When one of the `main_jump_table` update routines RETurns, the new game actor routine will be called.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25383"></span>6327</td>
+<td class="instruction">ld hl,$6971</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=generate new actor routine</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25386"></span>632a</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">...and push `ret` address to the stack.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25387"></span>
+<div class="comments">
+<div class="paragraph">
+Execute one of the update routines using the value in IX.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25387"></span>632b</td>
+<td class="instruction">ld hl,$633d</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=main jump table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25390"></span>632e</td>
+<td class="instruction">ld a,(ix+$00)</td>
+<td class="comment-1" rowspan="3">Calculate the jump table offset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25393"></span>6331</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25394"></span>6332</td>
+<td class="instruction">and $7e</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25360.html">6310</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25372">Map</a></td>
+<td class="next">
+Next: <a href="25396.html">6334</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

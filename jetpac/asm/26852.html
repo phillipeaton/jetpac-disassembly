@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 68e4</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26840.html">68d8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26852">Map</a></td>
+<td class="next">
+Next: <a href="26866.html">68f2</a>
+</td>
+</tr>
+</table>
+<div class="description">68e4: Frame rate limiter.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Called at the beginning of each game loop. Setting a higher pause value will slow down aliens, and the speed at which fuel/collectibles fall.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26852"></span>68e4</td>
+<td class="instruction">ld a,($5dd5)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=frame ticked?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26855"></span>68e7</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26856"></span>68e8</td>
+<td class="instruction">ret nz</td>
+<td class="comment-1" rowspan="1">We have a new frame, so no pause</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26857"></span>
+<div class="comments">
+<div class="paragraph">
+Execute an end-of-frame pause for the correct game speed
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26857"></span>68e9</td>
+<td class="instruction">ld hl,$00c0</td>
+<td class="comment-1" rowspan="5"><span class="register">HL</span>=pause counter (192)</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26860"></span>68ec</td>
+<td class="instruction">dec hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26861"></span>68ed</td>
+<td class="instruction">ld a,l</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26862"></span>68ee</td>
+<td class="instruction">or h</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26863"></span>68ef</td>
+<td class="instruction">jr nz,$68ec</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26865"></span>68f1</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26840.html">68d8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26852">Map</a></td>
+<td class="next">
+Next: <a href="26866.html">68f2</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

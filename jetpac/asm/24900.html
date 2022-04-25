@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6144</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24759.html">60b7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24900">Map</a></td>
+<td class="next">
+Next: <a href="24929.html">6161</a>
+</td>
+</tr>
+</table>
+<div class="description">6144: Swap current/inactive player/rocket states.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="24759.html">60b7</a> and <a href="25306.html">62da</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24900"></span>6144</td>
+<td class="instruction">ld hl,$5df0</td>
+<td class="comment-1" rowspan="1">Current player level/lives</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24903"></span>6147</td>
+<td class="instruction">ld de,$5df8</td>
+<td class="comment-1" rowspan="1">Inactive player level/lives</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24906"></span>614a</td>
+<td class="instruction">ld b,$02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24908"></span>614c</td>
+<td class="instruction">call $6157</td>
+<td class="comment-1" rowspan="1">Swap 2 bytes</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24911"></span>
+<div class="comments">
+<div class="paragraph">
+Now swap the current/inactive rocket states.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24911"></span>614f</td>
+<td class="instruction">ld hl,$5d30</td>
+<td class="comment-1" rowspan="1">Current player rocker state</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24914"></span>6152</td>
+<td class="instruction">ld de,$5d98</td>
+<td class="comment-1" rowspan="1">Inactive player rocker state</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24917"></span>6155</td>
+<td class="instruction">ld b,$18</td>
+<td class="comment-1" rowspan="1">We will be swapping 24 bytes</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24919"></span>
+<div class="comments">
+<div class="paragraph">
+Sub-routine for swapping HL/DE bytes.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24919"></span>6157</td>
+<td class="instruction">ld a,(de)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24920"></span>6158</td>
+<td class="instruction">ld c,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24921"></span>6159</td>
+<td class="instruction">ld (hl),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24922"></span>615a</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24923"></span>615b</td>
+<td class="instruction">ld (de),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24924"></span>615c</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24925"></span>615d</td>
+<td class="instruction">inc de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24926"></span>615e</td>
+<td class="instruction">djnz $6157</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24928"></span>6160</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24759.html">60b7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24900">Map</a></td>
+<td class="next">
+Next: <a href="24929.html">6161</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

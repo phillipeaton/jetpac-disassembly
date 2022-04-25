@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6083</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24676.html">6064</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24707">Map</a></td>
+<td class="next">
+Next: <a href="24724.html">6094</a>
+</td>
+</tr>
+</table>
+<div class="description">6083: Initialises a new level.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+A new Rocket is generated every 4 levels, otherwise it's a normal fuel collecting level. Used by the routines at <a href="25342.html">62fe</a> and <a href="26256.html">6690</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24707"></span>6083</td>
+<td class="instruction">ld a,($5df0)</td>
+<td class="comment-1" rowspan="2">Check if player level is a MOD of 4?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24710"></span>6086</td>
+<td class="instruction">and $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24712"></span>6088</td>
+<td class="instruction">jr nz,<a href="24724.html">$6094</a></td>
+<td class="comment-1" rowspan="1">If not, initialise the level normally</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24714"></span>
+<div class="comments">
+<div class="paragraph">
+Initialisation for a new rocket level.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24714"></span>608a</td>
+<td class="instruction">call <a href="24743.html">$60a7</a></td>
+<td class="comment-1" rowspan="1">Reset all rocket modules with defaults</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24717"></span>608d</td>
+<td class="instruction">ld hl,$5df1</td>
+<td class="comment-1" rowspan="2">Jetman has boarded the rocket; increment lives count. Used for display purposes only</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24720"></span>6090</td>
+<td class="instruction">inc (hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24721"></span>6091</td>
+<td class="instruction">call <a href="24948.html">$6174</a></td>
+<td class="comment-1" rowspan="1">Initialise the player for the next level</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24676.html">6064</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24707">Map</a></td>
+<td class="next">
+Next: <a href="24724.html">6094</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

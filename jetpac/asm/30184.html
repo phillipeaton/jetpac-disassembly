@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 75e8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30161.html">75d1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30184">Map</a></td>
+<td class="next">
+Next: <a href="30189.html">75ed</a>
+</td>
+</tr>
+</table>
+<div class="description">75e8: Jetman/platform collision detection.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+NOTE: collision detection is location based not pixel/colour based, so even if platform tiles are not drawn, a collision will be detected! Used by the routines at <a href="25507.html">63a3</a>, <a href="25697.html">6461</a>, <a href="25832.html">64e8</a>, <a href="27189.html">6a35</a>, <a href="27320.html">6ab8</a>, <a href="27640.html">6bf8</a>, <a href="27838.html#27863">6cd7</a>, <a href="28060.html">6d9c</a>, <a href="29811.html">7473</a> and <a href="30012.html">753c</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Jetman or Alien object.</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">Collision state.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30184"></span>75e8</td>
+<td class="instruction">ld b,$04</td>
+<td class="comment-1" rowspan="1">Loop counter (4 platforms to check)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30186"></span>75ea</td>
+<td class="instruction">ld hl,$6003</td>
+<td class="comment-1" rowspan="1">Platform location/size params</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30161.html">75d1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30184">Map</a></td>
+<td class="next">
+Next: <a href="30189.html">75ed</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

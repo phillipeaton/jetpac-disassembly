@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 70c2</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28858.html">70ba</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28866">Map</a></td>
+<td class="next">
+Next: <a href="28901.html">70e5</a>
+</td>
+</tr>
+</table>
+<div class="description">70c2: Add points to the active player's score.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="25507.html">63a3</a>, <a href="25697.html">6461</a>, <a href="25891.html">6523</a>, <a href="27189.html">6a35</a>, <a href="27627.html">6beb</a>, <a href="27996.html">6d5c</a> and <a href="28060.html">6d9c</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">The number of points (in decimal) to be added to the score.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28866"></span>70c2</td>
+<td class="instruction">ld a,($5dd1)</td>
+<td class="comment-1" rowspan="3">Use player 2 score if current player is 2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28869"></span>70c5</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28870"></span>70c6</td>
+<td class="instruction">jr nz,$70cd</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28872"></span>70c8</td>
+<td class="instruction">ld hl,$5cf6</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28875"></span>70cb</td>
+<td class="instruction">jr $70d0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="28877"></span>70cd</td>
+<td class="instruction">ld hl,$5cf9</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28880"></span>
+<div class="comments">
+<div class="paragraph">
+Add the points to the current score.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28880"></span>70d0</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="4">Update score byte #3, with BCD conversion</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28881"></span>70d1</td>
+<td class="instruction">add a,c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28882"></span>70d2</td>
+<td class="instruction">daa</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28883"></span>70d3</td>
+<td class="instruction">ld (hl),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28884"></span>70d4</td>
+<td class="instruction">dec hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28885"></span>70d5</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="4">Update score byte #2, with BCD conversion</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28886"></span>70d6</td>
+<td class="instruction">adc a,b</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28887"></span>70d7</td>
+<td class="instruction">daa</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28888"></span>70d8</td>
+<td class="instruction">ld (hl),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28889"></span>70d9</td>
+<td class="instruction">dec hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28890"></span>70da</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="4">Update score byte #1, with BCD conversion</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28891"></span>70db</td>
+<td class="instruction">adc a,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28893"></span>70dd</td>
+<td class="instruction">daa</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28894"></span>70de</td>
+<td class="instruction">ld (hl),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28895"></span>70df</td>
+<td class="instruction">ld a,($5dd1)</td>
+<td class="comment-1" rowspan="3">Jump and show player 2 score if current player is 2, else show player 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28898"></span>70e2</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28899"></span>70e3</td>
+<td class="instruction">jr nz,<a href="28909.html">$70ed</a></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28858.html">70ba</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28866">Map</a></td>
+<td class="next">
+Next: <a href="28901.html">70e5</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

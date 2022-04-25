@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 75ed</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30184.html">75e8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30189">Map</a></td>
+<td class="next">
+Next: <a href="30204.html">75fc</a>
+</td>
+</tr>
+</table>
+<div class="description">75ed: Horizontal platform collision detection for Jetman/Alien.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="30204.html">75fc</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Address of platform object.</td>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Jetman or Alien object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30189"></span>75ed</td>
+<td class="instruction">ld e,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30191"></span>75ef</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30192"></span>75f0</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=Platform X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30193"></span>75f1</td>
+<td class="instruction">ld a,(hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30194"></span>75f2</td>
+<td class="instruction">sub (ix+$01)</td>
+<td class="comment-1" rowspan="1">Subtract Jetman/Alien X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30197"></span>75f5</td>
+<td class="instruction">jp p,<a href="30161.html">$75d1</a></td>
+<td class="comment-1" rowspan="1">If positive, Horizontal collision detection</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30200"></span>75f8</td>
+<td class="instruction">neg</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30202"></span>75fa</td>
+<td class="instruction">set 6,e</td>
+<td class="comment-1" rowspan="1">Set bit-6 and then vertical collision detection</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30184.html">75e8</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30189">Map</a></td>
+<td class="next">
+Next: <a href="30204.html">75fc</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 73f1</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29658.html">73da</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29681">Map</a></td>
+<td class="next">
+Next: <a href="29714.html">7412</a>
+</td>
+</tr>
+</table>
+<div class="description">73f1: Apply gravity to Jetman if no thrust button detected.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29946.html">74fa</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Jetman object.</td>
+</tr>
+<tr>
+<td class="register">H</td>
+<td class="register-desc">New X position.</td>
+</tr>
+<tr>
+<td class="register">L</td>
+<td class="register-desc">New Thrust value.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29681"></span>73f1</td>
+<td class="instruction">ld a,l</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29682"></span>73f2</td>
+<td class="instruction">ld ($5dc7),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29685"></span>73f5</td>
+<td class="instruction">ld (ix+$01),h</td>
+<td class="comment-1" rowspan="1">Set new Jetman X position</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="29688"></span>
+<div class="comments">
+<div class="paragraph">
+Check if thruster is being aplpied
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29688"></span>73f8</td>
+<td class="instruction">ld a,($5cf3)</td>
+<td class="comment-1" rowspan="1">Game options</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29691"></span>73fb</td>
+<td class="instruction">bit 1,a</td>
+<td class="comment-1" rowspan="2">Use Joystick? Jump if so.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29693"></span>73fd</td>
+<td class="instruction">jp nz,<a href="29758.html">$743e</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="29696"></span>
+<div class="comments">
+<div class="paragraph">
+Induce a slight pause before reading keys - this is required so that the gravity kicks in. It also acts as an undocumented hover key.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29696"></span>7400</td>
+<td class="instruction">ld b,$02</td>
+<td class="comment-1" rowspan="1">Loop count: read left and right row of keys</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29698"></span>7402</td>
+<td class="instruction">ld a,$ef</td>
+<td class="comment-1" rowspan="1">Read top-right row of keys</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29700"></span>7404</td>
+<td class="instruction">out ($fd),a</td>
+<td class="comment-1" rowspan="1">Set port for reading keyboard</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29702"></span>7406</td>
+<td class="instruction">in a,($fe)</td>
+<td class="comment-1" rowspan="1">...and read that row of keys</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29704"></span>7408</td>
+<td class="instruction">and $1f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29706"></span>740a</td>
+<td class="instruction">cp $1f</td>
+<td class="comment-1" rowspan="1">Check if any keys on the row are pressed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29708"></span>740c</td>
+<td class="instruction">jr nz,<a href="29752.html">$7438</a></td>
+<td class="comment-1" rowspan="1">Jump if so - hover Jetman</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29710"></span>740e</td>
+<td class="instruction">ld a,$f7</td>
+<td class="comment-1" rowspan="1">Read top-left row of keys</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29712"></span>7410</td>
+<td class="instruction">djnz $7404</td>
+<td class="comment-1" rowspan="1">...and repeat</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29658.html">73da</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29681">Map</a></td>
+<td class="next">
+Next: <a href="29714.html">7412</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

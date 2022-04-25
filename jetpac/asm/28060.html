@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6d9c</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28052.html">6d94</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28060">Map</a></td>
+<td class="next">
+Next: <a href="28137.html">6de9</a>
+</td>
+</tr>
+</table>
+<div class="description">6d9c: Update the meteor.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Alien object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28060"></span>6d9c</td>
+<td class="instruction">call <a href="29423.html">$72ef</a></td>
+<td class="comment-1" rowspan="1">Update Actor position direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28063"></span>6d9f</td>
+<td class="instruction">ld hl,$5dcb</td>
+<td class="comment-1" rowspan="2">Increment alien number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28066"></span>6da2</td>
+<td class="instruction">inc (hl)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28067"></span>
+<div class="comments">
+<div class="paragraph">
+Update the alien X position.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28067"></span>6da3</td>
+<td class="instruction">ld a,(ix+$01)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28070"></span>6da6</td>
+<td class="instruction">bit 6,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Check moving left/right bit</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28074"></span>6daa</td>
+<td class="instruction">jr nz,$6de4</td>
+<td class="comment-1" rowspan="1">If moving left, subtract 2 from direction (via jump)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28076"></span>6dac</td>
+<td class="instruction">add a,(ix+$05)</td>
+<td class="comment-1" rowspan="1">otherwise, we add alien X speed to value</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28079"></span>6daf</td>
+<td class="instruction">ld (ix+$01),a</td>
+<td class="comment-1" rowspan="1">Set new X position +/- 2</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28082"></span>
+<div class="comments">
+<div class="paragraph">
+Update the alien Y position.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28082"></span>6db2</td>
+<td class="instruction">ld a,(ix+$02)</td>
+<td class="comment-1" rowspan="3">Add Y speed to current Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28085"></span>6db5</td>
+<td class="instruction">add a,(ix+$06)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28088"></span>6db8</td>
+<td class="instruction">ld (ix+$02),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28091"></span>6dbb</td>
+<td class="instruction">call <a href="29234.html">$7232</a></td>
+<td class="comment-1" rowspan="1">Update actor X position (using temp direction)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28094"></span>6dbe</td>
+<td class="instruction">call <a href="29079.html">$7197</a></td>
+<td class="comment-1" rowspan="1">Colourize the sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28097"></span>6dc1</td>
+<td class="instruction">call <a href="30184.html">$75e8</a></td>
+<td class="comment-1" rowspan="1">Platform collision (returns <span class="register">E</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28100"></span>6dc4</td>
+<td class="instruction">bit 2,e</td>
+<td class="comment-1" rowspan="2">Kill alien it collided with a platform</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28102"></span>6dc6</td>
+<td class="instruction">jr nz,$6ddd</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28104"></span>6dc8</td>
+<td class="instruction">call <a href="28187.html">$6e1b</a></td>
+<td class="comment-1" rowspan="1">Fire laser beam (returns <span class="register">C</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28107"></span>6dcb</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="3">Kill alien if it is dead</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28108"></span>6dcc</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28109"></span>6dcd</td>
+<td class="instruction">jr nz,$6dd7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28111"></span>6dcf</td>
+<td class="instruction">call <a href="28137.html">$6de9</a></td>
+<td class="comment-1" rowspan="1">Alien collision check (returns <span class="register">E</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28114"></span>6dd2</td>
+<td class="instruction">dec e</td>
+<td class="comment-1" rowspan="2">Alien killed by collision if <span class="register">E</span> is zero. Player gets no points!</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28115"></span>6dd3</td>
+<td class="instruction">jp z,<a href="25686.html">$6456</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28118"></span>6dd6</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28119"></span>
+<div class="comments">
+<div class="paragraph">
+Add score for Meteor kill.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28119"></span>6dd7</td>
+<td class="instruction">ld bc,$0025</td>
+<td class="comment-1" rowspan="1">25 points (decimal value)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28122"></span>6dda</td>
+<td class="instruction">call <a href="28866.html">$70c2</a></td>
+<td class="comment-1" rowspan="1">Add points to score</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28125"></span>
+<div class="comments">
+<div class="paragraph">
+Kill meteor - reset state, and play explosion SFX #1.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28125"></span>6ddd</td>
+<td class="instruction">call <a href="26717.html">$685d</a></td>
+<td class="comment-1" rowspan="1">Update actor state</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28128"></span>6de0</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span> should be 0 for the Alien SFX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28129"></span>6de1</td>
+<td class="instruction">jp <a href="26621.html">$67fd</a></td>
+<td class="comment-1" rowspan="1">Plays explosion SFX for an Alien</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28132"></span>
+<div class="comments">
+<div class="paragraph">
+Subtract 2 from horizontal direction.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28132"></span>6de4</td>
+<td class="instruction">sub (ix+$05)</td>
+<td class="comment-1" rowspan="1">Subtract X speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28135"></span>6de7</td>
+<td class="instruction">jr $6daf</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28052.html">6d94</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28060">Map</a></td>
+<td class="next">
+Next: <a href="28137.html">6de9</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

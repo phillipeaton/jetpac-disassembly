@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6e87</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28284.html">6e7c</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28295">Map</a></td>
+<td class="next">
+Next: <a href="28325.html">6ea5</a>
+</td>
+</tr>
+</table>
+<div class="description">6e87: Flip byte pair of an alien sprite so it faces opposite direction.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="28325.html">6ea5</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">Loop counter.</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Pointer to current byte of sprite.</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">Same value as on entry.</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">The flipped byte pair.</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Pointer to next byte of sprite.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28295"></span>6e87</td>
+<td class="instruction">ld a,b</td>
+<td class="comment-1" rowspan="2">Backup <span class="register">B</span> value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28296"></span>6e88</td>
+<td class="instruction">ex af,af'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28297"></span>6e89</td>
+<td class="instruction">ld c,$00</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28299"></span>6e8b</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1">Get byte from sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28300"></span>6e8c</td>
+<td class="instruction">call <a href="28284.html">$6e7c</a></td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=reversed byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28303"></span>6e8f</td>
+<td class="instruction">ld e,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28304"></span>6e90</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="2">Get next byte from sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28305"></span>6e91</td>
+<td class="instruction">ld a,(hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28306"></span>6e92</td>
+<td class="instruction">call <a href="28284.html">$6e7c</a></td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=reversed byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28309"></span>6e95</td>
+<td class="instruction">ld d,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28310"></span>6e96</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to next byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28311"></span>6e97</td>
+<td class="instruction">ld a,b</td>
+<td class="comment-1" rowspan="3">Return if all bytes have been processed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28312"></span>6e98</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28313"></span>6e99</td>
+<td class="instruction">ret z</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28314"></span>6e9a</td>
+<td class="instruction">sla e</td>
+<td class="comment-1" rowspan="4">Shift sprite 4-pixels to the right?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28316"></span>6e9c</td>
+<td class="instruction">rl d</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28318"></span>6e9e</td>
+<td class="instruction">rl c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28320"></span>6ea0</td>
+<td class="instruction">djnz $6e9a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28322"></span>6ea2</td>
+<td class="instruction">ex af,af'</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">B</span> to the original value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28323"></span>6ea3</td>
+<td class="instruction">ld b,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28324"></span>6ea4</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28284.html">6e7c</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28295">Map</a></td>
+<td class="next">
+Next: <a href="28325.html">6ea5</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6064</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24643.html">6043</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24676">Map</a></td>
+<td class="next">
+Next: <a href="24707.html">6083</a>
+</td>
+</tr>
+</table>
+<div class="description">6064: Reset the screen to its default state.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="24724.html">6094</a>, <a href="24759.html">60b7</a> and <a href="25033.html">61c9</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24676"></span>6064</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24677"></span>6065</td>
+<td class="instruction">out ($fe),a</td>
+<td class="comment-1" rowspan="1">Set screen border to black</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24679"></span>6067</td>
+<td class="instruction">call <a href="29056.html">$7180</a></td>
+<td class="comment-1" rowspan="1">Clear the screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24682"></span>606a</td>
+<td class="instruction">call <a href="29070.html">$718e</a></td>
+<td class="comment-1" rowspan="1">Reset the screen colours</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24685"></span>606d</td>
+<td class="instruction">call <a href="29018.html">$715a</a></td>
+<td class="comment-1" rowspan="1">Display score labels</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24688"></span>
+<div class="comments">
+<div class="paragraph">
+Display score labels text at the top of the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24688"></span>6070</td>
+<td class="instruction">ld hl,$5820</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=attribute file location</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24691"></span>6073</td>
+<td class="instruction">ld bc,$2046</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=tile count, and <span class="register">C</span>=yellow colour</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24694"></span>6076</td>
+<td class="instruction">ld (hl),c</td>
+<td class="comment-1" rowspan="3">Now set the tile colours</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24695"></span>6077</td>
+<td class="instruction">inc l</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24696"></span>6078</td>
+<td class="instruction">djnz $6076</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24698"></span>607a</td>
+<td class="instruction">call <a href="28901.html">$70e5</a></td>
+<td class="comment-1" rowspan="1">Update display with player 1 score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24701"></span>607d</td>
+<td class="instruction">call <a href="28909.html">$70ed</a></td>
+<td class="comment-1" rowspan="1">Update display with player 2 score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24704"></span>6080</td>
+<td class="instruction">jp <a href="28917.html">$70f5</a></td>
+<td class="comment-1" rowspan="1">Update display with high score</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24643.html">6043</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24676">Map</a></td>
+<td class="next">
+Next: <a href="24707.html">6083</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6bf1</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27627.html">6beb</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27633">Map</a></td>
+<td class="next">
+Next: <a href="27640.html">6bf8</a>
+</td>
+</tr>
+</table>
+<div class="description">6bf1: When alien was killed by laser fire, reset anim state, set explosion SFX params. Used by the routine at <a href="27189.html">6a35</a>.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="27189.html">6a35</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27633"></span>6bf1</td>
+<td class="instruction">call <a href="26717.html">$685d</a></td>
+<td class="comment-1" rowspan="1">Update actor state</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27636"></span>6bf4</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span> should be 0 for the Alien SFX</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27637"></span>6bf5</td>
+<td class="instruction">jp <a href="26621.html">$67fd</a></td>
+<td class="comment-1" rowspan="1">Plays explosion SFX for an Alien</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27627.html">6beb</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27633">Map</a></td>
+<td class="next">
+Next: <a href="27640.html">6bf8</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 7705</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30437.html">76e5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30469">Map</a></td>
+<td class="next">
+Next: <a href="30535.html">7747</a>
+</td>
+</tr>
+</table>
+<div class="description">7705: Erase sprite pixels when actor/sprite moves.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="29241.html">7239</a>, <a href="29296.html">7270</a>, <a href="29312.html">7280</a> and <a href="30555.html">775b</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">B</td>
+<td class="register-desc">Loop counter.</td>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">Actor Y position, or zero?</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Address into a sprite/buffer.</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Address in the DISPLAY_FILE.</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">BC</td>
+<td class="register-desc">is this the unchanged input value?</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">is this the unchanged input value?</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30469"></span>7705</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="3">Jump if vertical position is zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30470"></span>7706</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30471"></span>7707</td>
+<td class="instruction">jr z,$7742</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30473"></span>7709</td>
+<td class="instruction">dec c</td>
+<td class="comment-1" rowspan="1">else decrement</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30474"></span>770a</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30475"></span>770b</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="30476"></span>
+<div class="comments">
+<div class="paragraph">
+Loop to create a mask of the sprite and it write to the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30476"></span>770c</td>
+<td class="instruction">ld a,(de)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=sprite byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30477"></span>770d</td>
+<td class="instruction">cpl</td>
+<td class="comment-1" rowspan="3">Create mask and write to screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30478"></span>770e</td>
+<td class="instruction">and (hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30479"></span>770f</td>
+<td class="instruction">ld (hl),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30480"></span>7710</td>
+<td class="instruction">inc de</td>
+<td class="comment-1" rowspan="1">Next byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30481"></span>7711</td>
+<td class="instruction">inc l</td>
+<td class="comment-1" rowspan="1">Next column</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30482"></span>7712</td>
+<td class="instruction">ld a,l</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30483"></span>7713</td>
+<td class="instruction">and $1f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30485"></span>7715</td>
+<td class="instruction">jr nz,$771b</td>
+<td class="comment-1" rowspan="4">If column is zero, subtract 32</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30487"></span>7717</td>
+<td class="instruction">ld a,l</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30488"></span>7718</td>
+<td class="instruction">sub $20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30490"></span>771a</td>
+<td class="instruction">ld l,a</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30491"></span>771b</td>
+<td class="instruction">djnz $770c</td>
+<td class="comment-1" rowspan="1">Repeat and process for next byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30493"></span>771d</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> to be the display file address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30494"></span>771e</td>
+<td class="instruction">call <a href="29366.html">$72b6</a></td>
+<td class="comment-1" rowspan="1">Calculate new pixel position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30497"></span>7721</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30498"></span>7722</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1">NOTE: what is in C' register before this swap?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30499"></span>7723</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="3">Jump back to the top of routine if <span class="register">C</span> is zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30500"></span>7724</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30501"></span>7725</td>
+<td class="instruction">jr z,$773f</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30503"></span>7727</td>
+<td class="instruction">dec c</td>
+<td class="comment-1" rowspan="1">else decrement (vertical position?)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30504"></span>7728</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30505"></span>7729</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="30506"></span>
+<div class="comments">
+<div class="paragraph">
+Merging sprite with current on-screen sprite (the mask?)
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30506"></span>772a</td>
+<td class="instruction">ld a,(de)</td>
+<td class="comment-1" rowspan="3">Merge with current on-screen byte (mask?)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30507"></span>772b</td>
+<td class="instruction">or (hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30508"></span>772c</td>
+<td class="instruction">ld (hl),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30509"></span>772d</td>
+<td class="instruction">inc de</td>
+<td class="comment-1" rowspan="1">Next sprite byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30510"></span>772e</td>
+<td class="instruction">inc l</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30511"></span>772f</td>
+<td class="instruction">ld a,l</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=next column number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30512"></span>7730</td>
+<td class="instruction">and $1f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30514"></span>7732</td>
+<td class="instruction">jr nz,$7738</td>
+<td class="comment-1" rowspan="4">Set <span class="register">L</span> to beginning of line if &gt; 0 &amp;&amp; &lt; 32, and repeat process for next byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30516"></span>7734</td>
+<td class="instruction">ld a,l</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30517"></span>7735</td>
+<td class="instruction">sub $20</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30519"></span>7737</td>
+<td class="instruction">ld l,a</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30520"></span>7738</td>
+<td class="instruction">djnz $772a</td>
+<td class="comment-1" rowspan="1">Repeat and process next byte</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="30522"></span>
+<div class="comments">
+<div class="paragraph">
+Calculate position for next pixel location
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30522"></span>773a</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30523"></span>773b</td>
+<td class="instruction">call <a href="29366.html">$72b6</a></td>
+<td class="comment-1" rowspan="1">Calculate new pixel position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30526"></span>773e</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="30527"></span>773f</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30528"></span>7740</td>
+<td class="instruction">jr $7705</td>
+<td class="comment-1" rowspan="1">Loop back to top of routine</td>
+</tr>
+<tr>
+<td class="address-2"><span id="30530"></span>7742</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="30531"></span>7743</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="3">Jump if <span class="register">C</span> != 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30532"></span>7744</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="30533"></span>7745</td>
+<td class="instruction">jr nz,$7727</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30437.html">76e5</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#30469">Map</a></td>
+<td class="next">
+Next: <a href="30535.html">7747</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 68f2</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26852.html">68e4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26866">Map</a></td>
+<td class="next">
+Next: <a href="26894.html">690e</a>
+</td>
+</tr>
+</table>
+<div class="description">68f2: Copy the two sprites for an alien to the buffers.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="24724.html">6094</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26866"></span>68f2</td>
+<td class="instruction">ld hl,$690e</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=alien sprite lookup table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26869"></span>68f5</td>
+<td class="instruction">ld a,($5df0)</td>
+<td class="comment-1" rowspan="1">Current player level</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26872"></span>68f8</td>
+<td class="instruction">rlca</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26873"></span>68f9</td>
+<td class="instruction">rlca</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26874"></span>68fa</td>
+<td class="instruction">and $1c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26876"></span>68fc</td>
+<td class="instruction">ld e,a</td>
+<td class="comment-1" rowspan="2"><span class="register">DE</span>=offset address for lookup table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26877"></span>68fd</td>
+<td class="instruction">ld d,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26879"></span>68ff</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1">Add offset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26880"></span>6900</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26881"></span>6901</td>
+<td class="instruction">ld de,$5e00</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=right facing alien sprite buffer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26884"></span>6904</td>
+<td class="instruction">call <a href="28399.html">$6eef</a></td>
+<td class="comment-1" rowspan="1">Reset rocket and copy sprite to buffer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26887"></span>6907</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26888"></span>6908</td>
+<td class="instruction">ld de,$5e66</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=left facing alien sprite buffer</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26891"></span>
+<div class="comments">
+<div class="paragraph">
+Set rocket building state on Jetman, then copy sprites to the first pair of buffers.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26891"></span>690b</td>
+<td class="instruction">jp <a href="28438.html">$6f16</a></td>
+<td class="comment-1" rowspan="1">Jetman rocket state update</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26852.html">68e4</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26866">Map</a></td>
+<td class="next">
+Next: <a href="26894.html">690e</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

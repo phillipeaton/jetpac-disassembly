@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 60b7</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24743.html">60a7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24759">Map</a></td>
+<td class="next">
+Next: <a href="24900.html">6144</a>
+</td>
+</tr>
+</table>
+<div class="description">60b7: End of turn for the current player.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Resets level states/buffers, and checks if it's game over for a player. Used by the routine at <a href="26746.html">687a</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24759"></span>60b7</td>
+<td class="instruction">ld hl,$5d48</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=Jetman thruster animation object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24762"></span>60ba</td>
+<td class="instruction">ld b,$0a</td>
+<td class="comment-1" rowspan="2">Reset all object states to be inactive</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24764"></span>60bc</td>
+<td class="instruction">call <a href="26153.html">$6629</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24767"></span>60bf</td>
+<td class="instruction">ld hl,$5d3c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24770"></span>60c2</td>
+<td class="instruction">res 1,(hl)</td>
+<td class="comment-1" rowspan="1">Set to unused state</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24772"></span>60c4</td>
+<td class="instruction">ld hl,$5d44</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24775"></span>60c7</td>
+<td class="instruction">res 1,(hl)</td>
+<td class="comment-1" rowspan="1">Set to unused state</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24777"></span>
+<div class="comments">
+<div class="paragraph">
+Check if current and inactive player has lives, if not it is game over.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24777"></span>60c9</td>
+<td class="instruction">ld a,($5cf3)</td>
+<td class="comment-1" rowspan="1">Game Options</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24780"></span>60cc</td>
+<td class="instruction">and $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24782"></span>60ce</td>
+<td class="instruction">jr nz,$60dd</td>
+<td class="comment-1" rowspan="1">Jump if two player</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24784"></span>60d0</td>
+<td class="instruction">ld a,($5df1)</td>
+<td class="comment-1" rowspan="1">Current player lives</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24787"></span>60d3</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24788"></span>60d4</td>
+<td class="instruction">jp z,$612f</td>
+<td class="comment-1" rowspan="1">Game over if no lives remaining</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24791"></span>60d7</td>
+<td class="instruction">call <a href="24724.html">$6094</a></td>
+<td class="comment-1" rowspan="1">Initialise a new level</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24794"></span>60da</td>
+<td class="instruction">jp <a href="24948.html">$6174</a></td>
+<td class="comment-1" rowspan="1">Initialise next player</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24797"></span>60dd</td>
+<td class="instruction">ld a,($5df9)</td>
+<td class="comment-1" rowspan="1">Inactive player lives</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24800"></span>60e0</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24801"></span>60e1</td>
+<td class="instruction">jr z,$60d0</td>
+<td class="comment-1" rowspan="1">Game over if no lives remaining</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24803"></span>60e3</td>
+<td class="instruction">ld a,($5df1)</td>
+<td class="comment-1" rowspan="1">Current player lives</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24806"></span>60e6</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24807"></span>60e7</td>
+<td class="instruction">call z,$6127</td>
+<td class="comment-1" rowspan="1">Game over if no lives remaining</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24810"></span>60ea</td>
+<td class="instruction">call <a href="24900.html">$6144</a></td>
+<td class="comment-1" rowspan="1">Switch players</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24813"></span>60ed</td>
+<td class="instruction">ld a,($5dd1)</td>
+<td class="comment-1" rowspan="3">Change current player (flip bits between $00 and $FF)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24816"></span>60f0</td>
+<td class="instruction">cpl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24817"></span>60f1</td>
+<td class="instruction">ld ($5dd1),a</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24820"></span>
+<div class="comments">
+<div class="paragraph">
+Switch rocket objects data for this new player
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24820"></span>60f4</td>
+<td class="instruction">ld a,($5d34)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24823"></span>60f7</td>
+<td class="instruction">rlca</td>
+<td class="comment-1" rowspan="4">Calculate the offset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24824"></span>60f8</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24825"></span>60f9</td>
+<td class="instruction">rlca</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24826"></span>60fa</td>
+<td class="instruction">and $38</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24828"></span>60fc</td>
+<td class="instruction">call <a href="28354.html">$6ec2</a></td>
+<td class="comment-1" rowspan="1">Copy rocket sprite to buffer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24831"></span>60ff</td>
+<td class="instruction">call <a href="24724.html">$6094</a></td>
+<td class="comment-1" rowspan="1">Initialise level</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24834"></span>6102</td>
+<td class="instruction">jp <a href="24948.html">$6174</a></td>
+<td class="comment-1" rowspan="1">Initialise player</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24837"></span>
+<div class="comments">
+<div class="paragraph">
+Display the GAME OVER message for a player.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24837"></span>6105</td>
+<td class="instruction">ld a,$b1</td>
+<td class="comment-1" rowspan="1">ASCII character for the number "1" + EOL bit</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24839"></span>6107</td>
+<td class="instruction">ld ($6173),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24842"></span>610a</td>
+<td class="instruction">call <a href="24676.html">$6064</a></td>
+<td class="comment-1" rowspan="1">Initialise level screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24845"></span>610d</td>
+<td class="instruction">ld de,$6161</td>
+<td class="comment-1" rowspan="1">Game Over message</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24848"></span>6110</td>
+<td class="instruction">ld hl,$7038</td>
+<td class="comment-1" rowspan="1">Y,X coords in the display file</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24851"></span>6113</td>
+<td class="instruction">call <a href="28980.html">$7134</a></td>
+<td class="comment-1" rowspan="1">Draw text to the screen</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24854"></span>
+<div class="comments">
+<div class="paragraph">
+After displaying the text, pause for a while.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24854"></span>6116</td>
+<td class="instruction">ld b,$04</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24856"></span>6118</td>
+<td class="instruction">ld hl,$0000</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="24859"></span>611b</td>
+<td class="instruction">dec hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24860"></span>611c</td>
+<td class="instruction">ld a,h</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24861"></span>611d</td>
+<td class="instruction">or l</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24862"></span>611e</td>
+<td class="instruction">jr nz,$611b</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24864"></span>6120</td>
+<td class="instruction">djnz $611b</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="24866"></span>6122</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24867"></span>
+<div class="comments">
+<div class="paragraph">
+Handle message for player #2.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24867"></span>6123</td>
+<td class="instruction">ld a,$b2</td>
+<td class="comment-1" rowspan="1">ASCII character for the number "2" + EOL bit</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24869"></span>6125</td>
+<td class="instruction">jr $6107</td>
+<td class="comment-1" rowspan="1">Append the number to the text, the display it</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24871"></span>
+<div class="comments">
+<div class="paragraph">
+Choose which player to show Game Over message for.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24871"></span>6127</td>
+<td class="instruction">ld a,($5dd1)</td>
+<td class="comment-1" rowspan="3">Jump if current player is #1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24874"></span>612a</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24875"></span>612b</td>
+<td class="instruction">jr z,$6105</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24877"></span>612d</td>
+<td class="instruction">jr $6123</td>
+<td class="comment-1" rowspan="1">else, player is #2.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="24879"></span>
+<div class="comments">
+<div class="paragraph">
+Game Over: update scores, show game over message, and initialise system.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24879"></span>612f</td>
+<td class="instruction">call <a href="25441.html">$6361</a></td>
+<td class="comment-1" rowspan="1">Update the high score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24882"></span>6132</td>
+<td class="instruction">ld a,($5dd1)</td>
+<td class="comment-1" rowspan="3">Jump if current player is #2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24885"></span>6135</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24886"></span>6136</td>
+<td class="instruction">jr nz,$613e</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24888"></span>6138</td>
+<td class="instruction">call $6105</td>
+<td class="comment-1" rowspan="1">Display game over for player #1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24891"></span>613b</td>
+<td class="instruction">jp <a href="25033.html">$61c9</a></td>
+<td class="comment-1" rowspan="1">Reset the game</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24894"></span>613e</td>
+<td class="instruction">call $6123</td>
+<td class="comment-1" rowspan="1">Display game over for player #2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24897"></span>6141</td>
+<td class="instruction">jp <a href="25033.html">$61c9</a></td>
+<td class="comment-1" rowspan="1">Reset the game</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24743.html">60a7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24759">Map</a></td>
+<td class="next">
+Next: <a href="24900.html">6144</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

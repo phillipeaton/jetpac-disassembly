@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 62ca</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25197.html">626d</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25290">Map</a></td>
+<td class="next">
+Next: <a href="25306.html">62da</a>
+</td>
+</tr>
+</table>
+<div class="description">62ca: Write a single line of text on the main menu screen.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="25140.html">6234</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Coordinate on the screen to display the string.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25290"></span>62ca</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Backup coordinate</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25291"></span>62cb</td>
+<td class="instruction">call <a href="29392.html">$72d0</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=coord to screen address (using <span class="register">HL</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25294"></span>62ce</td>
+<td class="instruction">ld a,($5dd6)</td>
+<td class="comment-1" rowspan="1">Current colour attribute</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25297"></span>62d1</td>
+<td class="instruction">ex af,af'</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25298"></span>62d2</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25299"></span>62d3</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1">Restore coordinate</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25300"></span>62d4</td>
+<td class="instruction">call <a href="29142.html">$71d6</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=coord to attribute file address (using <span class="register">HL</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25303"></span>62d7</td>
+<td class="instruction">jp <a href="28992.html">$7140</a></td>
+<td class="comment-1" rowspan="1">Display text string at <span class="register">HL</span>, using <span class="register">A'</span> colour</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25197.html">626d</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25290">Map</a></td>
+<td class="next">
+Next: <a href="25306.html">62da</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

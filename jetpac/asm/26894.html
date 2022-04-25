@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Data at 690e</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-w">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26866.html">68f2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26894">Map</a></td>
+<td class="next">
+Next: <a href="26926.html">692e</a>
+</td>
+</tr>
+</table>
+<div class="description">690e: Alien sprite lookup table.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Aliens have three basic movement types:
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">*</td>
+<td class="register-desc">Single path: die upon impact with platforms.</td>
+</tr>
+<tr>
+<td class="register">-</td>
+<td class="register-desc">Meteor</td>
+</tr>
+<tr>
+<td class="register">-</td>
+<td class="register-desc">Jet Fighter</td>
+</tr>
+<tr>
+<td class="register">-</td>
+<td class="register-desc">Space Craft</td>
+</tr>
+<tr>
+<td class="register">*</td>
+<td class="register-desc">Variable path: direction changes randomly, or on platform collision.</td>
+</tr>
+<tr>
+<td class="register">-</td>
+<td class="register-desc">Squidgy Alien</td>
+</tr>
+<tr>
+<td class="register">-</td>
+<td class="register-desc">Sphere Alien</td>
+</tr>
+<tr>
+<td class="register">-</td>
+<td class="register-desc">Crossed Ship</td>
+</tr>
+<tr>
+<td class="register">*</td>
+<td class="register-desc">Chasers: move toward Jetman, avoid platform impacts.</td>
+</tr>
+<tr>
+<td class="register">-</td>
+<td class="register-desc">UFO</td>
+</tr>
+<tr>
+<td class="register">-</td>
+<td class="register-desc">Frog Alien</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26894"></span>690e</td>
+<td class="instruction">defw <a href="31593.html">$7b69</a></td>
+<td class="comment-1" rowspan="1">Level #1: Meteor        (frame 1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26896"></span>6910</td>
+<td class="instruction">defw <a href="31616.html">$7b80</a></td>
+<td class="comment-1" rowspan="1">-                     - (frame 2)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26898"></span>6912</td>
+<td class="instruction">defw <a href="32358.html">$7e66</a></td>
+<td class="comment-1" rowspan="1">Level #2: Squidgy Alien (frame 1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26900"></span>6914</td>
+<td class="instruction">defw <a href="32387.html">$7e83</a></td>
+<td class="comment-1" rowspan="1">-                     - (frame 2)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26902"></span>6916</td>
+<td class="instruction">defw <a href="32448.html">$7ec0</a></td>
+<td class="comment-1" rowspan="1">Level #3: Sphere Alien  (frame 1)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26904"></span>6918</td>
+<td class="instruction">defw <a href="32481.html">$7ee1</a></td>
+<td class="comment-1" rowspan="1">-                     - (frame 2)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26906"></span>691a</td>
+<td class="instruction">defw <a href="32416.html">$7ea0</a></td>
+<td class="comment-1" rowspan="1">Level #4: Jet Fighter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26908"></span>691c</td>
+<td class="instruction">defw <a href="32416.html">$7ea0</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26910"></span>691e</td>
+<td class="instruction">defw <a href="32431.html">$7eaf</a></td>
+<td class="comment-1" rowspan="1">Level #5: UFO</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26912"></span>6920</td>
+<td class="instruction">defw <a href="32431.html">$7eaf</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26914"></span>6922</td>
+<td class="instruction">defw <a href="32510.html">$7efe</a></td>
+<td class="comment-1" rowspan="1">Level #6: Crossed Space Ship</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26916"></span>6924</td>
+<td class="instruction">defw <a href="32510.html">$7efe</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26918"></span>6926</td>
+<td class="instruction">defw <a href="32541.html">$7f1d</a></td>
+<td class="comment-1" rowspan="1">Level #7: Spacecraft</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26920"></span>6928</td>
+<td class="instruction">defw <a href="32541.html">$7f1d</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26922"></span>692a</td>
+<td class="instruction">defw <a href="32570.html">$7f3a</a></td>
+<td class="comment-1" rowspan="1">Level #8: Frog Alien</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26924"></span>692c</td>
+<td class="instruction">defw <a href="32570.html">$7f3a</a></td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26866.html">68f2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26894">Map</a></td>
+<td class="next">
+Next: <a href="26926.html">692e</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

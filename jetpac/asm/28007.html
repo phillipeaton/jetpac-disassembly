@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6d67</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27996.html">6d5c</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28007">Map</a></td>
+<td class="next">
+Next: <a href="28052.html">6d94</a>
+</td>
+</tr>
+</table>
+<div class="description">6d67: Change alien direction flag to up, and other updates.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="27838.html#27863">6cd7</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28007"></span>6d67</td>
+<td class="instruction">res 7,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Set alien to moving up</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28011"></span>6d6b</td>
+<td class="instruction">ld a,($5dce)</td>
+<td class="comment-1" rowspan="3">Update Y speed using random number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28014"></span>6d6e</td>
+<td class="instruction">add a,$08</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28016"></span>6d70</td>
+<td class="instruction">ld (ix+$06),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28019"></span>6d73</td>
+<td class="instruction">jp <a href="27838.html#27895">$6cf7</a></td>
+<td class="comment-1" rowspan="1">Update alien position</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28022"></span>
+<div class="comments">
+<div class="paragraph">
+Change alien moving direction flag to down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28022"></span>6d76</td>
+<td class="instruction">set 7,(ix+$04)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28026"></span>6d7a</td>
+<td class="instruction">jp <a href="27838.html#27895">$6cf7</a></td>
+<td class="comment-1" rowspan="1">Update alien position</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28029"></span>
+<div class="comments">
+<div class="paragraph">
+Subtract 2 from X position.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28029"></span>6d7d</td>
+<td class="instruction">sub $02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28031"></span>6d7f</td>
+<td class="instruction">jp <a href="27838.html#27907">$6d03</a></td>
+<td class="comment-1" rowspan="1">Update alien YX position</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28034"></span>
+<div class="comments">
+<div class="paragraph">
+Change direction to down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28034"></span>6d82</td>
+<td class="instruction">dec (ix+$06)</td>
+<td class="comment-1" rowspan="1">Decrement Y speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28037"></span>6d85</td>
+<td class="instruction">jr nz,<a href="27838.html#27959">$6d37</a></td>
+<td class="comment-1" rowspan="2">If speed is zero, set to moving down</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28039"></span>6d87</td>
+<td class="instruction">set 7,(ix+$04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28043"></span>6d8b</td>
+<td class="instruction">jr <a href="27838.html#27959">$6d37</a></td>
+<td class="comment-1" rowspan="1">Draw alien and perform platform collision</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="28045"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="27838.html">6cbe</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28045"></span>6d8d</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">Reset Carry flag</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28046"></span>6d8e</td>
+<td class="instruction">ex de,hl</td>
+<td class="comment-1" rowspan="1">Swap registers</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28047"></span>6d8f</td>
+<td class="instruction">sbc hl,de</td>
+<td class="comment-1" rowspan="1">Subtract <span class="register">DE</span> and Carry flag from <span class="register">HL</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28049"></span>6d91</td>
+<td class="instruction">jp <a href="27838.html#27929">$6d19</a></td>
+<td class="comment-1" rowspan="1">Update vertical position, direction, and speed</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27996.html">6d5c</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28007">Map</a></td>
+<td class="next">
+Next: <a href="28052.html">6d94</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

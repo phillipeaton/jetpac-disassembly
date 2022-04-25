@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 62fe</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25306.html">62da</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25342">Map</a></td>
+<td class="next">
+Next: <a href="25360.html">6310</a>
+</td>
+</tr>
+</table>
+<div class="description">62fe: Start a new game.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Resets all player, alien, and level data, then start a new game. Used by the routine at <a href="25045.html">61d5</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25342"></span>62fe</td>
+<td class="instruction">ld hl,$5cf4</td>
+<td class="comment-1" rowspan="1">Starting at the Player 1 score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25345"></span>6301</td>
+<td class="instruction">ld bc,$6000</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span> = counter, <span class="register">C</span> = fill byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25348"></span>6304</td>
+<td class="instruction">call <a href="29061.html">$7185</a></td>
+<td class="comment-1" rowspan="1">Clear memory, with null byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25351"></span>6307</td>
+<td class="instruction">call <a href="25306.html">$62da</a></td>
+<td class="comment-1" rowspan="1">Reset the player data</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25354"></span>630a</td>
+<td class="instruction">call <a href="26964.html">$6954</a></td>
+<td class="comment-1" rowspan="1">Reset the self-modifying code</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25357"></span>630d</td>
+<td class="instruction">call <a href="24707.html">$6083</a></td>
+<td class="comment-1" rowspan="1">Initialise a new level</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25306.html">62da</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25342">Map</a></td>
+<td class="next">
+Next: <a href="25360.html">6310</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 72ef</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29392.html">72d0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29423">Map</a></td>
+<td class="next">
+Next: <a href="29442.html">7302</a>
+</td>
+</tr>
+</table>
+<div class="description">72ef: Copy actor position/direction values to Actor.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="25697.html">6461</a>, <a href="25832.html">64e8</a>, <a href="25891.html">6523</a>, <a href="26256.html">6690</a>, <a href="26292.html">66b4</a>, <a href="26320.html">66d0</a>, <a href="26746.html">687a</a>, <a href="27824.html">6cb0</a>, <a href="28060.html">6d9c</a>, <a href="29598.html">739e</a> and <a href="30012.html">753c</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Jetman object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29423"></span>72ef</td>
+<td class="instruction">ld a,(ix+$01)</td>
+<td class="comment-1" rowspan="2">Actor X position = Jetman X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29426"></span>72f2</td>
+<td class="instruction">ld ($5dc0),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29429"></span>72f5</td>
+<td class="instruction">ld a,(ix+$02)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29432"></span>72f8</td>
+<td class="instruction">ld ($5dc1),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29435"></span>72fb</td>
+<td class="instruction">ld a,(ix+$00)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29438"></span>72fe</td>
+<td class="instruction">ld ($5dc2),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29441"></span>7301</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29392.html">72d0</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29423">Map</a></td>
+<td class="next">
+Next: <a href="29442.html">7302</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

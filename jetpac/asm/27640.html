@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6bf8</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27633.html">6bf1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27640">Map</a></td>
+<td class="next">
+Next: <a href="27824.html">6cb0</a>
+</td>
+</tr>
+</table>
+<div class="description">6bf8: Update Sphere alien.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Alien object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27640"></span>6bf8</td>
+<td class="instruction">ld hl,$5dcb</td>
+<td class="comment-1" rowspan="2">Increment current alien number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27643"></span>6bfb</td>
+<td class="instruction">inc (hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27644"></span>6bfc</td>
+<td class="instruction">call <a href="27824.html">$6cb0</a></td>
+<td class="comment-1" rowspan="1">Update actor direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27647"></span>6bff</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27648"></span>6c00</td>
+<td class="instruction">ld ($5dc9),a</td>
+<td class="comment-1" rowspan="1">Reset alien new direction flag</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27651"></span>6c03</td>
+<td class="instruction">call <a href="28187.html">$6e1b</a></td>
+<td class="comment-1" rowspan="1">Fire laser beam (returns <span class="register">C</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27654"></span>6c06</td>
+<td class="instruction">dec c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27655"></span>6c07</td>
+<td class="instruction">ld bc,$0040</td>
+<td class="comment-1" rowspan="1">40 points (decimal value)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27658"></span>6c0a</td>
+<td class="instruction">jp z,<a href="27996.html">$6d5c</a></td>
+<td class="comment-1" rowspan="1">Kill Alien SFX #2 if alien is dead</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27661"></span>6c0d</td>
+<td class="instruction">call <a href="28137.html">$6de9</a></td>
+<td class="comment-1" rowspan="1">Alien collision check (returns <span class="register">E</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27664"></span>6c10</td>
+<td class="instruction">dec e</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27665"></span>6c11</td>
+<td class="instruction">jp z,<a href="25686.html">$6456</a></td>
+<td class="comment-1" rowspan="1">Alien killed by collision if <span class="register">E</span> is zero</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27668"></span>
+<div class="comments">
+<div class="paragraph">
+Check which direction alien is travelling after hitting a platform.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27668"></span>6c14</td>
+<td class="instruction">call <a href="30184.html">$75e8</a></td>
+<td class="comment-1" rowspan="1">Platform collision (returns <span class="register">E</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27671"></span>6c17</td>
+<td class="instruction">bit 2,e</td>
+<td class="comment-1" rowspan="2">Update alien Y position if bit-2 is reset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27673"></span>6c19</td>
+<td class="instruction">jr z,$6c30</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27675"></span>6c1b</td>
+<td class="instruction">bit 7,e</td>
+<td class="comment-1" rowspan="2">Set alien direction to up if bit-7 set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27677"></span>6c1d</td>
+<td class="instruction">jr nz,$6c94</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27679"></span>6c1f</td>
+<td class="instruction">bit 4,e</td>
+<td class="comment-1" rowspan="2">Set alien direction to down if bit-4 set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27681"></span>6c21</td>
+<td class="instruction">jr nz,$6c9a</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27683"></span>
+<div class="comments">
+<div class="paragraph">
+Alien has hit the end of a platform: change direction.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27683"></span>6c23</td>
+<td class="instruction">ld a,e</td>
+<td class="comment-1" rowspan="7">Update alien "moving" value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27684"></span>6c24</td>
+<td class="instruction">and $40</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27686"></span>6c26</td>
+<td class="instruction">ld e,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27687"></span>6c27</td>
+<td class="instruction">ld a,(ix+$04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27690"></span>6c2a</td>
+<td class="instruction">and $bf</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27692"></span>6c2c</td>
+<td class="instruction">or e</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27693"></span>6c2d</td>
+<td class="instruction">ld (ix+$04),a</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27696"></span>
+<div class="comments">
+<div class="paragraph">
+Update the alien Vertical position.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27696"></span>6c30</td>
+<td class="instruction">bit 0,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Check alien moving direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27700"></span>6c34</td>
+<td class="instruction">jr nz,$6c5b</td>
+<td class="comment-1" rowspan="1">Update Y position if vertical movement</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27702"></span>6c36</td>
+<td class="instruction">ld a,($5dce)</td>
+<td class="comment-1" rowspan="2"><span class="register">E</span>=random number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27705"></span>6c39</td>
+<td class="instruction">ld e,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27706"></span>6c3a</td>
+<td class="instruction">and $0f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27708"></span>6c3c</td>
+<td class="instruction">jr nz,$6c5b</td>
+<td class="comment-1" rowspan="1">Jump if != 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27710"></span>6c3e</td>
+<td class="instruction">set 0,(ix+$04)</td>
+<td class="comment-1" rowspan="1">else set "moving" bit-0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27714"></span>6c42</td>
+<td class="instruction">ld a,($5dcc)</td>
+<td class="comment-1" rowspan="4">Use Game timer to Y speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27717"></span>6c45</td>
+<td class="instruction">and $1f</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27719"></span>6c47</td>
+<td class="instruction">add a,$10</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27721"></span>6c49</td>
+<td class="instruction">ld (ix+$06),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27724"></span>6c4c</td>
+<td class="instruction">ld a,e</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=original random number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27725"></span>6c4d</td>
+<td class="instruction">and $80</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27727"></span>6c4f</td>
+<td class="instruction">ld e,a</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span> = 0 or 128</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27728"></span>6c50</td>
+<td class="instruction">ld a,(ix+$04)</td>
+<td class="comment-1" rowspan="4">Update alien "moving" to either 127 or 255</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27731"></span>6c53</td>
+<td class="instruction">and $7f</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27733"></span>6c55</td>
+<td class="instruction">or e</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27734"></span>6c56</td>
+<td class="instruction">ld (ix+$04),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27737"></span>6c59</td>
+<td class="instruction">jr $6c14</td>
+<td class="comment-1" rowspan="1">Jump back and repeat collision check</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27739"></span>
+<div class="comments">
+<div class="paragraph">
+Update the alien Horizontal position.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27739"></span>6c5b</td>
+<td class="instruction">bit 0,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Check alien "moving"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27743"></span>6c5f</td>
+<td class="instruction">jr z,$6c78</td>
+<td class="comment-1" rowspan="1">Update X position if horizontal movement</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27745"></span>6c61</td>
+<td class="instruction">ld a,(ix+$02)</td>
+<td class="comment-1" rowspan="1">else update Y position</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27748"></span>
+<div class="comments">
+<div class="paragraph">
+Update the alien Y position, first checking if within the upper/lower bounds of the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27748"></span>6c64</td>
+<td class="instruction">bit 7,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Check moving up/down bit</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27752"></span>6c68</td>
+<td class="instruction">jr z,$6ca0</td>
+<td class="comment-1" rowspan="1">If moving up, subtract 2 from direction (via jump)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27754"></span>6c6a</td>
+<td class="instruction">add a,$02</td>
+<td class="comment-1" rowspan="1">otherwise, we add 2 to move down</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27756"></span>6c6c</td>
+<td class="instruction">ld (ix+$02),a</td>
+<td class="comment-1" rowspan="1">Set new Y position +/- 2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27759"></span>6c6f</td>
+<td class="instruction">dec (ix+$06)</td>
+<td class="comment-1" rowspan="1">Decrement Y speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27762"></span>6c72</td>
+<td class="instruction">jr nz,$6c78</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27764"></span>6c74</td>
+<td class="instruction">res 0,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Reset bit-0 of alien "moving" if speed is zero</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27768"></span>
+<div class="comments">
+<div class="paragraph">
+Update the alien X position.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27768"></span>6c78</td>
+<td class="instruction">ld a,(ix+$01)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=X position (fetch before the jump)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27771"></span>6c7b</td>
+<td class="instruction">bit 6,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Check moving left/right bit</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27775"></span>6c7f</td>
+<td class="instruction">jr z,$6cac</td>
+<td class="comment-1" rowspan="1">If moving left, subtract 2 from direction (via jump)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27777"></span>6c81</td>
+<td class="instruction">add a,$02</td>
+<td class="comment-1" rowspan="1">otherwise, we add 2 to move right</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27779"></span>6c83</td>
+<td class="instruction">ld (ix+$01),a</td>
+<td class="comment-1" rowspan="1">Set new X position +/- 2</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27782"></span>
+<div class="comments">
+<div class="paragraph">
+Draw the alien if a new direction is set, otherwise repeat platform collision check again.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27782"></span>6c86</td>
+<td class="instruction">ld a,($5dc9)</td>
+<td class="comment-1" rowspan="5">Draw the alien if the new direction flag is set, otherwise, increment the value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27785"></span>6c89</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27786"></span>6c8a</td>
+<td class="instruction">jp nz,<a href="27971.html">$6d43</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27789"></span>6c8d</td>
+<td class="instruction">inc a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27790"></span>6c8e</td>
+<td class="instruction">ld ($5dc9),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27793"></span>6c91</td>
+<td class="instruction">jp $6c14</td>
+<td class="comment-1" rowspan="1">Jump back and repeat collision check</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27796"></span>
+<div class="comments">
+<div class="paragraph">
+Change alien moving direction to up.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27796"></span>6c94</td>
+<td class="instruction">res 7,(ix+$04)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27800"></span>6c98</td>
+<td class="instruction">jr $6c30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27802"></span>
+<div class="comments">
+<div class="paragraph">
+Change alien moving direction to down.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27802"></span>6c9a</td>
+<td class="instruction">set 7,(ix+$04)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27806"></span>6c9e</td>
+<td class="instruction">jr $6c30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27808"></span>
+<div class="comments">
+<div class="paragraph">
+Subtract 2 from the Y position (move up), unless it has reached top of screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27808"></span>6ca0</td>
+<td class="instruction">sub $02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27810"></span>6ca2</td>
+<td class="instruction">cp $28</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27812"></span>6ca4</td>
+<td class="instruction">jr nc,$6c6c</td>
+<td class="comment-1" rowspan="1">Return if not at top of screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27814"></span>6ca6</td>
+<td class="instruction">set 7,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Otherwise, set to moving down</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27818"></span>6caa</td>
+<td class="instruction">jr $6c6c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27820"></span>
+<div class="comments">
+<div class="paragraph">
+Subtract 2 from horizontal direction.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27820"></span>6cac</td>
+<td class="instruction">sub $02</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27822"></span>6cae</td>
+<td class="instruction">jr $6c83</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="27633.html">6bf1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#27640">Map</a></td>
+<td class="next">
+Next: <a href="27824.html">6cb0</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

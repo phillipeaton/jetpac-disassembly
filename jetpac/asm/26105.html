@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 65f9</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26089.html">65e9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26105">Map</a></td>
+<td class="next">
+Next: <a href="26148.html">6624</a>
+</td>
+</tr>
+</table>
+<div class="description">65f9: Drop a new fuel pod collectible.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="26993.html">6971</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26105"></span>65f9</td>
+<td class="instruction">ld a,($5d00)</td>
+<td class="comment-1" rowspan="1">Jetman direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26108"></span>65fc</td>
+<td class="instruction">and $3f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26110"></span>65fe</td>
+<td class="instruction">ret z</td>
+<td class="comment-1" rowspan="1">Return if not one of the 6 directions</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26111"></span>65ff</td>
+<td class="instruction">cp $03</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26113"></span>6601</td>
+<td class="instruction">ret nc</td>
+<td class="comment-1" rowspan="1">Return if &gt;= 3 (all movement except up right?)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26114"></span>6602</td>
+<td class="instruction">ld hl,$6033</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=default rocket module state</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26117"></span>6605</td>
+<td class="instruction">ld de,$5d38</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=rocket module object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26120"></span>6608</td>
+<td class="instruction">ld bc,$0008</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26123"></span>660b</td>
+<td class="instruction">ld a,(de)</td>
+<td class="comment-1" rowspan="3">Return if currently in use</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26124"></span>660c</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26125"></span>660d</td>
+<td class="instruction">ret nz</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26126"></span>660e</td>
+<td class="instruction">ld a,($5d35)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26129"></span>6611</td>
+<td class="instruction">cp $06</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26131"></span>6613</td>
+<td class="instruction">ret nc</td>
+<td class="comment-1" rowspan="1">Return if fuel collected &gt;= 6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26132"></span>6614</td>
+<td class="instruction">ld a,($5dcc)</td>
+<td class="comment-1" rowspan="1">Game timer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26135"></span>6617</td>
+<td class="instruction">cpl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26136"></span>6618</td>
+<td class="instruction">and $0f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26138"></span>661a</td>
+<td class="instruction">ret nz</td>
+<td class="comment-1" rowspan="1">Return if <span class="register">A</span> is between 1-15</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26139"></span>661b</td>
+<td class="instruction">ldir</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26141"></span>661d</td>
+<td class="instruction">call <a href="26075.html">$65db</a></td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=column to drop item</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26144"></span>6620</td>
+<td class="instruction">ld ($5d39),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26147"></span>6623</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26089.html">65e9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26105">Map</a></td>
+<td class="next">
+Next: <a href="26148.html">6624</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

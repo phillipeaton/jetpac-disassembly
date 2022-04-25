@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 7226</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29191.html">7207</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29222">Map</a></td>
+<td class="next">
+Next: <a href="29234.html">7232</a>
+</td>
+</tr>
+</table>
+<div class="description">7226: Update Actor X/Y positions.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="25764.html">64a4</a> and <a href="26364.html">66fc</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29222"></span>7226</td>
+<td class="instruction">push de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29223"></span>7227</td>
+<td class="instruction">call <a href="29167.html">$71ef</a></td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=Get sprite position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29226"></span>722a</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29227"></span>722b</td>
+<td class="instruction">pop de</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29228"></span>722c</td>
+<td class="instruction">call <a href="29191.html">$7207</a></td>
+<td class="comment-1" rowspan="1">Update actor</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29231"></span>722f</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29232"></span>7230</td>
+<td class="instruction">jr <a href="29241.html">$7239</a></td>
+<td class="comment-1" rowspan="1">Erase actor sprite</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29191.html">7207</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29222">Map</a></td>
+<td class="next">
+Next: <a href="29234.html">7232</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

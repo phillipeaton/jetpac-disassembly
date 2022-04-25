@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 692e</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26894.html">690e</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26926">Map</a></td>
+<td class="next">
+Next: <a href="26964.html">6954</a>
+</td>
+</tr>
+</table>
+<div class="description">692e: Frame update and disabled item drop.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+This also performs the self-modifying code update.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26926"></span>692e</td>
+<td class="instruction">di</td>
+<td class="comment-1" rowspan="1">This routine only called if EI, so we must now disable</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26927"></span>692f</td>
+<td class="instruction">ld a,($5c78)</td>
+<td class="comment-1" rowspan="2">Update last_frame to current SYSVAR_FRAMES</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26930"></span>6932</td>
+<td class="instruction">ld ($5dd4),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26933"></span>6935</td>
+<td class="instruction">ld a,$01</td>
+<td class="comment-1" rowspan="2">Frame has ticked over, set to true</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26935"></span>6937</td>
+<td class="instruction">ld ($5dd5),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26938"></span>693a</td>
+<td class="instruction">push ix</td>
+<td class="comment-1" rowspan="1">Backup main jump table address</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26940"></span>
+<div class="comments">
+<div class="paragraph">
+Do some the code modifying...
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26940"></span>693c</td>
+<td class="instruction">ld hl,$5d30</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=points to the rocket object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26943"></span>693f</td>
+<td class="instruction">ld ($697e),hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26946"></span>6942</td>
+<td class="instruction">ld a,$c3</td>
+<td class="comment-1" rowspan="1">Value is a `JP` opcode</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26948"></span>6944</td>
+<td class="instruction">ld ($699c),a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26951"></span>6947</td>
+<td class="instruction">ld hl,$6966</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=address to be modified</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26954"></span>694a</td>
+<td class="instruction">ld ($699d),hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="26957"></span>
+<div class="comments">
+<div class="paragraph">
+...code modifying complete.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26957"></span>694d</td>
+<td class="instruction">ld ix,$5d00</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=Jetman object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26961"></span>6951</td>
+<td class="instruction">jp <a href="25372.html">$631c</a></td>
+<td class="comment-1" rowspan="1">Execute main loop</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26894.html">690e</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26926">Map</a></td>
+<td class="next">
+Next: <a href="26964.html">6954</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 7425</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29714.html">7412</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29733">Map</a></td>
+<td class="next">
+Next: <a href="29747.html">7433</a>
+</td>
+</tr>
+</table>
+<div class="description">7425: Increase Jetman vertical speed.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29909.html">74d5</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29733"></span>7425</td>
+<td class="instruction">ld a,($5dca)</td>
+<td class="comment-1" rowspan="1">Jetman speed modifier ($00 or $04)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29736"></span>7428</td>
+<td class="instruction">neg</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29738"></span>742a</td>
+<td class="instruction">add a,$08</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29740"></span>742c</td>
+<td class="instruction">add a,(ix+$06)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span> += Jetman Y speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29743"></span>742f</td>
+<td class="instruction">cp $3f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29745"></span>7431</td>
+<td class="instruction">jr nc,<a href="29768.html">$7448</a></td>
+<td class="comment-1" rowspan="1">Set vertical speed to max if &gt;= 63</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29714.html">7412</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29733">Map</a></td>
+<td class="next">
+Next: <a href="29747.html">7433</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

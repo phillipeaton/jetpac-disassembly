@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 67e7</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26587.html">67db</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26599">Map</a></td>
+<td class="next">
+Next: <a href="26621.html">67fd</a>
+</td>
+</tr>
+</table>
+<div class="description">67e7: SFX for Laser Fire.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="28550.html">6f86</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26599"></span>67e7</td>
+<td class="instruction">ld c,$08</td>
+<td class="comment-1" rowspan="1">Pitch/duration</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26601"></span>67e9</td>
+<td class="instruction">ld b,c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="26602"></span>67ea</td>
+<td class="instruction">djnz $67ea</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26604"></span>67ec</td>
+<td class="instruction">ld a,$10</td>
+<td class="comment-1" rowspan="4">Play sound for desire duration</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26606"></span>67ee</td>
+<td class="instruction">out ($fe),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26608"></span>67f0</td>
+<td class="instruction">ld b,c</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26609"></span>67f1</td>
+<td class="instruction">djnz $67f1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26611"></span>67f3</td>
+<td class="instruction">xor a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26612"></span>67f4</td>
+<td class="instruction">out ($fe),a</td>
+<td class="comment-1" rowspan="1">Turn speaker OFF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26614"></span>67f6</td>
+<td class="instruction">inc c</td>
+<td class="comment-1" rowspan="1">Increment pitch</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26615"></span>67f7</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26616"></span>67f8</td>
+<td class="instruction">cp $38</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="26618"></span>67fa</td>
+<td class="instruction">jr nz,$67e9</td>
+<td class="comment-1" rowspan="1">Repeat until pitch is $38</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26620"></span>67fc</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26587.html">67db</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26599">Map</a></td>
+<td class="next">
+Next: <a href="26621.html">67fd</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

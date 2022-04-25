@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 63a3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25441.html">6361</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25507">Map</a></td>
+<td class="next">
+Next: <a href="25686.html">6456</a>
+</td>
+</tr>
+</table>
+<div class="description">63a3: Update Jet Fighter.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Alien object for one of the Jet Fighters.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25507"></span>63a3</td>
+<td class="instruction">ld hl,$5dcb</td>
+<td class="comment-1" rowspan="2">Increment current alien number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25510"></span>63a6</td>
+<td class="instruction">inc (hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25511"></span>63a7</td>
+<td class="instruction">call <a href="27824.html">$6cb0</a></td>
+<td class="comment-1" rowspan="1">Update Alien direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25514"></span>63aa</td>
+<td class="instruction">ld a,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Alien "moving" field</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25517"></span>63ad</td>
+<td class="instruction">ld hl,$0000</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25520"></span>63b0</td>
+<td class="instruction">bit 1,a</td>
+<td class="comment-1" rowspan="2">Move if bit-1 is set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25522"></span>63b2</td>
+<td class="instruction">jr nz,$63ec</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25524"></span>63b4</td>
+<td class="instruction">call $63d1</td>
+<td class="comment-1" rowspan="1">Check and update speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25527"></span>63b7</td>
+<td class="instruction">ld a,($5d02)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=Jetman Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25530"></span>63ba</td>
+<td class="instruction">sub $0c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25532"></span>63bc</td>
+<td class="instruction">cp (ix+$02)</td>
+<td class="comment-1" rowspan="2">Update Alien speed if Jetman Y position-12 equals Alien Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25535"></span>63bf</td>
+<td class="instruction">call z,$63d7</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25538"></span>63c2</td>
+<td class="instruction">ld a,($5dcc)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=LSB of game timer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25541"></span>63c5</td>
+<td class="instruction">and $40</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25543"></span>63c7</td>
+<td class="instruction">jr z,$63cd</td>
+<td class="comment-1" rowspan="1">Move vertically if bit-6 is reset</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25545"></span>63c9</td>
+<td class="instruction">inc h</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25546"></span>63ca</td>
+<td class="instruction">inc h</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25547"></span>63cb</td>
+<td class="instruction">inc h</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25548"></span>63cc</td>
+<td class="instruction">inc h</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="25549"></span>63cd</td>
+<td class="instruction">dec h</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25550"></span>63ce</td>
+<td class="instruction">dec h</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25551"></span>63cf</td>
+<td class="instruction">jr $6406</td>
+<td class="comment-1" rowspan="1">Move vertically +2 or -2</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25553"></span>
+<div class="comments">
+<div class="paragraph">
+Decide if speed should be updated.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25553"></span>63d1</td>
+<td class="instruction">ld a,($5dce)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=random number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25556"></span>63d4</td>
+<td class="instruction">and $1f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25558"></span>63d6</td>
+<td class="instruction">ret nz</td>
+<td class="comment-1" rowspan="1">Return if not zero</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25559"></span>
+<div class="comments">
+<div class="paragraph">
+Update speed.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25559"></span>63d7</td>
+<td class="instruction">set 1,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Alien "moving" field</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25563"></span>63db</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=Jetman Y position-12 ?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25564"></span>63dc</td>
+<td class="instruction">ld a,($5dcc)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=LSB of game timer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25567"></span>63df</td>
+<td class="instruction">add a,c</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25568"></span>63e0</td>
+<td class="instruction">and $7f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25570"></span>63e2</td>
+<td class="instruction">or $20</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25572"></span>63e4</td>
+<td class="instruction">ld (ix+$05),a</td>
+<td class="comment-1" rowspan="1">Set new X speed value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25575"></span>63e7</td>
+<td class="instruction">ld (ix+$03),$47</td>
+<td class="comment-1" rowspan="1">Set "colour" to White</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25579"></span>63eb</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25580"></span>
+<div class="comments">
+<div class="paragraph">
+Move Jet Fighter horizontally.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25580"></span>63ec</td>
+<td class="instruction">dec (ix+$05)</td>
+<td class="comment-1" rowspan="1">Decrement alien X speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25583"></span>63ef</td>
+<td class="instruction">jr z,$644a</td>
+<td class="comment-1" rowspan="1">Jet Fighter killed if X speed is zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25585"></span>63f1</td>
+<td class="instruction">ld a,$04</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=default speed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25587"></span>63f3</td>
+<td class="instruction">bit 6,(ix+$00)</td>
+<td class="comment-1" rowspan="1">Check bit-6 of Alien "direction"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25591"></span>63f7</td>
+<td class="instruction">jr z,$63fb</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25593"></span>63f9</td>
+<td class="instruction">neg</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="25595"></span>63fb</td>
+<td class="instruction">ld l,a</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=$FC or $04?</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25596"></span>
+<div class="comments">
+<div class="paragraph">
+Target the player and move towards them.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25596"></span>63fc</td>
+<td class="instruction">ld a,($5d02)</td>
+<td class="comment-1" rowspan="3">Move upwards if Jetman Y position higher than Alien Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25599"></span>63ff</td>
+<td class="instruction">cp (ix+$02)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25602"></span>6402</td>
+<td class="instruction">jr c,$63cd</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25604"></span>6404</td>
+<td class="instruction">jr $63c9</td>
+<td class="comment-1" rowspan="1">else, move down</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25606"></span>
+<div class="comments">
+<div class="paragraph">
+Move Jet Fighter vertically and horizontally.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25606"></span>6406</td>
+<td class="instruction">ld a,(ix+$00)</td>
+<td class="comment-1" rowspan="1">Alien "direction"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25609"></span>6409</td>
+<td class="instruction">and $c0</td>
+<td class="comment-1" rowspan="1">Reset FLY and WALK bits</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25611"></span>640b</td>
+<td class="instruction">or $03</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25613"></span>640d</td>
+<td class="instruction">ld (ix+$00),a</td>
+<td class="comment-1" rowspan="1">Update "direction" value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25616"></span>6410</td>
+<td class="instruction">ld a,(ix+$01)</td>
+<td class="comment-1" rowspan="3">Update Alien X position (<span class="register">L</span> is probably 3 or 4)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25619"></span>6413</td>
+<td class="instruction">add a,l</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25620"></span>6414</td>
+<td class="instruction">ld (ix+$01),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25623"></span>6417</td>
+<td class="instruction">ld a,(ix+$02)</td>
+<td class="comment-1" rowspan="3">Update Alien Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25626"></span>641a</td>
+<td class="instruction">add a,h</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25627"></span>641b</td>
+<td class="instruction">ld (ix+$02),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25630"></span>641e</td>
+<td class="instruction">call <a href="29234.html">$7232</a></td>
+<td class="comment-1" rowspan="1">Update Actor Position X and draw</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25633"></span>6421</td>
+<td class="instruction">call <a href="29079.html">$7197</a></td>
+<td class="comment-1" rowspan="1">Colourize the sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25636"></span>6424</td>
+<td class="instruction">ld a,(ix+$02)</td>
+<td class="comment-1" rowspan="3">Kill Fighter if Y position &lt; $28</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25639"></span>6427</td>
+<td class="instruction">cp $28</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25641"></span>6429</td>
+<td class="instruction">jr c,$644a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25643"></span>642b</td>
+<td class="instruction">call <a href="28187.html">$6e1b</a></td>
+<td class="comment-1" rowspan="1">Fire laser beam - returns <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25646"></span>642e</td>
+<td class="instruction">bit 0,c</td>
+<td class="comment-1" rowspan="2">Kill if a laser hit the Alien</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25648"></span>6430</td>
+<td class="instruction">jr nz,$644a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25650"></span>6432</td>
+<td class="instruction">call <a href="30184.html">$75e8</a></td>
+<td class="comment-1" rowspan="1">Platform collision - returns <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25653"></span>6435</td>
+<td class="instruction">bit 2,e</td>
+<td class="comment-1" rowspan="2">Kill if Alien hit a platform</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25655"></span>6437</td>
+<td class="instruction">jr nz,$644a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25657"></span>6439</td>
+<td class="instruction">call <a href="28137.html">$6de9</a></td>
+<td class="comment-1" rowspan="1">Alien collision - returns <span class="register">DE</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25660"></span>643c</td>
+<td class="instruction">dec e</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25661"></span>643d</td>
+<td class="instruction">jr z,<a href="25686.html">$6456</a></td>
+<td class="comment-1" rowspan="1">Alien killed by collision</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25663"></span>643f</td>
+<td class="instruction">ld a,(ix+$00)</td>
+<td class="comment-1" rowspan="4">Update Alien "direction"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25666"></span>6442</td>
+<td class="instruction">and $c0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25668"></span>6444</td>
+<td class="instruction">or $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25670"></span>6446</td>
+<td class="instruction">ld (ix+$00),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25673"></span>6449</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25674"></span>
+<div class="comments">
+<div class="paragraph">
+Jet Fighter is dead. Added score and make exploding sound.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25674"></span>644a</td>
+<td class="instruction">ld bc,$0055</td>
+<td class="comment-1" rowspan="1">55 points for a dead jet fighter (decimal value)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25677"></span>644d</td>
+<td class="instruction">call <a href="28866.html">$70c2</a></td>
+<td class="comment-1" rowspan="1">Add points to score</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25680"></span>6450</td>
+<td class="instruction">call <a href="26550.html">$67b6</a></td>
+<td class="comment-1" rowspan="1">Exploding jet fighter SFX - actually Thruster SFX!</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25683"></span>6453</td>
+<td class="instruction">jp <a href="26717.html">$685d</a></td>
+<td class="comment-1" rowspan="1">Update current alien state</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25441.html">6361</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25507">Map</a></td>
+<td class="next">
+Next: <a href="25686.html">6456</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

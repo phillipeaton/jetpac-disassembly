@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6de9</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28060.html">6d9c</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28137">Map</a></td>
+<td class="next">
+Next: <a href="28187.html">6e1b</a>
+</td>
+</tr>
+</table>
+<div class="description">6de9: Alien Collision.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="25507.html">63a3</a>, <a href="25697.html">6461</a>, <a href="25832.html">64e8</a>, <a href="26320.html">66d0</a>, <a href="27189.html">6a35</a>, <a href="27320.html">6ab8</a>, <a href="27640.html">6bf8</a>, <a href="27838.html">6cbe</a> and <a href="28060.html">6d9c</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Alien object.</td>
+</tr>
+</table>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">E</td>
+<td class="register-desc">as either $00 or $01.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28137"></span>6de9</td>
+<td class="instruction">ld hl,$5d00</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=Jetman object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28140"></span>6dec</td>
+<td class="instruction">ld e,$00</td>
+<td class="comment-1" rowspan="1">Default value for <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28142"></span>6dee</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1">Jetman direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28143"></span>6def</td>
+<td class="instruction">and $3f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28145"></span>6df1</td>
+<td class="instruction">dec a</td>
+<td class="comment-1" rowspan="2">Jump if <span class="register">A</span> - 1 == 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28146"></span>6df2</td>
+<td class="instruction">jr z,$6df6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28148"></span>6df4</td>
+<td class="instruction">dec a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28149"></span>6df5</td>
+<td class="instruction">ret nz</td>
+<td class="comment-1" rowspan="1">Return if <span class="register">A</span> is not zero</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28150"></span>6df6</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=Jetman X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28151"></span>6df7</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28152"></span>6df8</td>
+<td class="instruction">sub (ix+$01)</td>
+<td class="comment-1" rowspan="1">Jetman X position - Alien X position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28155"></span>6dfb</td>
+<td class="instruction">jp p,$6e00</td>
+<td class="comment-1" rowspan="2">Make sure we have a positive byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28158"></span>6dfe</td>
+<td class="instruction">neg</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28160"></span>6e00</td>
+<td class="instruction">cp $0c</td>
+<td class="comment-1" rowspan="2">Return if <span class="register">A</span> &gt;= 12</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28162"></span>6e02</td>
+<td class="instruction">ret nc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28163"></span>6e03</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=Jetman Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28164"></span>6e04</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28165"></span>6e05</td>
+<td class="instruction">sub (ix+$02)</td>
+<td class="comment-1" rowspan="1">Jetman Y position - Alien Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28168"></span>6e08</td>
+<td class="instruction">jp p,$6e14</td>
+<td class="comment-1" rowspan="1">Set <span class="register">D</span> to 15 if it's still a positive number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28171"></span>6e0b</td>
+<td class="instruction">neg</td>
+<td class="comment-1" rowspan="1">else: negate it</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28173"></span>6e0d</td>
+<td class="instruction">ld d,(ix+$07)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=alien sprite height</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28176"></span>6e10</td>
+<td class="instruction">add a,$0e</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28178"></span>6e12</td>
+<td class="instruction">jr $6e16</td>
+<td class="comment-1" rowspan="1">Compare and return</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28180"></span>6e14</td>
+<td class="instruction">ld d,$15</td>
+<td class="comment-1" rowspan="1">default <span class="register">D</span> to 21</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28182"></span>6e16</td>
+<td class="instruction">cp d</td>
+<td class="comment-1" rowspan="2">Return $00 if <span class="register">D</span> &gt;= <span class="register">A</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28183"></span>6e17</td>
+<td class="instruction">ret nc</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28184"></span>6e18</td>
+<td class="instruction">ld e,$01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28186"></span>6e1a</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1">else return $01</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28060.html">6d9c</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28137">Map</a></td>
+<td class="next">
+Next: <a href="28187.html">6e1b</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

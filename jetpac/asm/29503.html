@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 733f</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29449.html">7309</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29503">Map</a></td>
+<td class="next">
+Next: <a href="29534.html">735e</a>
+</td>
+</tr>
+</table>
+<div class="description">733f: Check if fire button is pressed.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29842.html">7492</a>.
+</div>
+</div>
+<table class="output">
+<tr class="asm-output-header">
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">fire button, $FE = pressed, $FF = no input - like joystick: 000LRDUF.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29503"></span>733f</td>
+<td class="instruction">ld a,($5cf3)</td>
+<td class="comment-1" rowspan="1">Game options</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29506"></span>7342</td>
+<td class="instruction">bit 1,a</td>
+<td class="comment-1" rowspan="1">Use Joystick?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29508"></span>7344</td>
+<td class="instruction">jr nz,<a href="29442.html">$7302</a></td>
+<td class="comment-1" rowspan="1">Jump if so</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29510"></span>7346</td>
+<td class="instruction">ld b,$02</td>
+<td class="comment-1" rowspan="1">Loop count: read left and right row of keys</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29512"></span>7348</td>
+<td class="instruction">ld a,$fd</td>
+<td class="comment-1" rowspan="1">Row: A,S,D,F,G</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29514"></span>734a</td>
+<td class="instruction">out ($fd),a</td>
+<td class="comment-1" rowspan="1">Set port for reading keyboard</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29516"></span>734c</td>
+<td class="instruction">in a,($fe)</td>
+<td class="comment-1" rowspan="1">...and read that row of keys</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29518"></span>734e</td>
+<td class="instruction">and $1f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29520"></span>7350</td>
+<td class="instruction">cp $1f</td>
+<td class="comment-1" rowspan="1">Check if any keys on the row are pressed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29522"></span>7352</td>
+<td class="instruction">jr nz,$735b</td>
+<td class="comment-1" rowspan="1">Jump if so - key press detected</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29524"></span>7354</td>
+<td class="instruction">ld a,$bf</td>
+<td class="comment-1" rowspan="1">Row: H,J,K,L,Enter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29526"></span>7356</td>
+<td class="instruction">djnz $734a</td>
+<td class="comment-1" rowspan="1">Loop back and read input again</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29528"></span>7358</td>
+<td class="instruction">ld a,$ff</td>
+<td class="comment-1" rowspan="1">Still no input detected</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29530"></span>735a</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="29531"></span>735b</td>
+<td class="instruction">ld a,$fe</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=FIRE : 1111 1110</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29533"></span>735d</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29449.html">7309</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29503">Map</a></td>
+<td class="next">
+Next: <a href="29534.html">735e</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

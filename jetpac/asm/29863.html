@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 74a7</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29857.html">74a1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29863">Map</a></td>
+<td class="next">
+Next: <a href="29887.html">74bf</a>
+</td>
+</tr>
+</table>
+<div class="description">74a7: Jetman lands on a platform.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="29811.html">7473</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29863"></span>74a7</td>
+<td class="instruction">res 7,(ix+$04)</td>
+<td class="comment-1" rowspan="1">Set Jetman to be standing still</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29867"></span>74ab</td>
+<td class="instruction">ld a,(ix+$00)</td>
+<td class="comment-1" rowspan="1">Jetman direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29870"></span>74ae</td>
+<td class="instruction">and $c0</td>
+<td class="comment-1" rowspan="1">Reset FLY and WALK bits</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29872"></span>74b0</td>
+<td class="instruction">or $02</td>
+<td class="comment-1" rowspan="1">Now set movement to WALK</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29874"></span>74b2</td>
+<td class="instruction">ld (ix+$00),a</td>
+<td class="comment-1" rowspan="1">Update Jetman direction to be walking</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29877"></span>74b5</td>
+<td class="instruction">ld (ix+$05),$00</td>
+<td class="comment-1" rowspan="1">Set Jetman X speed to stopped</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29881"></span>74b9</td>
+<td class="instruction">ld (ix+$06),$00</td>
+<td class="comment-1" rowspan="1">Set Jetman Y speed to stopped</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29885"></span>74bd</td>
+<td class="instruction">jr <a href="29842.html">$7492</a></td>
+<td class="comment-1" rowspan="1">Redraw Jetman</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29857.html">74a1</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29863">Map</a></td>
+<td class="next">
+Next: <a href="29887.html">74bf</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

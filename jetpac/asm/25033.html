@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 61c9</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25023.html">61bf</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25033">Map</a></td>
+<td class="next">
+Next: <a href="25045.html">61d5</a>
+</td>
+</tr>
+</table>
+<div class="description">61c9: Reset system and show menu screen.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="24759.html">60b7</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25033"></span>61c9</td>
+<td class="instruction">di</td>
+<td class="comment-1" rowspan="1">Interrupts are disabled for the core engine code</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25034"></span>61ca</td>
+<td class="instruction">ld sp,$5cf0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25037"></span>61cd</td>
+<td class="instruction">call <a href="24676.html">$6064</a></td>
+<td class="comment-1" rowspan="1">Reset the screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25040"></span>61d0</td>
+<td class="instruction">ld a,$04</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25042"></span>61d2</td>
+<td class="instruction">ld ($5dca),a</td>
+<td class="comment-1" rowspan="1">Reset Speed modifier to its default</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25023.html">61bf</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25033">Map</a></td>
+<td class="next">
+Next: <a href="25045.html">61d5</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

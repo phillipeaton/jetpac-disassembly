@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 61d5</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25033.html">61c9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25045">Map</a></td>
+<td class="next">
+Next: <a href="25140.html">6234</a>
+</td>
+</tr>
+</table>
+<div class="description">61d5: Show menu screen and handle menu selection.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25045"></span>61d5</td>
+<td class="instruction">call <a href="25140.html">$6234</a></td>
+<td class="comment-1" rowspan="1">Draw the menu entries</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25048"></span>61d8</td>
+<td class="instruction">ld a,($5cf3)</td>
+<td class="comment-1" rowspan="2"><span class="register">D</span>=Game options</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25051"></span>61db</td>
+<td class="instruction">ld d,a</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25052"></span>
+<div class="comments">
+<div class="paragraph">
+Read the keyboard and perform menu selection.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25052"></span>61dc</td>
+<td class="instruction">ld a,$f7</td>
+<td class="comment-1" rowspan="1">Row: 1,2,3,4,5</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25054"></span>61de</td>
+<td class="instruction">out ($fd),a</td>
+<td class="comment-1" rowspan="1">Set port for reading keyboard</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25056"></span>61e0</td>
+<td class="instruction">in a,($fe)</td>
+<td class="comment-1" rowspan="1">...and read that row of keys</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25058"></span>61e2</td>
+<td class="instruction">cpl</td>
+<td class="comment-1" rowspan="1">Flip bits so a `1` means a key is pressed.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25059"></span>61e3</td>
+<td class="instruction">bit 0,a</td>
+<td class="comment-1" rowspan="1">Key #1 pressed? ("1 PLAYER GAME")</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25061"></span>61e5</td>
+<td class="instruction">jr z,$61e9</td>
+<td class="comment-1" rowspan="1">No key pressed? Jump</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25063"></span>61e7</td>
+<td class="instruction">res 0,d</td>
+<td class="comment-1" rowspan="1">else, Player count = 1</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25065"></span>61e9</td>
+<td class="instruction">bit 1,a</td>
+<td class="comment-1" rowspan="1">Key #2 pressed? ("2 PLAYER GAME")</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25067"></span>61eb</td>
+<td class="instruction">jr z,$61ef</td>
+<td class="comment-1" rowspan="1">No key pressed? Jump</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25069"></span>61ed</td>
+<td class="instruction">set 0,d</td>
+<td class="comment-1" rowspan="1">else, Player count = 2</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25071"></span>61ef</td>
+<td class="instruction">bit 2,a</td>
+<td class="comment-1" rowspan="1">Key #3 pressed? ("KEYBOARD")</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25073"></span>61f1</td>
+<td class="instruction">jr z,$61f5</td>
+<td class="comment-1" rowspan="1">No key pressed? Jump</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25075"></span>61f3</td>
+<td class="instruction">res 1,d</td>
+<td class="comment-1" rowspan="1">else, Input type = keyboard</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25077"></span>61f5</td>
+<td class="instruction">bit 3,a</td>
+<td class="comment-1" rowspan="1">Key #4 pressed? ("JOYSTICK")</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25079"></span>61f7</td>
+<td class="instruction">jr z,$61fb</td>
+<td class="comment-1" rowspan="1">No key pressed? Jump</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25081"></span>61f9</td>
+<td class="instruction">set 1,d</td>
+<td class="comment-1" rowspan="1">else, Input type = joystick</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25083"></span>61fb</td>
+<td class="instruction">bit 4,a</td>
+<td class="comment-1" rowspan="2">Key #5 pressed? ("START GAME")</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25085"></span>61fd</td>
+<td class="instruction">jp nz,<a href="25342.html">$62fe</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25088"></span>6200</td>
+<td class="instruction">ld a,d</td>
+<td class="comment-1" rowspan="2">Update the Game options</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25089"></span>6201</td>
+<td class="instruction">ld ($5cf3),a</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25092"></span>
+<div class="comments">
+<div class="paragraph">
+Update flashing state of the menu items.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25092"></span>6204</td>
+<td class="instruction">ld hl,$6262</td>
+<td class="comment-1" rowspan="1">Point <span class="register">HL</span> to main menu colour attributes list.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25095"></span>6207</td>
+<td class="instruction">ld a,($5cf3)</td>
+<td class="comment-1" rowspan="2"><span class="register">C</span>=Game options</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25098"></span>620a</td>
+<td class="instruction">ld c,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25099"></span>620b</td>
+<td class="instruction">bit 0,c</td>
+<td class="comment-1" rowspan="2">Jump if player count = 2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25101"></span>620d</td>
+<td class="instruction">jr nz,$621c</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25103"></span>620f</td>
+<td class="instruction">call $6226</td>
+<td class="comment-1" rowspan="1">Set flashing state for a one player game</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25106"></span>6212</td>
+<td class="instruction">bit 1,c</td>
+<td class="comment-1" rowspan="2">Jump if input type = joystick</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25108"></span>6214</td>
+<td class="instruction">jr nz,$6221</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25110"></span>6216</td>
+<td class="instruction">call $6226</td>
+<td class="comment-1" rowspan="1">Set flashing state for keyboard input</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25113"></span>6219</td>
+<td class="instruction">jp $61d5</td>
+<td class="comment-1" rowspan="1">Loop and process again main menu input</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25116"></span>621c</td>
+<td class="instruction">call $622d</td>
+<td class="comment-1" rowspan="1">Set flashing state for a two player game</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25119"></span>621f</td>
+<td class="instruction">jr $6212</td>
+<td class="comment-1" rowspan="1">Check input type</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25121"></span>6221</td>
+<td class="instruction">call $622d</td>
+<td class="comment-1" rowspan="1">Set flashing state for joystick input</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25124"></span>6224</td>
+<td class="instruction">jr $6219</td>
+<td class="comment-1" rowspan="1">Loop and process again menu selection</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25126"></span>
+<div class="comments">
+<div class="paragraph">
+Set flashing state for "1 PLAYER GAME" and "KEYBOARD" menu items.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25126"></span>6226</td>
+<td class="instruction">set 7,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25128"></span>6228</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25129"></span>6229</td>
+<td class="instruction">res 7,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25131"></span>622b</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25132"></span>622c</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="25133"></span>
+<div class="comments">
+<div class="paragraph">
+Set "2 PLAYER GAME" and "JOYSTICK" menu items flashing.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25133"></span>622d</td>
+<td class="instruction">res 7,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25135"></span>622f</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25136"></span>6230</td>
+<td class="instruction">set 7,(hl)</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25138"></span>6232</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="25139"></span>6233</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25033.html">61c9</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25045">Map</a></td>
+<td class="next">
+Next: <a href="25140.html">6234</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

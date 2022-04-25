@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6971</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26982.html">6966</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26993">Map</a></td>
+<td class="next">
+Next: <a href="27181.html">6a2d</a>
+</td>
+</tr>
+</table>
+<div class="description">6971: Generate new game actor: alien, fuel, or collectible item.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Depending on the self-modifying code state, this routine either generates a new item/alien, or updates the item drop game timer.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Item object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26993"></span>6971</td>
+<td class="instruction">ld hl,$5dce</td>
+<td class="comment-1" rowspan="2">Increment random number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26996"></span>6974</td>
+<td class="instruction">inc (hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26997"></span>6975</td>
+<td class="instruction">ld de,$0008</td>
+<td class="comment-1" rowspan="1">Set offset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27000"></span>6978</td>
+<td class="instruction">add ix,de</td>
+<td class="comment-1" rowspan="1">Set IX to next group of bytes</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27002"></span>697a</td>
+<td class="instruction">push ix</td>
+<td class="comment-1" rowspan="2">Copy IX to HL</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27004"></span>697c</td>
+<td class="instruction">pop hl</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27005"></span>
+<div class="comments">
+<div class="paragraph">
+The self-modifying code routines change the address here to be either the inactive player (5d88) or the rocket object (5d30).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27005"></span>697d</td>
+<td class="instruction">ld bc,$5d88</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=inactive player or rocket object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27008"></span>6980</td>
+<td class="instruction">and a</td>
+<td class="comment-1" rowspan="1">Clear the Carry flag</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27009"></span>6981</td>
+<td class="instruction">sbc hl,bc</td>
+<td class="comment-1" rowspan="2">If object pointed to by <span class="register">IX</span> is before <span class="register">BC</span> object, then jump back to the main loop</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27011"></span>6983</td>
+<td class="instruction">jp c,<a href="25372.html">$631c</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27014"></span>
+<div class="comments">
+<div class="paragraph">
+Read the keyboard to introduce a slight pause?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27014"></span>6986</td>
+<td class="instruction">ld a,$fe</td>
+<td class="comment-1" rowspan="1">Row: Shift,Z,X,C,V</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27016"></span>6988</td>
+<td class="instruction">out ($fd),a</td>
+<td class="comment-1" rowspan="1">Set port for reading keyboard</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27018"></span>698a</td>
+<td class="instruction">in a,($fe)</td>
+<td class="comment-1" rowspan="1">...and read that row of keys</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27020"></span>698c</td>
+<td class="instruction">bit 0,a</td>
+<td class="comment-1" rowspan="1">Check if SHIFT key pressed</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27022"></span>698e</td>
+<td class="instruction">jr z,$6986</td>
+<td class="comment-1" rowspan="1">Jump if pressed</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27024"></span>
+<div class="comments">
+<div class="paragraph">
+Now increment timer and get new random number.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27024"></span>6990</td>
+<td class="instruction">ld hl,($5dcc)</td>
+<td class="comment-1" rowspan="3">Increment the game timer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27027"></span>6993</td>
+<td class="instruction">inc hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27028"></span>6994</td>
+<td class="instruction">ld ($5dcc),hl</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27031"></span>6997</td>
+<td class="instruction">ld h,$00</td>
+<td class="comment-1" rowspan="1">Make sure <span class="register">HL</span> remains &lt;= $00FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27033"></span>6999</td>
+<td class="instruction">ld a,r</td>
+<td class="comment-1" rowspan="1">Get a RANDOM number?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27035"></span>699b</td>
+<td class="instruction">ld c,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27036"></span>
+<div class="comments">
+<div class="paragraph">
+The self-modifying code routine changes this to `JP 6966`. That routine resets the interrupts, before changing instruction here to `LD A,(0244)` - an address in the ROM which always returns $C1.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27036"></span>699c</td>
+<td class="instruction">ld a,($5dce)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=$C1, from 0244, because 5DCE is never used!</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27039"></span>699f</td>
+<td class="instruction">add a,(hl)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=byte from address $0000 - $00FF</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27040"></span>69a0</td>
+<td class="instruction">add a,c</td>
+<td class="comment-1" rowspan="1">Add <span class="register">R</span> to the number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27041"></span>69a1</td>
+<td class="instruction">ld ($5dce),a</td>
+<td class="comment-1" rowspan="1">Update random number</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27044"></span>69a4</td>
+<td class="instruction">ex af,af'</td>
+<td class="comment-1" rowspan="5">Jump if current alien number &lt; 3</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27045"></span>69a5</td>
+<td class="instruction">ld a,($5dcb)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27048"></span>69a8</td>
+<td class="instruction">cp $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27050"></span>69aa</td>
+<td class="instruction">jr c,$69b8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27052"></span>69ac</td>
+<td class="instruction">ex af,af'</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27053"></span>69ad</td>
+<td class="instruction">and $1f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27055"></span>69af</td>
+<td class="instruction">jr nz,$69d9</td>
+<td class="comment-1" rowspan="1">Drop fuel/collectible if RND is &lt; 32</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27057"></span>69b1</td>
+<td class="instruction">ld a,($5dcb)</td>
+<td class="comment-1" rowspan="3">Drop fuel/collectible if current alien number &gt;= 6</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27060"></span>69b4</td>
+<td class="instruction">cp $06</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27062"></span>69b6</td>
+<td class="instruction">jr nc,$69d9</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27064"></span>69b8</td>
+<td class="instruction">ld a,($5dd7)</td>
+<td class="comment-1" rowspan="3">Drop fuel/collectible if begin play delay counter &gt; zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27067"></span>69bb</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27068"></span>69bc</td>
+<td class="instruction">jr nz,$69d9</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27070"></span>69be</td>
+<td class="instruction">ld a,($5d00)</td>
+<td class="comment-1" rowspan="1">Get jetman direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27073"></span>69c1</td>
+<td class="instruction">and $3f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27075"></span>69c3</td>
+<td class="instruction">dec a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27076"></span>69c4</td>
+<td class="instruction">jr z,$69c9</td>
+<td class="comment-1" rowspan="1">If direction is zero, then find unused alien slot</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27078"></span>69c6</td>
+<td class="instruction">dec a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27079"></span>69c7</td>
+<td class="instruction">jr nz,$69d9</td>
+<td class="comment-1" rowspan="1">Drop fuel/collectible if direction is still &gt; zero</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27081"></span>
+<div class="comments">
+<div class="paragraph">
+Find first unused alien slot.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27081"></span>69c9</td>
+<td class="instruction">ld hl,$5d50</td>
+<td class="comment-1" rowspan="1">Alien state objects</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27084"></span>69cc</td>
+<td class="instruction">ld b,$06</td>
+<td class="comment-1" rowspan="1">Loop counter (6 aliens)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27086"></span>69ce</td>
+<td class="instruction">ld de,$0008</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-2"><span id="27089"></span>69d1</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="3">Generate new alien if the slot is unused</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27090"></span>69d2</td>
+<td class="instruction">and a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27091"></span>69d3</td>
+<td class="instruction">jp z,$69e2</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27094"></span>69d6</td>
+<td class="instruction">add hl,de</td>
+<td class="comment-1" rowspan="1">else increment to the next alien object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27095"></span>69d7</td>
+<td class="instruction">djnz $69d1</td>
+<td class="comment-1" rowspan="1">...and try again</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27097"></span>
+<div class="comments">
+<div class="paragraph">
+Drop either a fuel pod or collectible item.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27097"></span>69d9</td>
+<td class="instruction">call <a href="26105.html">$65f9</a></td>
+<td class="comment-1" rowspan="1">New fuel pod item</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27100"></span>69dc</td>
+<td class="instruction">call <a href="26024.html">$65a8</a></td>
+<td class="comment-1" rowspan="1">New collectible item</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27103"></span>69df</td>
+<td class="instruction">jp <a href="25360.html">$6310</a></td>
+<td class="comment-1" rowspan="1">Run main loop after resetting SP and EI</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27106"></span>
+<div class="comments">
+<div class="paragraph">
+Generate new alien in the given state slot (<span class="register">HL</span>).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="27106"></span>69e2</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1">Push current alien to stack (will be copied to <span class="register">IX</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27107"></span>69e3</td>
+<td class="instruction">ex de,hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27108"></span>69e4</td>
+<td class="instruction">ld hl,$6d94</td>
+<td class="comment-1" rowspan="3">Copy default alien state to current alien slot</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27111"></span>69e7</td>
+<td class="instruction">ld bc,$0008</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27114"></span>69ea</td>
+<td class="instruction">ldir</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27116"></span>69ec</td>
+<td class="instruction">pop ix</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> to point to current item object</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27118"></span>69ee</td>
+<td class="instruction">ld a,($5dcc)</td>
+<td class="comment-1" rowspan="1">Game timer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27121"></span>69f1</td>
+<td class="instruction">ld e,a</td>
+<td class="comment-1" rowspan="1">Backup to <span class="register">E</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27122"></span>69f2</td>
+<td class="instruction">and $40</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=either 0 or 64</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27124"></span>69f4</td>
+<td class="instruction">ld (ix+$04),a</td>
+<td class="comment-1" rowspan="1">Set item "direction"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27127"></span>69f7</td>
+<td class="instruction">ld (ix+$00),a</td>
+<td class="comment-1" rowspan="1">Set item "movement"</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27130"></span>69fa</td>
+<td class="instruction">ld a,e</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">A</span> to original game timer value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27131"></span>69fb</td>
+<td class="instruction">and $7f</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27133"></span>69fd</td>
+<td class="instruction">add a,$28</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27135"></span>69ff</td>
+<td class="instruction">ld (ix+$02),a</td>
+<td class="comment-1" rowspan="1">Update item Y position</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27138"></span>6a02</td>
+<td class="instruction">push ix</td>
+<td class="comment-1" rowspan="2">Copy current item object address to <span class="register">BC</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27140"></span>6a04</td>
+<td class="instruction">pop bc</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="27141"></span>
+<div class="comments">
+<div class="paragraph">
+Calculate and update new colour attribute.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27141"></span>6a05</td>
+<td class="instruction">ld a,c</td>
+<td class="comment-1" rowspan="1">Example: if BC = 5D78, C = $78 = 01111000</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27142"></span>6a06</td>
+<td class="instruction">rra</td>
+<td class="comment-1" rowspan="1">00111100</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27143"></span>6a07</td>
+<td class="instruction">rra</td>
+<td class="comment-1" rowspan="1">00011110</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27144"></span>6a08</td>
+<td class="instruction">rra</td>
+<td class="comment-1" rowspan="1">00001111</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27145"></span>6a09</td>
+<td class="instruction">and $03</td>
+<td class="comment-1" rowspan="1">00000011 &lt;- result of AND $03</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27147"></span>6a0b</td>
+<td class="instruction">inc a</td>
+<td class="comment-1" rowspan="1">00000100</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27148"></span>6a0c</td>
+<td class="instruction">inc a</td>
+<td class="comment-1" rowspan="1">00000101 = $05</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27149"></span>6a0d</td>
+<td class="instruction">ld (ix+$03),a</td>
+<td class="comment-1" rowspan="1">Update colour with value: $02, $03, $04, or $05</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27152"></span>6a10</td>
+<td class="instruction">and $01</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="27154"></span>6a12</td>
+<td class="instruction">ld (ix+$06),a</td>
+<td class="comment-1" rowspan="1">Update jump table offset to either 0 or 1</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27157"></span>6a15</td>
+<td class="instruction">ld hl,$6a2d</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=item level object types</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27160"></span>6a18</td>
+<td class="instruction">ld a,($5df0)</td>
+<td class="comment-1" rowspan="8">Using the current player level, pull a value from the item level params table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27163"></span>6a1b</td>
+<td class="instruction">and $07</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27165"></span>6a1d</td>
+<td class="instruction">ld e,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27166"></span>6a1e</td>
+<td class="instruction">ld d,$00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27168"></span>6a20</td>
+<td class="instruction">add hl,de</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27169"></span>6a21</td>
+<td class="instruction">ld a,(ix+$00)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27172"></span>6a24</td>
+<td class="instruction">and $c0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27174"></span>6a26</td>
+<td class="instruction">or (hl)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27175"></span>6a27</td>
+<td class="instruction">ld (ix+$00),a</td>
+<td class="comment-1" rowspan="1">Update item type to this value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="27178"></span>6a2a</td>
+<td class="instruction">jp $69d9</td>
+<td class="comment-1" rowspan="1">Drop fuel/collectible then execute the main loop</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26982.html">6966</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26993">Map</a></td>
+<td class="next">
+Next: <a href="27181.html">6a2d</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

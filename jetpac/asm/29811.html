@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 7473</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29795.html">7463</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29811">Map</a></td>
+<td class="next">
+Next: <a href="29842.html">7492</a>
+</td>
+</tr>
+</table>
+<div class="description">7473: Jetman flight collision detection.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="29887.html">74bf</a> and <a href="29893.html">74c5</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Jetman object.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="29811"></span>7473</td>
+<td class="instruction">call <a href="30184.html">$75e8</a></td>
+<td class="comment-1" rowspan="1">Platform collision detection (returns <span class="register">E</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29814"></span>7476</td>
+<td class="instruction">bit 2,e</td>
+<td class="comment-1" rowspan="2">Redraw Jetman if bit-2 has not been set</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29816"></span>7478</td>
+<td class="instruction">jr z,<a href="29842.html">$7492</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29818"></span>747a</td>
+<td class="instruction">bit 7,e</td>
+<td class="comment-1" rowspan="2">Jetman lands on top of a platform</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29820"></span>747c</td>
+<td class="instruction">jp nz,<a href="29863.html">$74a7</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29823"></span>747f</td>
+<td class="instruction">bit 4,e</td>
+<td class="comment-1" rowspan="2">Jetman hits bottom of a platform</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29825"></span>7481</td>
+<td class="instruction">jr nz,<a href="29857.html">$74a1</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="29827"></span>
+<div class="comments">
+<div class="paragraph">
+Jetman hits platform edge.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29827"></span>7483</td>
+<td class="instruction">ld a,e</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="29828"></span>7484</td>
+<td class="instruction">xor $40</td>
+<td class="comment-1" rowspan="3">Update <span class="register">E</span> to be either $00 or $40.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29830"></span>7486</td>
+<td class="instruction">and $40</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29832"></span>7488</td>
+<td class="instruction">ld e,a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29833"></span>7489</td>
+<td class="instruction">ld a,(ix+$04)</td>
+<td class="comment-1" rowspan="4">Update Jetman moving direction</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29836"></span>748c</td>
+<td class="instruction">and $bf</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29838"></span>748e</td>
+<td class="instruction">or e</td>
+</tr>
+<tr>
+<td class="address-1"><span id="29839"></span>748f</td>
+<td class="instruction">ld (ix+$04),a</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="29795.html">7463</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#29811">Map</a></td>
+<td class="next">
+Next: <a href="29842.html">7492</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

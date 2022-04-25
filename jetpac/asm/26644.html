@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6814</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26640.html">6810</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26644">Map</a></td>
+<td class="next">
+Next: <a href="26653.html">681d</a>
+</td>
+</tr>
+</table>
+<div class="description">6814: Play Jetman death SFX.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">The explosion SFX params array.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="26644"></span>6814</td>
+<td class="instruction">dec (ix+$01)</td>
+<td class="comment-1" rowspan="1">Decrement the SFX duration</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26647"></span>6817</td>
+<td class="instruction">jr z,<a href="26681.html">$6839</a></td>
+<td class="comment-1" rowspan="1">Stop playing SFX if duration is zero</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26649"></span>6819</td>
+<td class="instruction">ld c,$10</td>
+<td class="comment-1" rowspan="1">Frequency = 16</td>
+</tr>
+<tr>
+<td class="address-1"><span id="26651"></span>681b</td>
+<td class="instruction">jr <a href="26664.html">$6828</a></td>
+<td class="comment-1" rowspan="1">Play explosion SFX</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="26640.html">6810</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#26644">Map</a></td>
+<td class="next">
+Next: <a href="26653.html">681d</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

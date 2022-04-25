@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6f2a</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28451.html">6f23</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28458">Map</a></td>
+<td class="next">
+Next: <a href="28506.html">6f5a</a>
+</td>
+</tr>
+</table>
+<div class="description">6f2a: Copies the sprite pixel data to a buffer.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Note the copious amounts of register swapping! These annotations need checking. Used by the routine at <a href="28427.html">6f0b</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">C</td>
+<td class="register-desc">Number of bytes to copy?</td>
+</tr>
+<tr>
+<td class="register">HL</td>
+<td class="register-desc">Address pointing to the "height" value in a sprite header</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Address of buffer to use.</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28458"></span>6f2a</td>
+<td class="instruction">push hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28459"></span>6f2b</td>
+<td class="instruction">ex de,hl</td>
+<td class="comment-1" rowspan="1">Swap Sprite&lt;-&gt;Buffer addresses</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28460"></span>6f2c</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28461"></span>6f2d</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=sprite address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28462"></span>6f2e</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span> (sprite count) is the important value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28463"></span>6f2f</td>
+<td class="instruction">push bc</td>
+<td class="comment-1" rowspan="1">Copy the counter back on the stack</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28464"></span>6f30</td>
+<td class="instruction">ld a,(hl)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=sprite height value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28465"></span>6f31</td>
+<td class="instruction">ex af,af'</td>
+<td class="comment-1" rowspan="1">Backup "height" to <span class="register">A'</span></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28466"></span>6f32</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=start of sprite pixel data</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28467"></span>6f33</td>
+<td class="instruction">exx</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=buffer, <span class="register">DE</span>=sprite</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28468"></span>6f34</td>
+<td class="instruction">ld (hl),$00</td>
+<td class="comment-1" rowspan="1">Buffer: set first byte</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28470"></span>6f36</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28471"></span>6f37</td>
+<td class="instruction">ld (hl),$03</td>
+<td class="comment-1" rowspan="1">Buffer: set sprite width</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28473"></span>6f39</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Point Buffer to height variable</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28474"></span>6f3a</td>
+<td class="instruction">ex af,af'</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">A</span> with height value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28475"></span>6f3b</td>
+<td class="instruction">cp $11</td>
+<td class="comment-1" rowspan="2">Jump if height &lt; 17 pixels</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28477"></span>6f3d</td>
+<td class="instruction">jr c,$6f41</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28479"></span>6f3f</td>
+<td class="instruction">ld a,$10</td>
+<td class="comment-1" rowspan="1">else height=16 pixels</td>
+</tr>
+<tr>
+<td class="address-2"><span id="28481"></span>6f41</td>
+<td class="instruction">ld (hl),a</td>
+<td class="comment-1" rowspan="1">Buffer: height will be &lt;= 16</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28482"></span>6f42</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1">Point Buffer to start of pixel data</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28483"></span>6f43</td>
+<td class="instruction">ld b,a</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=height variable</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28484"></span>6f44</td>
+<td class="instruction">call <a href="28325.html">$6ea5</a></td>
+<td class="comment-1" rowspan="1">Write pixel to a buffer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28487"></span>6f47</td>
+<td class="instruction">pop bc</td>
+<td class="comment-1" rowspan="1">Reset <span class="register">BC</span> to be only the sprite counter?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28488"></span>6f48</td>
+<td class="instruction">pop hl</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=start of buffer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28489"></span>6f49</td>
+<td class="instruction">ld de,$0033</td>
+<td class="comment-1" rowspan="2"><span class="register">HL</span>=start of next buffer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28492"></span>6f4c</td>
+<td class="instruction">add hl,de</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28493"></span>6f4d</td>
+<td class="instruction">pop de</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=lookup table address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28494"></span>6f4e</td>
+<td class="instruction">ex de,hl</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=sprite, <span class="register">DE</span>=buffer</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28495"></span>6f4f</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=sprite width value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28496"></span>6f50</td>
+<td class="instruction">inc hl</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=sprite height value</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28497"></span>6f51</td>
+<td class="instruction">ld a,($5dd3)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=Rocket build state - only $00 or $04?</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28500"></span>6f54</td>
+<td class="instruction">add a,b</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28501"></span>6f55</td>
+<td class="instruction">ld b,a</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="address-1"><span id="28502"></span>6f56</td>
+<td class="instruction">dec c</td>
+<td class="comment-1" rowspan="1">Decrement the sprite counter</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28503"></span>6f57</td>
+<td class="instruction">jr nz,<a href="28451.html">$6f23</a></td>
+<td class="comment-1" rowspan="1">Fetch next sprite address</td>
+</tr>
+<tr>
+<td class="address-1"><span id="28505"></span>6f59</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="28451.html">6f23</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#28458">Map</a></td>
+<td class="next">
+Next: <a href="28506.html">6f5a</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

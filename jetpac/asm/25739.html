@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 648b</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25697.html">6461</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25739">Map</a></td>
+<td class="next">
+Next: <a href="25750.html">6496</a>
+</td>
+</tr>
+</table>
+<div class="description">648b: Drop a new collectible item.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="25697.html">6461</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">Collectible item object</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="25739"></span>648b</td>
+<td class="instruction">ld a,(ix+$06)</td>
+<td class="comment-1" rowspan="1">Jump table offset</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25742"></span>648e</td>
+<td class="instruction">and $0f</td>
+<td class="comment-1" rowspan="1">Values: 0, 2, 4, 6, or 8</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25744"></span>6490</td>
+<td class="instruction">ld hl,$6496</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=item drop jump table</td>
+</tr>
+<tr>
+<td class="address-1"><span id="25747"></span>6493</td>
+<td class="instruction">jp <a href="25396.html">$6334</a></td>
+<td class="comment-1" rowspan="1">Execute the jump using <span class="register">HL</span> address</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="25697.html">6461</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#25739">Map</a></td>
+<td class="next">
+Next: <a href="25750.html">6496</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>

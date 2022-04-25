@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jetpac: Routine at 6094</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html">jetpac</a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24707.html">6083</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24724">Map</a></td>
+<td class="next">
+Next: <a href="24743.html">60a7</a>
+</td>
+</tr>
+</table>
+<div class="description">6094: Initialise the level.</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="24707.html">6083</a> and <a href="24759.html">60b7</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="24724"></span>6094</td>
+<td class="instruction">call <a href="26866.html">$68f2</a></td>
+<td class="comment-1" rowspan="1">Initialise alien buffers</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24727"></span>6097</td>
+<td class="instruction">call <a href="24676.html">$6064</a></td>
+<td class="comment-1" rowspan="1">Initialise the screen</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24730"></span>609a</td>
+<td class="instruction">call <a href="30264.html">$7638</a></td>
+<td class="comment-1" rowspan="1">Draw the platforms</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24733"></span>609d</td>
+<td class="instruction">call <a href="28781.html">$706d</a></td>
+<td class="comment-1" rowspan="1">Display all player lives</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24736"></span>60a0</td>
+<td class="instruction">ld a,($5c78)</td>
+<td class="comment-1" rowspan="2">Set last_frame to current SYSVAR_FRAMES</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24739"></span>60a3</td>
+<td class="instruction">ld ($5dd4),a</td>
+</tr>
+<tr>
+<td class="address-1"><span id="24742"></span>60a6</td>
+<td class="instruction">ret</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="24707.html">6083</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#24724">Map</a></td>
+<td class="next">
+Next: <a href="24743.html">60a7</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright"></div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 8.6b1.</div>
+</footer>
+</body>
+</html>
