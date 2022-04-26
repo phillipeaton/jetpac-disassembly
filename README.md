@@ -1,3 +1,5 @@
+### This repository is a copy of the original <https://github.com/mrcook/jetpac-disassembly> repository, but with the skoolkit HTML output added, which can be viewed here <https://phillipeaton.github.io/jetpac-disassembly/>
+
 # JETPAC cartridge ROM disassembly
 
 An unofficial disassembly of JETPAC, the classic 8-bit computer game released
